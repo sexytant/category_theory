@@ -1,0 +1,45 @@
+unfinished
+
+module Ex2Power where
+import Data.List
+-- We will work with catetory of [Hask], namely a subcategory of Hask.
+-- t :: [a] -> [[a]]  simlates the power set functor Sets -> Sets.
+
+--def-- Simulator of the power set functor
+t :: [a] -> [[a]]
+t [] = [[]]
+t (x:xs) = xss ++ map (x:) xss
+           where xss = t xs
+
+--def-- eta :: A -> TA
+eta :: [a] -> [[a]]
+eta xs = [xs]
+
+
+--def-- (-)^# :: Hom(A,TB) -> Hom(TA,TB)
+sharp :: Ord b => ([a] -> [[b]]) -> [[a]] -> [[b]]
+sharp f xs = sort $ union $ f' xs
+         where
+           f' :: [[a]] -> [[b]]
+           f' []     = [[]]
+           f' (x:xs) = f x ++ f' xs
+
+
+
+{-
+--Q-- f^# circ eta_A = f
+test2cases = [(\x->[0,x,0]),(\x -> [0,x,x,0]), (\x -> [0,x,x,x,0])]
+test2 = map (\f ->(sharp f . eta) 10 == f 10) test2cases
+test2detail = map (\f -> (sharp f. eta) 10) test2cases
+
+--Q-- eta_A^# = id_(TA)
+test3cases = [[],[1],[2,3],[4,5,6]]
+test3 = map (\xs -> sharp eta xs == xs) test3cases
+test3detail = map (\xs -> sharp eta xs) test3cases
+
+--Q-- g^# circ f^# = (g^# circ f)^#   ?
+test4funcs = [(\x->[0,x,0]),(\x -> [0,x,x,0]), (\x -> [0,x,x,x,0])]
+test4cases = [(g,f,d) | g <- test4funcs, f <- test4funcs, d <- test3cases]
+test4 = map (\(g,f,d) -> (sharp g . sharp f) d == (sharp (sharp g . f)) d) test4cases
+
+-}

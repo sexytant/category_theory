@@ -1,0 +1,14 @@
+---- functors
+
+list
+
+tree
+
+stack
+
+queue
+
+---- applicative functors
+
+
+

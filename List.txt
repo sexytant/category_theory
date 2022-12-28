@@ -1,0 +1,38 @@
+﻿他のファイルからimportされるかも知れないファイルは
+大文字で始まるファイル名をもつ．
+
+1.1  Tree.hs
+1.2  homfunctors.hs
+1.3  safehead.hs
+1.4  mylength.hs
+1.5  Flatten.hs
+1.6  sort.hs
+1.*  vertical.hs (参考)
+2.1  mirror.hs
+2.2  maybeEither.hs
+2.*  traverse.hs (参考)
+2.*  Tree.hs  (import でディレクトリーを跨ぐので再掲)
+3.1  product.hs
+3.2  coproduct.hs
+3.3  fiberproduct.hs
+3.4  equalizer.hs
+3.5  fibercoproduct.hs
+3.6  Coequalizer.hs
+3.7  toylimit.hs
+3.8  toycolimits.hs
+4.1  homlimit.hs
+6.1  Nondeterministic.hs
+6.2  CalcWithOutput.hs
+6.3  Continuation.hs
+6.4  Maybe.hs
+6.5  抜粋再掲
+6.6  抜粋再掲
+6.7  CalcWithOutput2.hs
+6.8  抜粋再掲
+6.9  抜粋再掲
+6.10 Continuation2.hs
+7.1  yoneda.hs
+7.2  unbox1.hs
+7.3  unbox2.hs
+7.4  unbox3.hs
+7.5  unbox.hs
