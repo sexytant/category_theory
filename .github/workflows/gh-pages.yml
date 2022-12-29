@@ -13,7 +13,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Build PDF file
-        run: platex && dvipdfmx %O -o %D %S
+        run: platex main.tex && dvipdfmx main.dvi
       - name: Deploy pages
         uses: peaceiris/actions-gh-pages@v3
         with:
