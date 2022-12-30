@@ -67,22 +67,25 @@
 }
 
 \makeindex
-\title{圏論原論}
+\title{圏論原論I}
 \author{Hirokichi Tanaka}
 
 \begin{document}
+\setcounter{tocdepth}{2}
 \maketitle
 
 \tableofcontents
 \newpage
 \chapter{準備}
 \section{集合とユニバース}
+集合とは, 素朴には「ものの集まり」と定義される. 例えば, $\{1,2,3\}$や$\{a,b,c\}$のほか,以下で定義する順序集合やべき集合が考えられる
 \begin{Def}
 順序集合
 \end{Def}
 \begin{Def}
 べき集合
 \end{Def}
+ラッセルのパラドックス
 \begin{Def}
 ユニバース
 \end{Def}
@@ -196,8 +199,8 @@ h:C\rightarrow D$について
 \begin{Def}
 $n$次ホモロジー群
 \end{Def}
-
-\chapter{圏・関手}
+\section{体}
+\chapter{圏}
 \section{圏}
 \begin{Def}
 {\bf 圏}$\mathscr{C}$は{\bf 対象}の集合$\mathrm{Obj}(\mathscr{C})$と
@@ -303,28 +306,6 @@ f(a_3)=a_1
 \begin{Def}
 圏の積
 \end{Def}
-\section{関手・反変関手}
-\begin{Def}
-圏$\mathscr{A}$から$\mathscr{B}$への{\bf 関手}は{\bf 対象関数}$F_0:\mathrm{Obj}(\mathscr{A})\rightarrow\mathrm{Obj}(\mathscr{B})$と
-{\bf 射関数}$F_1$からなるもののことをいう.
-\end{Def}
-\begin{Def}
-{\bf 反変関手}
-\end{Def}
-
-\section{忠実関手と充満関手}
-\begin{Def}
-{\bf 忠実}
-\end{Def}
-\begin{Def}
-{\bf 充満}
-\end{Def}
-\begin{Def}
-{\bf 充満忠実}
-\end{Def}
-\begin{Def}
-{\bf 充満部分圏}
-\end{Def}
 \section{Haskellにおける圏 (Hask)}
 Haskellには標準ライブラリに\verb|Int|, \verb|Integer|, 
 \verb|Char|,
@@ -342,6 +323,31 @@ Haskellには標準ライブラリに\verb|Int|, \verb|Integer|,
 \begin{caution}
 Haskellにおいて, 型\verb|A|,\verb|B|に対して, 型構築子によってつくられる\verb|A->B|は1つの型となる.
 \end{caution}
+
+\chapter{関手}
+\section{関手}
+\begin{Def}
+圏$\mathscr{A}$から$\mathscr{B}$への{\bf 関手}は{\bf 対象関数}$F_0:\mathrm{Obj}(\mathscr{A})\rightarrow\mathrm{Obj}(\mathscr{B})$と
+{\bf 射関数}$F_1$からなるもののことをいう.
+\end{Def}
+\subsection{反変関手}
+\begin{Def}
+{\bf 反変関手}
+\end{Def}
+
+\subsection{忠実関手と充満関手}
+\begin{Def}
+{\bf 忠実}
+\end{Def}
+\begin{Def}
+{\bf 充満}
+\end{Def}
+\begin{Def}
+{\bf 充満忠実}
+\end{Def}
+\begin{Def}
+{\bf 充満部分圏}
+\end{Def}
 
 \subsection{型構築子と関手}
 \subsubsection{List関手}
@@ -365,61 +371,42 @@ Haskellにおける型構築子\verb|Maybe|は...
 \lstinputlisting{chap2/Tree.hs}
 \subsection{２変数の関手}
 \subsection{Haskの部分圏}
-\chapter{自然変換・定数関手}
+\chapter{自然変換}
 \section{自然変換}
 \begin{Def}
 {\bf 自然変換}\index{しぜんへんかん@自然変換}
 \end{Def}
+\section{Haskにおける自然変換}
+\subsection{Haskにおける自然変換}
+\subsubsection{concat}
+\subsubsection{safehead}
+\subsubsection{concatとsafeheadの垂直合成}
+\subsubsection{flatten関数}
+
+\chapter{定数関手}
 \section{定数関手}
 \begin{Def}
 {\bf 定数関手}\index{ていすうかんしゅ@定数関手}
 \end{Def}
 \begin{Def}
 \end{Def}
-\section{Haskにおける自然変換・定数関手}
-\subsection{Haskにおける自然変換}
-\subsubsection{concat}
-\subsubsection{safehead}
-\subsubsection{concatとsafeheadの垂直合成}
-\subsubsection{flatten関数}
-\subsection{Haskにおける定数関手}
-\subsubsection{length関数}
-\subsection{Haskの部分圏}
-\chapter{関手圏・圏同値}
+\section{Haskにおける定数関手}
+\subsection{length関数}
+
+\chapter{関手圏}
 \section{関手圏}
 \begin{Def}
 \bf{自然同型}
 \end{Def}
+\chapter{圏同値}
 \section{圏同値}
 \begin{Def}
 \bf{圏同値}
 \end{Def}
-\section{Haskにおける...}
 
-\subsection{Haskにおける自然同型}
-\subsubsection{mirror関数}
-\subsubsection{Maybe関手とEither()関手の間の自然同型}
-\chapter{普遍性と極限}
-\section{始対象・終対象}
-\section{積}
-\section{余積}
-\section{極限}
-\section{余極限}
-\section{極限の存在}
-\section{余極限の存在}
-\chapter{随伴}
-\chapter{モナドとHaskellのMonad}
-\chapter{表現可能関手}
-\begin{Def}
-局所小圏$\mathscr{A}$の対象$A$を固定して, 対象$A'$ごとに射の集合$\mathrm{Hom}_{\mathscr{A}}(A,A')$を考える
-...
-以下のように, 対象の対応を射の対応に拡張して得られる関手を{\bf Hom関手}という.
-...
-\end{Def}
-\begin{Def}
-$\mathscr{A}$を局所小圏とする.
-関手$X:\mathscr{A}\rightarrow\mathrm{Set}$が, とある$A\in\mathrm{Obj}(\mathscr{A})$によって...となるとき,
-{\bf $X$は表現可能である}という.
-\end{Def}
+\section{Haskにおける自然同型}
+\subsection{mirror関数}
+\subsection{Maybe関手とEither()関手の間の自然同型}
+
 \printindex
 \end{document}
