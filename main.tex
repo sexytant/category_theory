@@ -69,7 +69,6 @@
 \makeindex
 \title{圏論原論I}
 \author{Hirokichi Tanaka}
-
 \begin{document}
 \setcounter{tocdepth}{2}
 \maketitle
@@ -348,6 +347,7 @@ Haskellにおいて, 型\verb|A|,\verb|B|に対して, 型構築子によって�
 圏$\mathscr{A}$から$\mathscr{B}$への{\bf 関手}は{\bf 対象関数}$F_0:\mathrm{Obj}(\mathscr{A})\rightarrow\mathrm{Obj}(\mathscr{B})$と
 {\bf 射関数}$F_1$からなるもののことをいう.
 \end{Def}
+
 \subsection{反変関手}
 \begin{Def}
 {\bf 反変関手}
@@ -386,9 +386,12 @@ Haskellにおける型構築子\verb|Maybe|は...
 \subsubsection{Tree関手}
 一般に木構造を生成する型構築子は関手にできる. これを{\bf Tree関手}と呼ぶ.
 
-\lstinputlisting{chap2/Tree.hs}
+\lstinputlisting{haskell/Tree.hs}
 \section{２変数の関手}
+
+\lstinputlisting{haskell/homfunctors.hs}
 \section{型クラスとHaskの部分圏}
+\lstinputlisting{haskell/sort.hs}
 \section{まとめ}
 \chapter{自然変換}
 \section{自然変換}
