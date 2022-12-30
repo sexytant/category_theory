@@ -75,7 +75,8 @@
 
 \tableofcontents
 \newpage
-\chapter{集合とユニバース}
+\chapter{準備}
+\section{集合とユニバース}
 \begin{Def}
 順序集合
 \end{Def}
@@ -105,7 +106,9 @@
 \begin{Prop}
 ユニバース$U$は真のクラスである.
 \end{Prop}
-\chapter{圏・関手}
+\begin{Def}
+部分集合
+\end{Def}
 \section{二項関係・部分関数・写像（関数）}
 \begin{Def}
 集合$A,B$に対して$R\subset A\times B$であるとき, {\bf $R$は$A$と$B$の二項関係}\index{にこうかんけい@二項関係}であるという.
@@ -193,6 +196,8 @@ h:C\rightarrow D$について
 \begin{Def}
 $n$次ホモロジー群
 \end{Def}
+
+\chapter{圏・関手}
 \section{圏}
 \begin{Def}
 {\bf 圏}$\mathscr{C}$は{\bf 対象}の集合$\mathrm{Obj}(\mathscr{C})$と
@@ -236,16 +241,16 @@ f(a_3)=a_1
 \end{example}
 \subsection{小圏・局所小圏・大圏}
 \begin{Def}
-小圏
+対象の集合,射の集合がともに小さい集合である圏を{\bf 小圏}\index{しょうけん@小圏}という.
 \end{Def}
 \begin{example}
 順序集合は小圏である.
 \end{example}
 \begin{Def}
-局所小圏
+すべての対象の組$A,B$に対して$\mathrm{Hom}_{\mathscr{C}}(A,B)$が小さい集合である圏$\mathscr{C}$を{\bf 局所小圏}という.
 \end{Def}
 \begin{Def}
-大圏
+小圏でない圏を{\bf 大圏}という.
 \end{Def}
 
 \begin{example}
@@ -261,11 +266,19 @@ f(a_3)=a_1
 すべての位相空間を対象とし, それらの間の連続写像を射とする圏$\mathrm{Top}$は大圏である.
 \end{example}
 \begin{example}
-$\mathrm{Vect}_k$は大圏である.
+ある体$k$に対して,
+すべての$k$次線形空間を対象とし,
+それらの間の$k$次線形写像を射とする
+圏$\mathrm{Vect}_k$は大圏である.
 \end{example}
 \subsection{部分圏}
 \begin{Def}
-部分圏
+圏$\mathscr{A}$が圏$\mathscr{B}$に対して, 以下の$3$条件を満たすとき, {\bf $\mathscr{A}$は$\mathscr{B}$の部分圏である}という.
+\begin{enumerate}
+\item $\mathrm{Obj}(\mathscr{A})$が$\mathrm{Obj}(\mathscr{B})$の部分集合である.
+\item
+\item
+\end{enumerate}
 \end{Def}
 \begin{example}
 圏$\mathrm{Ab}$は圏$\mathrm{Grp}$の部分圏である.
@@ -394,9 +407,19 @@ Haskellにおける型構築子\verb|Maybe|は...
 \section{余極限}
 \section{極限の存在}
 \section{余極限の存在}
-\chapter{関手と極限の交換}
 \chapter{随伴}
 \chapter{モナドとHaskellのMonad}
 \chapter{表現可能関手}
+\begin{Def}
+局所小圏$\mathscr{A}$の対象$A$を固定して, 対象$A'$ごとに射の集合$\mathrm{Hom}_{\mathscr{A}}(A,A')$を考える
+...
+以下のように, 対象の対応を射の対応に拡張して得られる関手を{\bf Hom関手}という.
+...
+\end{Def}
+\begin{Def}
+$\mathscr{A}$を局所小圏とする.
+関手$X:\mathscr{A}\rightarrow\mathrm{Set}$が, とある$A\in\mathrm{Obj}(\mathscr{A})$によって...となるとき,
+{\bf $X$は表現可能である}という.
+\end{Def}
 \printindex
 \end{document}
