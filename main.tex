@@ -73,8 +73,25 @@
 \begin{document}
 \setcounter{tocdepth}{2}
 \maketitle
-
 \tableofcontents
+\newpage
+学習の目安
+\begin{center}
+\begin{tabular}{cl}
+1&準備 「集合とユニバース」と「二項関係・部分関数・写像（関数）」\\
+2&準備 「群・準同型写像・同型写像」と「体」\\
+3&圏　「圏」\\
+4&圏　「Haskellにおける圏」\\
+5&関手 「関手」と「Haskellの型構築子と関手」\\
+6&関手　「2変数の関手」と「型クラスとHaskの部分圏」\\
+7&自然変換　「自然変換」\\
+8&自然変換　「Haskにおける自然変換\\
+9&定数関手　「定数関手」\\
+10&定数関手　「Haskにおける定数関手」\\
+11&関手圏\\
+12&圏同値\\
+\end{tabular}
+\end{center}
 \newpage
 \chapter{準備}
 \section{集合とユニバース}
@@ -200,6 +217,7 @@ h:C\rightarrow D$について
 $n$次ホモロジー群
 \end{Def}
 \section{体}
+\section{まとめ}
 \chapter{圏}
 \section{圏}
 \begin{Def}
@@ -323,7 +341,7 @@ Haskellには標準ライブラリに\verb|Int|, \verb|Integer|,
 \begin{caution}
 Haskellにおいて, 型\verb|A|,\verb|B|に対して, 型構築子によってつくられる\verb|A->B|は1つの型となる.
 \end{caution}
-
+\section{まとめ}
 \chapter{関手}
 \section{関手}
 \begin{Def}
@@ -349,7 +367,7 @@ Haskellにおいて, 型\verb|A|,\verb|B|に対して, 型構築子によって�
 {\bf 充満部分圏}
 \end{Def}
 
-\subsection{型構築子と関手}
+\section{Haskellの型構築子と関手}
 \subsubsection{List関手}
 Haskellにおける型構築子\verb|[]|は任意の型\verb|A|に対して型\verb|[A]|を対応させる.
 これは, HaskからHaskへの対称関数とみなせる.
@@ -369,30 +387,30 @@ Haskellにおける型構築子\verb|Maybe|は...
 一般に木構造を生成する型構築子は関手にできる. これを{\bf Tree関手}と呼ぶ.
 
 \lstinputlisting{chap2/Tree.hs}
-\subsection{２変数の関手}
-\subsection{Haskの部分圏}
+\section{２変数の関手}
+\section{型クラスとHaskの部分圏}
+\section{まとめ}
 \chapter{自然変換}
 \section{自然変換}
 \begin{Def}
 {\bf 自然変換}\index{しぜんへんかん@自然変換}
 \end{Def}
 \section{Haskにおける自然変換}
-\subsection{Haskにおける自然変換}
-\subsubsection{concat}
-\subsubsection{safehead}
-\subsubsection{concatとsafeheadの垂直合成}
-\subsubsection{flatten関数}
-
+\subsection{concat}
+\subsection{safehead}
+\subsection{concatとsafeheadの垂直合成}
+\subsection{flatten関数}
+\section{まとめ}
 \chapter{定数関手}
 \section{定数関手}
 \begin{Def}
 {\bf 定数関手}\index{ていすうかんしゅ@定数関手}
 \end{Def}
 \begin{Def}
-\end{Def}
+\end{Def}}
 \section{Haskにおける定数関手}
 \subsection{length関数}
-
+\section{まとめ}
 \chapter{関手圏}
 \section{関手圏}
 \begin{Def}
@@ -407,6 +425,7 @@ Haskellにおける型構築子\verb|Maybe|は...
 \section{Haskにおける自然同型}
 \subsection{mirror関数}
 \subsection{Maybe関手とEither()関手の間の自然同型}
-
+\section{まとめ}
+aa
 \printindex
 \end{document}
