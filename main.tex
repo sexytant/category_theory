@@ -35,7 +35,7 @@
  	%自動開業後のインデント量(デフォルトでは20[pt])	
  	breakindent = 10pt,
  	%標準の書体
- 	basicstyle = \ttfamily\scriptsize,
+ 	basicstyle = \ttfamily\normalsize,
  	%basicstyle = {\small}
  	%コメントの書体
  	commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
@@ -216,6 +216,48 @@ h:C\rightarrow D$について
 $n$次ホモロジー群
 \end{Def}
 \section{体}
+\section{Haskellの基礎}
+\subsection{型}
+\subsubsection{定義済みの型}
+Haskellには標準ライブラリに\verb|Int|, \verb|Integer|, 
+\verb|Char|,
+\verb|Float|,
+\verb|Double|,
+\verb|Bool|
+などの型が定義済みである.
+\subsubsection{新型定義}
+定義済みの型をもとにタプル,リストあるいは\verb|Maybe|のような型構築子によって新たな型を無限に作り出すことができる.
+\begin{example}
+\verb|[Integer]|, \verb|Maybe Int|,
+\verb|(Int,[Char])| などはすべてHaskellの型である.
+\end{example}
+\subsubsection{データ型}
+\begin{lstlisting}
+data Color = Red | Green | Blue 
+\end{lstlisting}
+データ型は型クラス\verb|Show|を付与することにより出力が可能となる.
+\begin{lstlisting}
+data Color = Red | Green | Blue deriving Show
+\end{lstlisting}
+\subsubsection{型クラス}
+\begin{lstlisting}
+class Foo a where
+    foo :: a -> String
+instance Foo Bool where
+    foo True = "Bool: True"
+    foo False = "Bool: False"
+instance Foo Int where
+    foo x = "Int: " ++ show x
+instance Foo Char where
+    foo x = "Char: " ++ [x]
+
+main = do
+    putStrLn $ foo True		-- Bool: True
+    putStrLn $ foo (123::Int)	-- Int: 123
+    putStrLn $ foo 'A'		-- Char: A
+\end{lstlisting}
+Foo 型クラスは任意の型(a)を受け取り、Stringを返却するメソッド foo を持っている. instance を用いてそれぞれの型が引数に指定された場合の処理を実装している.
+
 \section{まとめ}
 \chapter{圏}
 \section{圏}
@@ -324,17 +366,6 @@ f(a_3)=a_1
 圏の積
 \end{Def}
 \section{Haskellにおける圏 (Hask)}
-Haskellには標準ライブラリに\verb|Int|, \verb|Integer|, 
-\verb|Char|,
-\verb|Float|,
-\verb|Double|,
-\verb|Bool|
-などの型が定義済みである.
-これらをもとにタプル,リストあるいは\verb|Maybe|のような型構築子によって新たな型を無限に作り出すことができる.
-\begin{example}
-\verb|[Integer]|, \verb|Maybe Int|,
-\verb|(Int,[Char])| などはすべてHaskellの型である.
-\end{example}
 
 すべてのHaskellの型を対象とし, それらの間の関数を射とする圏Haskは小圏である.
 \begin{caution}
