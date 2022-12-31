@@ -5,4 +5,4 @@ services:
     container_name: '${COMPOSE_PROJECT_NAME}-haskell'
     tty: true
     volumes:
-      - "../src/haskell:/opt/src"
+      - "..:/home"
