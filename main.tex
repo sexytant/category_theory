@@ -9,6 +9,7 @@
 
 % Useful packages
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 \usepackage{tikz-cd}
@@ -93,60 +94,67 @@
 \end{center}
 \newpage
 \chapter{準備}
-\section{集合とユニバース}
-集合とは, 素朴には「ものの集まり」と定義される. 例えば, $\{1,2,3\}$や$\{a,b,c\}$のほか,以下で定義する順序集合やべき集合が考えられる
+\section{集合}
+集合とは, ひとまず素朴に「ものの集まり」と定義される. 
+\begin{example}$\{1,2,3\}$や$\{a,b,c\}$, 自然数全体$\mathbb{N}$, 整数全体$\mathbb{Z}$, 実数全体$\mathbb{R}$, 複素数全体$\mathbb{C}$は集合である.
+\end{example}
+...を{\bf 元}という.
+\begin{Notation}
+$a\in S$
+\end{Notation}
 \begin{Def}
-順序集合
+...を{\bf 部分集合}という.
+\end{Def}
+\begin{Notation}
+$A\subset B$
+\end{Notation}
+\begin{Def}
+元に関して{\bf 順序}が与えられている集合を{\bf 順序集合}という.
+順序$\curlyeqprec$は次で定義される.
+\begin{enumerate}
+\item $x \curlyeqprec x$
+\item $x\curlyeqprec y,x\curlyeqprec y\rightarrow x=y$
+\item $x \curlyeqprec y, y \curlyeqprec z\rightarrow x \curlyeqprec z$
+\end{enumerate}
 \end{Def}
 \begin{Def}
-べき集合
+集合$S$が与えられたとき, $S$の部分集合の全体
+$
+\mathscr{P}S=\{a:\textrm{set}\mid a\subset S\}
+$\footnote{記法が未定義}
+を{\bf $S$の冪集合}という.
 \end{Def}
-ラッセルのパラドックス
-\begin{Def}
-ユニバース
-\end{Def}
-\begin{Def}
-小さい集合
-\end{Def}
-\begin{Prop}
-ユニバース$U$は小さい集合ではない
-\end{Prop}
-内包原理
+集合を「ものの集まり」と素朴に定義することは, 矛盾を孕んでいる. この矛盾を避けるための議論はのちに行う. 
 
 \begin{Def}
-クラス
+{\bf 積集合}
 \end{Def}
-\begin{Prop}
-ユニバース$U$はクラスである.
-\end{Prop}
-\begin{Def}
-真のクラス
-\end{Def}
-\begin{Prop}
-ユニバース$U$は真のクラスである.
-\end{Prop}
-\begin{Def}
-部分集合
-\end{Def}
+\begin{Notation}
+$A\times B$
+\end{Notation}
 \section{二項関係・部分関数・写像（関数）}
 \begin{Def}
-集合$A,B$に対して$R\subset A\times B$であるとき, {\bf $R$は$A$と$B$の二項関係}\index{にこうかんけい@二項関係}であるという.
+集合$A,B$に対して$R\subset A\times B$\footnote{積集合が未定義...}であるとき, {\bf $R$は$A$と$B$の二項関係}\index{にこうかんけい@二項関係}であるという.
 \end{Def}
 \begin{Def}
-$R$が集合$A,B$の二項関係であるとする.
-
-各集合の要素$a\in A$と$b\in B$について$(a,b)\in R$であるとき,
+$R$が集合$A,B$の二項関係であるとする. 
+各集合の元$a\in A$と$b\in B$について$(a,b)\in R$であるとき,
 {\bf $a$と$b$に間に$R$の関係\index{かんけい@関係}がある}という.
 \end{Def}
 \begin{Notation}
 $a$と$b$の間に$R$の関係があることを$aRb$と表す.
 \end{Notation}
 \begin{Def}
+{\bf 全射}
+\end{Def}
+\begin{Def}
 $R$が集合$A,B$の二項関係であるとする.
-
 任意の$a\in A$について, とある$b\in B$が一意に存在して$aRb$となるとき,
 {\bf $R$は$A$から$B$への写像\index{しゃぞう@写像}である}という.
 \end{Def}
+\begin{Notation}
+$A$から$B$への写像である$f$を$f:A\rightarrow B$で表す.
+\end{Notation}
 \begin{caution}
 以下では, 「{\bf 関数\index{かんすう@関数}}」と「写像」を同じ意味で用いる.
 \end{caution}
@@ -167,11 +175,11 @@ aRb\land aRb'\Rightarrow b=b'
 \end{Prop}
 \subsection{合成と結合律}
 \begin{Def}
-集合$A,B,C$に対する2つの写像$f:A\rightarrow B$と$g:B\Rightarrow C$について, その{\bf 合成写像} $g\circ f:A\rightarrow C$を
+集合$A,B,C$に対する2つの写像$f:A\rightarrow B$と$g:B\rightarrow C$について, その{\bf 合成写像} $g\circ f:A\rightarrow C$を
 \[
 (g\circ f)(a)=g(f(a))
 \]
-で定義する. ここで$a$は$A$の要素である.
+で定義する. ここで$a$は$A$の元である.
 \end{Def}
 \begin{Def}
 部分関数の合成
@@ -199,23 +207,90 @@ h:C\rightarrow D$について
 \begin{Prop}
 部分関数の合成は結合律を満たす.
 \end{Prop}
+\section{ユニバース}
+{\bf 内包原理}とは「集合$S$の元$x$に対してtrue か falseを返す関数$\varphi:S\rightarrow\{\mathrm{true},\mathrm{false}\}$が与えられたとき, 新たな集合
+$
+\{x\in S\mid\varphi(x)=\mathrm{true}\}
+$
+を構成できる」という集合が満たすべき性質のことをいう. 
+
+ここまで, 集合を「ものの集まり」と素朴に定義してきたが, 次のような集合$R$を内包原理に基づいて構成しようとすると矛盾が生じる.\footnote{ラッセルのパラドックスと呼ばれる}
+\[
+R=\{x\mid x\notin x\}
+\]
+もし$R\in R$であると仮定すると, $R$の定義により$R\notin R$となる.
+他方, $R\notin R$と仮定すると, $R$の定義より$R\in R$となってしまう.
+
+このような矛盾が発生しないようにするため, ユニバースという概念を導入する.
+\begin{Def}
+以下の性質を満たす$U$を{\bf ユニバース}という.
+\begin{enumerate}
+\item $x$が$y$の元であり, かつ$y$が$U$の元ならば, $x$は$U$の元である.
+\item $x$が$U$の元であり, かつ$y$が$U$の元ならば, $\{x,y\}$は$U$の元である.
+\item $x$が$U$の元ならば, 冪集合$\mathscr{P}x$が$U$の元であり, かつ$\cup x$も$U$の元である
+\item $w=\{0,1,2,\dots\}$は$U$の元である.
+\item $f:a\rightarrow b$が全射\footnote{未定義...}で, $a$が$U$の元であり, かつ$b$が$U$の部分集合ならば, $b$は$U$の元である
+\end{enumerate}
+\end{Def}
+\begin{Def}
+ユニバースの要素$u\in U$を{\bf 小さい集合}という.
+\end{Def}
+\begin{caution}
+ユニバースは小さい集合の全体である.
+\end{caution}
+\begin{Prop}
+ユニバース$U$は小さい集合ではない
+\end{Prop}
+\begin{Def}
+$a$と$b$が小さい集合のとき関数$f:a\rightarrow b$を{\bf 小さい関数}という.
+\end{Def}
+
+
+\begin{Def}
+ユニバースの部分集合を{\bf クラス}という.
+\end{Def}
+\begin{Prop}
+ユニバース$U$はクラスである.
+\end{Prop}
+\begin{Def}
+小さい集合でないクラスを{\bf 真のクラス}という.
+\end{Def}
+\begin{Prop}
+ユニバース$U$は真のクラスである.
+\end{Prop}
 \section{群・準同型写像・同型写像}
 \begin{Def}
-群
+\bf{群}
 \end{Def}
 \begin{Def}
-準同型写像
+\bf{準同型写像}
 \end{Def}
 \begin{Def}
-同型写像
+\bf{同型写像}
 \end{Def}
 \begin{Def}
 {\bf アーベル群}\index{あーべるぐん@アーベル群}
 \end{Def}
 \begin{Def}
-$n$次ホモロジー群
+$n$次{\bf ホモロジー群}
 \end{Def}
+\begin{Def}
+{\bf 可換群}
+\end{Def}
+
 \section{体}
+\begin{Def}
+以下の条件を満たす集合を{\bf 体}という.
+\begin{enumerate}
+\item
+加法について可換群になっている．すなわち,加法について閉じていて，単位元と逆元が存在する．
+\item 
+乗法について可換群になっている. すなわち,乗法について閉じていて，単位元と逆元が存在する.
+\item 
+加法と乗法について分配法則が成り立つ.
+\end{enumerate}
+\end{Def}
+体では四則演算が可能である
 \section{Haskellの基礎}
 \subsection{型}
 \subsubsection{定義済みの型}
@@ -258,7 +333,6 @@ main = do
 \end{lstlisting}
 Foo 型クラスは任意の型(a)を受け取り、Stringを返却するメソッド foo を持っている. instance を用いてそれぞれの型が引数に指定された場合の処理を実装している.
 
-\section{まとめ}
 \chapter{圏}
 \section{圏}
 \begin{Def}
