@@ -23,6 +23,7 @@
 \newtheorem{Prop}{命題}[chapter]
 \newtheorem{caution}{注意}[chapter]
 \newtheorem{example}{例}[chapter]
+\renewcommand{\proofname}{\textbf{証明}}
 \usepackage{makeidx}
 \usepackage{comment}
 \usepackage{listings}
@@ -132,6 +133,9 @@ $\footnote{記法が未定義}
 \begin{Notation}
 $A\times B$
 \end{Notation}
+
+\section{位相空間}
+...面倒くさい
 \section{二項関係・部分関数・写像（関数）}
 \begin{Def}
 集合$A,B$に対して$R\subset A\times B$\footnote{積集合が未定義...}であるとき, {\bf $R$は$A$と$B$の二項関係}\index{にこうかんけい@二項関係}であるという.
@@ -207,6 +211,12 @@ h:C\rightarrow D$について
 \begin{Prop}
 部分関数の合成は結合律を満たす.
 \end{Prop}
+\begin{Def}
+{\bf 単射}
+\end{Def}
+\begin{Def}
+{\bf 全射}
+\end{Def}
 \section{ユニバース}
 {\bf 内包原理}とは「集合$S$の元$x$に対してtrue か falseを返す関数$\varphi:S\rightarrow\{\mathrm{true},\mathrm{false}\}$が与えられたとき, 新たな集合
 $
@@ -233,19 +243,17 @@ R=\{x\mid x\notin x\}
 \end{enumerate}
 \end{Def}
 \begin{Def}
-ユニバースの要素$u\in U$を{\bf 小さい集合}という.
+ユニバースの元を{\bf 小集合}という.
 \end{Def}
 \begin{caution}
-ユニバースは小さい集合の全体である.
+ユニバースは小集合の全体である.
 \end{caution}
 \begin{Prop}
-ユニバース$U$は小さい集合ではない
+ユニバースは小集合ではない
 \end{Prop}
 \begin{Def}
-$a$と$b$が小さい集合のとき関数$f:a\rightarrow b$を{\bf 小さい関数}という.
+$a$と$b$が小集合のとき関数$f:a\rightarrow b$を{\bf 小関数}という.
 \end{Def}
-
-
 \begin{Def}
 ユニバースの部分集合を{\bf クラス}という.
 \end{Def}
@@ -253,14 +261,19 @@ $a$と$b$が小さい集合のとき関数$f:a\rightarrow b$を{\bf 小さい関
 ユニバース$U$はクラスである.
 \end{Prop}
 \begin{Def}
-小さい集合でないクラスを{\bf 真のクラス}という.
+小集合でないクラスを{\bf 真のクラス}という.
 \end{Def}
 \begin{Prop}
 ユニバース$U$は真のクラスである.
 \end{Prop}
 \section{群・準同型写像・同型写像}
 \begin{Def}
-\bf{群}
+集合$G$と二項演算$\mu:G\times G\rightarrow G$が以下の条件を満たすとき$(G,\mu)$を{\bf 群}という
+\begin{enumerate}
+\item 結合法則
+\item 単位元の存在
+\item 逆元の存在
+\end{enumerate}
 \end{Def}
 \begin{Def}
 \bf{準同型写像}
@@ -269,10 +282,13 @@ $a$と$b$が小さい集合のとき関数$f:a\rightarrow b$を{\bf 小さい関
 \bf{同型写像}
 \end{Def}
 \begin{Def}
-{\bf アーベル群}\index{あーべるぐん@アーベル群}
+二項演算について常に$ab=ba$が成り立つ群を {\bf アーベル群}\index{あーべるぐん@アーベル群}という.\footnote{ちゃんとかけ}
 \end{Def}
 \begin{Def}
-$n$次{\bf ホモロジー群}
+位相空間$X$と自然数$n$に対して次の手続きで決定されるアーベル群$H_n(X)$を{\bf$n$次 ホモロジー群}と呼ぶ
+
+...
+
 \end{Def}
 \begin{Def}
 {\bf 可換群}
@@ -292,6 +308,7 @@ $n$次{\bf ホモロジー群}
 \end{Def}
 体では四則演算が可能である
 \section{Haskellの基礎}
+関数型プログラミング言語Haskellでは圏論的な視点からライブラリが構築されている.
 \subsection{型}
 \subsubsection{定義済みの型}
 Haskellには標準ライブラリに\verb|Int|, \verb|Integer|, 
@@ -336,18 +353,18 @@ Foo 型クラスは任意の型(a)を受け取り、Stringを返却するメソ�
 \chapter{圏}
 \section{圏}
 \begin{Def}
-{\bf 圏}$\mathscr{C}$は{\bf 対象}の集合$\mathrm{Obj}(\mathscr{C})$と
-{\bf 射}の集合$\mathrm{Mor}(\mathscr{C})$からなる, 以下の演算が定義されているもののことをいう.
+{\bf 対象}の集合$\mathrm{Obj}$と
+{\bf 射}の集合$\mathrm{Mor}$からなり, 以下の演算が定義されているものを{\bf 圏}という.
 \begin{enumerate}
-\item 射$f\in\mathrm{Mor}(\mathscr{C})$には{\bf 始域}$\mathrm{dom}f$および{\bf 終域}$\mathrm{cod}f$となる対象がそれぞれ一意に定まる\footnote{$\mathrm{dom}f=A\in\mathrm{Obj}(\mathscr{C}),\mathrm{cod}f=B\in\mathrm{Obj}(\mathscr{C})$のとき$f:A\rightarrow B$とかく.}
-\item $\mathrm{dom} g=\mathrm{cod}f$を満たす射$f,g\in\mathrm{Mor}(\mathscr{C})$に対して,
+\item 射$f\in\mathrm{Mor}$には{\bf 始域}$\mathrm{dom}f$および{\bf 終域}$\mathrm{cod}f$となる対象がそれぞれ一意に定まる\footnote{$\mathrm{dom}f=A\in\mathrm{Obj}(\mathscr{C}),\mathrm{cod}f=B\in\mathrm{Obj}(\mathscr{C})$のとき$f:A\rightarrow B$とかく.}
+\item $\mathrm{dom} g=\mathrm{cod}f$を満たす射$f,g\in\mathrm{Mor}$に対して,
 {\bf 合成射}$g\circ f:\mathrm{dom}f\rightarrow\mathrm{cod}g$が一意に定まる
 \item 射の合成は結合律を満たす. すなわち, 対象$A,B,C,D\in\rm{Obj}$についての射の列$f,g,h$が与えられたとき
 \[
 h\circ(g\circ f)=(h\circ g)\circ f
 \]
 が成り立つ.
-\item 任意の対象$A\in\mathrm{Obj}(\mathscr{C})$について,
+\item 任意の対象$A\in\mathrm{Obj}$について,
 次の条件を満たす{\bf 恒等射}$1_{A}:A\rightarrow A$が存在する\footnote{恒等写$1_{A}$は一意に定まるので, 定義に一意性を加えても問題ない.}
 
 条件：任意の射の組$f:A\rightarrow B, g:B\rightarrow A$に対して
@@ -377,20 +394,20 @@ f(a_3)=a_1
 \end{example}
 \subsection{小圏・局所小圏・大圏}
 \begin{Def}
-対象の集合,射の集合がともに小さい集合である圏を{\bf 小圏}\index{しょうけん@小圏}という.
+対象の集合,射の集合がともに小集合である圏を{\bf 小圏}\index{しょうけん@小圏}という.
 \end{Def}
 \begin{example}
 順序集合は小圏である.
 \end{example}
 \begin{Def}
-すべての対象の組$A,B$に対して$\mathrm{Hom}_{\mathscr{C}}(A,B)$が小さい集合である圏$\mathscr{C}$を{\bf 局所小圏}という.
+すべての対象の組$A,B$に対して$\mathrm{Hom}_{\mathscr{C}}(A,B)$が小集合である圏$\mathscr{C}$を{\bf 局所小圏}という.
 \end{Def}
 \begin{Def}
 小圏でない圏を{\bf 大圏}という.
 \end{Def}
 
 \begin{example}
-すべての小さな集合を対象とし, それらの間の写像を射とする圏$\mathrm{Set}$は大圏である.
+すべての小集合を対象とし, それらの間の写像を射とする圏$\mathrm{Set}$は大圏である.
 \end{example}
 \begin{example}
 すべての群を対象とし, それらの間の準同型写像を射とする圏$\mathrm{Grp}$は大圏である.
@@ -399,12 +416,12 @@ f(a_3)=a_1
 すべてのアーベル群を対象とし, それらの間の準同型写像を射とする圏$\mathrm{Ab}$は大圏である.
 \end{example}
 \begin{example}
-すべての位相空間を対象とし, それらの間の連続写像を射とする圏$\mathrm{Top}$は大圏である.
+すべての位相空間を対象とし, それらの間の連続写像\footnote{未定義？}を射とする圏$\mathrm{Top}$は大圏である.
 \end{example}
 \begin{example}
 ある体$k$に対して,
-すべての$k$次線形空間を対象とし,
-それらの間の$k$次線形写像を射とする
+すべての$k$次線形空間\footnote{未定義？}を対象とし,
+それらの間の$k$次線形写像\footnote{未定義？}を射とする
 圏$\mathrm{Vect}_k$は大圏である.
 \end{example}
 \subsection{部分圏}
@@ -417,7 +434,7 @@ f(a_3)=a_1
 \end{enumerate}
 \end{Def}
 \begin{example}
-圏$\mathrm{Ab}$は圏$\mathrm{Grp}$の部分圏である.
+圏$\mathrm{Ab}$\footnote{ref}は圏$\mathrm{Grp}$\footnote{ref}の部分圏である.
 \end{example}
 \subsection{双対}
 \begin{Def}
@@ -430,15 +447,61 @@ f(a_3)=a_1
 双対の原理
 \end{caution}
 \subsection{圏の生成}
+自明な圏
+
+非自明な圏
+
+
+\begin{Prop}
+集合$A$に対して写像$f:A\rightarrow A$を定める.
+このとき, 対象の集合$\mathrm{Obj}=\{A\}$と, 射の集合$\mathrm{Mor}=\{1_A,f\}$からなる圏を得ることができる.
+ここで, 射$1_A$は$A$についての恒等射である.
+\end{Prop}
+\begin{proof}
+$\mathrm{dom} f=\mathrm{cod}f$であるから, 合成射$f\circ f$を定めることができる.
+このとき$f\circ f=1_A$もしくは$f\circ f=f$である.
+
+$f\circ f=1_A$ならば...
+
+...
+
+となる.
+一方, $f\circ f=1_A$ならば...
+
+...
+
+となる.
+以上より, いずれの場合も, 射の合成が結合律を満たすことがわかる.
+したがって$f\circ f=1_A$と定めても$f\circ f=f$と定めても圏を生成することができる.
+\end{proof}
+\begin{Prop}
+集合$A$に対して写像$f:A\rightarrow A$を定め, 正の整数$n$に対して$f^n=\underbrace{f\circ f \circ \dots \circ f}_{n}$
+とする.
+このとき, 対象の集合$\mathrm{Obj}=\{A\}$と, 射の集合$\mathrm{Mor}=\{1_A,f,f^2,\dots,f^n,\dots\}$からなる圏を得ることができる.
+ここで, 射$1_A$は$A$についての恒等射である.
+\end{Prop}
+\begin{proof}
+\end{proof}
+\begin{Prop}
+集合$A,B$に対して,写像$f:A\rightarrow B$と$g:\rightarrow A$を定める.
+このとき, 対象の集合$\mathrm{Obj}=\{A,B\}$と射の集合$\mathrm{Mor}=\{1_A,1_B,f,g,f\circ g\}$からなる圏を得ることができる.
+ここで, 射$1_A,1_B$はそれぞれ$A,B$についての恒等射である.
+\end{Prop}
+\begin{proof}
+\end{proof}
+
+{\bf 生成系}
+
+{\bf 生成元}
+
+{\bf 関係}
+
 \begin{Def}
-生成元
+圏の積を次で定義する
 \end{Def}
-\begin{Def}
-生成系
-\end{Def}
-\begin{Def}
-圏の積
-\end{Def}
+\begin{Prop}
+圏の積は圏である.
+\end{Prop}
 \section{Haskellにおける圏 (Hask)}
 
 すべてのHaskellの型を対象とし, それらの間の関数を射とする圏Haskは小圏である.
@@ -449,13 +512,39 @@ Haskellにおいて, 型\verb|A|,\verb|B|に対して, 型構築子によって�
 \chapter{関手}
 \section{関手}
 \begin{Def}
-圏$\mathscr{A}$から$\mathscr{B}$への{\bf 関手}は{\bf 対象関数}$F_0:\mathrm{Obj}(\mathscr{A})\rightarrow\mathrm{Obj}(\mathscr{B})$と
-{\bf 射関数}$F_1$からなるもののことをいう.
+圏$\mathscr{A}$の対象$\mathrm{Obj}(\mathscr{A})$から圏$\mathscr{B}$の対象$\mathrm{Obj}(\mathscr{B})$への関数を
+{\bf $\mathscr{A}$から$\mathscr{B}$への対象関数}という.
 \end{Def}
-
+\begin{Def}
+{\bf 射関数}
+\end{Def}
+\begin{Def}
+圏$\mathscr{A},\mathscr{B}$に対する対称関数と射関数の組を{\bf $\mathscr{A}$から$\mathscr{B}$への関手}という.
+\end{Def}
+\begin{example}
+順序を保存する写像
+\end{example}
+\begin{example}
+$n$次ホモロジー関手
+\end{example}
+\begin{example}
+\end{example}
+\begin{example}
+\end{example}
 \subsection{反変関手}
 \begin{Def}
-{\bf 反変関手}
+圏$A^{\mathrm{op}}$から圏$B$への関手
+を{\bf 圏$A$から圏$B$への反変関手}という.
+\end{Def}
+\begin{example}
+\end{example}
+\begin{Notation}
+\end{Notation}
+\begin{caution}
+\end{caution}
+\subsection{定数関手}
+\begin{Def}
+{\bf 定数関手}\index{ていすうかんしゅ@定数関手}
 \end{Def}
 
 \subsection{忠実関手と充満関手}
@@ -471,7 +560,24 @@ Haskellにおいて, 型\verb|A|,\verb|B|に対して, 型構築子によって�
 \begin{Def}
 {\bf 充満部分圏}
 \end{Def}
+\begin{example}
+...充満忠実である.
+\end{example}
+\begin{example}
+...忠実だが充満でない
+\end{example}
+\begin{example}
+充満だが忠実でない
+\end{example}
+\begin{example}
+複素数...
 
+...
+
+...忠実だが充満でない. （例1.30)
+\end{example}
+\subsection{埋め込み関手}
+\subsection{忘却関手}
 \section{Haskellの型構築子と関手}
 \subsubsection{List関手}
 Haskellにおける型構築子\verb|[]|は任意の型\verb|A|に対して型\verb|[A]|を対応させる.
@@ -493,7 +599,7 @@ Haskellにおける型構築子\verb|Maybe|は...
 
 \lstinputlisting{src/haskell/Tree.hs}
 \section{２変数の関手}
-
+{\bf Hom関手}
 \lstinputlisting{src/haskell/homfunctors.hs}
 \section{型クラスとHaskの部分圏}
 \lstinputlisting{src/haskell/sort.hs}
@@ -503,17 +609,17 @@ Haskellにおける型構築子\verb|Maybe|は...
 \begin{Def}
 {\bf 自然変換}\index{しぜんへんかん@自然変換}
 \end{Def}
+\begin{Def}
+ホモトピー
+\end{Def}
 \section{Haskにおける自然変換}
 \subsection{concat}
 \subsection{safehead}
 \subsection{concatとsafeheadの垂直合成}
 \subsection{flatten関数}
 \section{まとめ}
-\chapter{定数関手}
-\section{定数関手}
-\begin{Def}
-{\bf 定数関手}\index{ていすうかんしゅ@定数関手}
-\end{Def}
+
+
 \begin{Def}
 \end{Def}
 \section{Haskにおける定数関手}
