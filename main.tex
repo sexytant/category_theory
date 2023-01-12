@@ -14,7 +14,8 @@
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 \usepackage{tikz-cd}
 \usepackage{amsthm}
-\usepackage{mathrsfs} 
+\usepackage{mathrsfs}
+\usepackage{comment}
 \theoremstyle{plain}
 
 \newtheorem{thm}{定理}[chapter]
@@ -79,7 +80,7 @@
 学習の目安
 \begin{center}
 \begin{tabular}{cl}
-1&準備 「集合とユニバース」と「二項関係・部分関数・写像（関数）」\\
+1&準備 「集合」と「二項関係・部分関数・写像（関数）」\\
 2&準備 「群・準同型写像・同型写像」と「体」\\
 3&圏　「圏」\\
 4&圏　「Haskellにおける圏」\\
@@ -96,49 +97,57 @@
 \newpage
 \chapter{準備}
 \section{集合}
-集合とは, ひとまず素朴に「ものの集まり」と定義される. 
+{\bf 集合}とは, ひとまず素朴に「ものの集まり」と定義される. 集合を構成する「もの」を{\bf 元}という.
+\begin{Notation}
+集合は各元を$\{\}$で囲むことで表される. 特に, とある条件を満たす$a$全体からなる集合は$\{a\mid a\text{についての条件}\}$を用いて表現する.
+\end{Notation}
 \begin{example}$\{1,2,3\}$や$\{a,b,c\}$, 自然数全体$\mathbb{N}$, 整数全体$\mathbb{Z}$, 実数全体$\mathbb{R}$, 複素数全体$\mathbb{C}$は集合である.
 \end{example}
-...を{\bf 元}という.
 \begin{Notation}
-$a\in S$
+$a$が集合$S$の元であることを$a\in S$で表す.
 \end{Notation}
 \begin{Def}
-...を{\bf 部分集合}という.
+集合$A$の元のすべてが集合$B$の元であるとき{\bf $A$は$B$の部分集合である}という.  
 \end{Def}
 \begin{Notation}
-$A\subset B$
+集合$A$が集合$B$の部分集合であることを$A\subset B$で表す.
 \end{Notation}
 \begin{Def}
-元に関して{\bf 順序}が与えられている集合を{\bf 順序集合}という.
-順序$\curlyeqprec$は次で定義される.
+集合$S$が与えられたとき, $S$の部分集合の全体
+$\mathscr{P}S=\{A\mid A\subset S\}$
+を{\bf $S$の冪集合}という.
+\end{Def}
+
+\begin{Def}
+次が成り立つ演算$\curlyeqprec$を{\bf 順序}という.
 \begin{enumerate}
 \item $x \curlyeqprec x$
-\item $x\curlyeqprec y,x\curlyeqprec y\rightarrow x=y$
-\item $x \curlyeqprec y, y \curlyeqprec z\rightarrow x \curlyeqprec z$
+\item $x\curlyeqprec y,x\curlyeqprec y\Rightarrow x=y$
+\item $x \curlyeqprec y, y \curlyeqprec z\Rightarrow x \curlyeqprec z$
 \end{enumerate}
 \end{Def}
 \begin{Def}
-集合$S$が与えられたとき, $S$の部分集合の全体
-$
-\mathscr{P}S=\{a:\textrm{set}\mid a\subset S\}
-$\footnote{記法が未定義}
-を{\bf $S$の冪集合}という.
+元に関して順序が与えられている集合を{\bf 順序集合}という.
 \end{Def}
-集合を「ものの集まり」と素朴に定義することは, 矛盾を孕んでいる. この矛盾を避けるための議論はのちに行う. 
+\begin{example}
+自然数全体$\mathbb{N}$, 整数全体$\mathbb{Z}$, 実数全体$\mathbb{R}$は順序集合である.
+\end{example}
 
 \begin{Def}
-{\bf 積集合}
+集合$A,B$に対して$\{(a,b)\mid a\in A, b\in B\}$を{\bf $A$と$B$の
+積集合}という.
 \end{Def}
 \begin{Notation}
-$A\times B$
+$A$と$B$の
+積集合を$A\times B$で表す.
 \end{Notation}
 
-\section{位相空間}
-...面倒くさい
-\section{二項関係・部分関数・写像（関数）}
+集合を「ものの集まり」と素朴に定義することは, 矛盾を孕んでいる. この矛盾を避けるための議論はのちに行う. 
+また, 集合論の公理には立ち入らないこととする.
+
+\section{二項関係・写像（関数）}
 \begin{Def}
-集合$A,B$に対して$R\subset A\times B$\footnote{積集合が未定義...}であるとき, {\bf $R$は$A$と$B$の二項関係}\index{にこうかんけい@二項関係}であるという.
+集合$A,B$に対して$R\subset A\times B$であるとき, {\bf $R$は$A$と$B$の二項関係}\index{にこうかんけい@二項関係}であるという.
 \end{Def}
 \begin{Def}
 $R$が集合$A,B$の二項関係であるとする. 
@@ -149,19 +158,23 @@ $R$が集合$A,B$の二項関係であるとする.
 $a$と$b$の間に$R$の関係があることを$aRb$と表す.
 \end{Notation}
 \begin{Def}
-{\bf 全射}
-\end{Def}
-\begin{Def}
 $R$が集合$A,B$の二項関係であるとする.
 任意の$a\in A$について, とある$b\in B$が一意に存在して$aRb$となるとき,
 {\bf $R$は$A$から$B$への写像\index{しゃぞう@写像}である}という.
 \end{Def}
 \begin{Notation}
-$A$から$B$への写像である$f$を$f:A\rightarrow B$で表す.
+$f$が$A$から$B$への写像であることを$f:A\rightarrow B$で表す.
 \end{Notation}
 \begin{caution}
 以下では, 「{\bf 関数\index{かんすう@関数}}」と「写像」を同じ意味で用いる.
 \end{caution}
+\begin{Def}
+{\bf 単射}
+\end{Def}
+\begin{Def}
+{\bf 全射}
+\end{Def}
+\begin{comment}
 \begin{Def}
 $R$が集合$A,B$の二項関係であるとする.
 
@@ -169,7 +182,7 @@ $R$が集合$A,B$の二項関係であるとする.
 \[
 aRb\land aRb'\Rightarrow b=b'
 \]
-が成り立つとき, {\bf $R$は$A$から$B$への部分関数\index{ぶぶんかんすう@部分関数}}という.
+が成り立つとき, {\bf $R$は$A$から$B$への部分関数\index{ぶぶんかんすう@部分関数}}という.\footnote{ここいらない気がする}
 \end{Def}
 \begin{Prop}
 関数は部分関数である. これは定義より明らかである.
@@ -177,7 +190,20 @@ aRb\land aRb'\Rightarrow b=b'
 \begin{Prop}
 部分関数は二項関係である. これは定義より明らかである.
 \end{Prop}
+\end{comment}
 \subsection{合成と結合律}
+\begin{Def}
+二項関係の{\bf 合成}を次で定義する
+
+...
+\end{Def}
+\begin{Def}
+{\bf 結合律}とは...
+\end{Def}
+\begin{Prop}
+二項関係の合成は結合律を満たす
+\end{Prop}
+
 \begin{Def}
 集合$A,B,C$に対する2つの写像$f:A\rightarrow B$と$g:B\rightarrow C$について, その{\bf 合成写像} $g\circ f:A\rightarrow C$を
 \[
@@ -185,20 +211,6 @@ aRb\land aRb'\Rightarrow b=b'
 \]
 で定義する. ここで$a$は$A$の元である.
 \end{Def}
-\begin{Def}
-部分関数の合成
-\end{Def}
-\begin{Def}
-二項関係の合成を次で定義する
-
-...
-\end{Def}
-\begin{Prop}
-二項関係の合成は結合律を満たす
-\end{Prop}
-\begin{caution}
-一般に, 結合律とは...
-\end{caution}
 \begin{Prop}
 写像の合成は{\bf 結合律}を満たす.
 すなわち, 集合$A,B,C,D$に対する3つの写像$f:A\rightarrow B, g:B\rightarrow C,
@@ -208,15 +220,37 @@ h:C\rightarrow D$について
 \]
 が成り立つ.
 \end{Prop}
+\begin{comment}
+\begin{Def}
+部分関数の合成
+\end{Def}
+
 \begin{Prop}
 部分関数の合成は結合律を満たす.
 \end{Prop}
+\end{comment}
+\section{位相空間}
+...面倒くさい
 \begin{Def}
-{\bf 単射}
+{\bf 位相空間}
 \end{Def}
 \begin{Def}
-{\bf 全射}
+{\bf 連続写像}
 \end{Def}
+\begin{Def}
+位相空間$A,B$と2つの連続写像$f:A\rightarrow B,g:B\rightarrow A$に対して, 連続関数
+\[
+\alpha : A\times [0,1]\rightarrow B
+\]
+が存在し,
+\begin{align*}
+\alpha(x,0)=f(x)\\
+\alpha(x,1)=g(x)
+\end{align*}
+となっているとき
+{\bf $\alpha$は$f$と$g$を結ぶホモトピーである}という.
+\end{Def}
+
 \section{ユニバース}
 {\bf 内包原理}とは「集合$S$の元$x$に対してtrue か falseを返す関数$\varphi:S\rightarrow\{\mathrm{true},\mathrm{false}\}$が与えられたとき, 新たな集合
 $
@@ -306,7 +340,7 @@ $a$と$b$が小集合のとき関数$f:a\rightarrow b$を{\bf 小関数}とい�
 加法と乗法について分配法則が成り立つ.
 \end{enumerate}
 \end{Def}
-体では四則演算が可能である
+体ではいわゆる四則演算が可能である
 \section{Haskellの基礎}
 関数型プログラミング言語Haskellでは圏論的な視点からライブラリが構築されている.
 \subsection{型}
@@ -544,21 +578,35 @@ $n$次ホモロジー関手
 \end{caution}
 \subsection{定数関手}
 \begin{Def}
-{\bf 定数関手}\index{ていすうかんしゅ@定数関手}
+圏$\mathscr{A}$の任意の対象$A$を圏$\mathscr{B}$のただ一つの対象$B_0$に写し,
+$\mathscr{A}$の任意の射$f$を圏$\mathscr{B}$の恒等射に写す関手を
+{\bf 定数関手}\index{ていすうかんしゅ@定数関手}という
 \end{Def}
 
 \subsection{忠実関手と充満関手}
 \begin{Def}
-{\bf 忠実}
+圏$\mathscr{A}$
+から圏$\mathscr{B}$への関手$F$に関して,
+集合$\{(A_1,A_2)\mid A_1,A_2\in\mathrm{Obj}(\mathscr{A})\}$
+から
+集合$\{(F(A_1),F(A_2))\mid\mathrm{Obj}(\mathscr{A}))\}$
+への写像が単射となっているとき,
+{\bf 関手$F$は忠実}であるという.
 \end{Def}
 \begin{Def}
-{\bf 充満}
+圏$\mathscr{A}$から圏$\mathscr{B}$への関手$F$に関して,
+集合$\{(A_1,A_2)\mid A_1,A_2\in\mathrm{Obj}(\mathscr{A})\}$
+から
+集合$\{(F(A_1),F(A_2))\mid\mathrm{Obj}(\mathscr{A}))\}$
+への写像が全射となっているとき,
+{\bf 関手$F$は充満}であるという.
+\end{Def}
+\begin{Def}圏$\mathscr{A}$から圏$\mathscr{B}$への関手$F$が忠実かつ充満であるとき
+{\bf 関手$F$は充満忠実である}という
 \end{Def}
 \begin{Def}
-{\bf 充満忠実}
-\end{Def}
-\begin{Def}
-{\bf 充満部分圏}
+圏$\mathscr{A}$が圏$\mathscr{A}$の部分圏であり, 関手$F:\mathscr{A}\rightarrow\mathscr{B}$が充満であるとき,
+{\bf 圏$\mathscr{A}$は圏 $\mathscr{B}$の充満部分圏である}という.
 \end{Def}
 \begin{example}
 ...充満忠実である.
@@ -602,34 +650,63 @@ Haskellにおける型構築子\verb|Maybe|は...
 {\bf Hom関手}
 \lstinputlisting{src/haskell/homfunctors.hs}
 \section{型クラスとHaskの部分圏}
+{\bf ソート関手}
 \lstinputlisting{src/haskell/sort.hs}
 \section{まとめ}
 \chapter{自然変換}
 \section{自然変換}
 \begin{Def}
-{\bf 自然変換}\index{しぜんへんかん@自然変換}
+圏$\mathscr{A}$から圏$\mathscr{B}$への関手$F,G$について,
+\begin{enumerate}
+\item $\mathscr{A}$の任意の対象$A$ 
+に対して
+$\mathscr{B}$の射$\alpha_A:FA\rightarrow GA$
+が存在し
+\item $\mathscr{A}$の任意の射$f:A_1\rightarrow A_2$
+が
+\[
+\alpha_{A_2}\circ Ff
+=Gf\circ\alpha_{A_1}
+\]
+を満たすとき
+\end{enumerate}に対して
+{\bf 集合$\alpha=\{\alpha_A\mid A\in\mathrm{Obj}(\mathscr{A})\}$は関手$F$から関手$G$への自然変換\index{しぜんへんかん@自然変換}である}という.
 \end{Def}
-\begin{Def}
-ホモトピー
-\end{Def}
+\begin{Notation}
+関手$F$から関手$G$への自然変換$\alpha$を$\alpha:F\rightarrow G$で表す.
+\end{Notation}
+\begin{Notation}
+関手$F$から関手$G$への自然変換$\alpha$を次の図表で表す.
+\end{Notation}
 \section{Haskにおける自然変換}
 \subsection{concat}
-\subsection{safehead}
+\subsection{List関手からMaybe関手への自然変換safehead}
 \subsection{concatとsafeheadの垂直合成}
-\subsection{flatten関数}
-\section{まとめ}
+\subsection{二分木からリストへのflatten関数}
 
-
-\begin{Def}
-\end{Def}
 \section{Haskにおける定数関手}
 \subsection{length関数}
 \section{まとめ}
 \chapter{関手圏}
 \section{関手圏}
+\begin{Prop}
+...は圏である.
+\end{Prop}
 \begin{Def}
+{\bf $\mathscr{A}$から$\mathscr{B}$への関手圏}という.
+\end{Def}
+\begin{Notation}
+$\mathscr{A}$から$\mathscr{B}$への関手圏を$[\mathscr{A},\mathscr{B}]$
+で表す\end{Notation}
+\begin{Def}
+関手圏における同型射を自然同型という.
 \bf{自然同型}
 \end{Def}
+\begin{Prop}
+自然変換...が自然同型であること,
+
+...が同型者であることは同値である.
+\end{Prop}
 \chapter{圏同値}
 \section{圏同値}
 \begin{Def}
@@ -638,6 +715,7 @@ Haskellにおける型構築子\verb|Maybe|は...
 
 \section{Haskにおける自然同型}
 \subsection{mirror関数}
+Tree関手からTree関手への自然同型
 \subsection{Maybe関手とEither()関手の間の自然同型}
 \section{まとめ}
 aa
