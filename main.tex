@@ -99,7 +99,7 @@
 \section{集合}
 {\bf 集合}とは, ひとまず素朴に「ものの集まり」と定義される. 集合を構成する「もの」を{\bf 元}という.
 \begin{Notation}
-集合は各元をカンマで区切り, $\{\}$で囲むことで表される. 
+集合は各元をカンマで区切り$\{\}$で囲むことで表される. 
 \end{Notation}
 \begin{Notation}
 とある条件を満たす$x$全体からなる集合は$\{x\mid x\text{についての条件}\}$を用いて表す.
@@ -142,7 +142,7 @@ $A$と$B$の
 \end{Def}
 \begin{Def}
 $R$が集合$A,B$の二項関係であるとする. 
-各集合の元$a\in A$と$b\in B$について$(a,b)\in R$であるとき,
+とある$a\in A, b\in B$の組$(a,b)$が$R$の元であるとき,
 {\bf $a$と$b$に間に$R$の関係\index{かんけい@関係}がある}という.
 \end{Def}
 \begin{Notation}
@@ -154,13 +154,13 @@ $R$が集合$A,B$の二項関係であるとする.
 {\bf $R$は$A$から$B$への写像\index{しゃぞう@写像}である}という.
 \end{Def}
 \begin{Notation}
-$f$が集合$A$から集合$B$への写像であることを$f:A\rightarrow B$で表す.
+集合$A$から集合$B$への写像$f$を$f:A\rightarrow B$で表す.
 \end{Notation}
 \begin{caution}
 以下では, 「{\bf 関数\index{かんすう@関数}}」と「写像」を同じ意味で用いる.
 \end{caution}
 \begin{Notation}
-$f$が集合$A$から集合$B$への写像に関して, $b\in B$が$a\in A$に対応することを
+集合$A$から集合$B$への写像に$f$に関して, $b\in B$が$a\in A$に対応することを
 \[
 b=f(a)
 \]
@@ -170,18 +170,18 @@ b=f(a)
 集合$A$から集合$B$への写像$f$が,
 任意の$a_1,a_2\in A$について
 \[
-a_1\neq a_2\rightarrow f(a_1)\neq f(a_2)
+a_1\neq a_2\Rightarrow f(a_1)\neq f(a_2)
 \]
 を満たすとき{\bf $f$は単射である}という.
 \end{Def}
 \begin{Def}
 集合$A$から集合$B$への写像$f$が,
-任意の$b\in B$について
+任意の$b\in B$に対して
 とある$a\in A$が存在して
 \[
-f(a)=b
+b=f(a)
 \]
-となるとき{\bf $f$は全射である}という.
+であるとき{\bf $f$は全射である}という.
 \end{Def}
 \begin{Def}
 集合$A$から集合$B$への写像$f$が, 単射であり, かつ全射であるとき{\bf $f$は全単射である}という.
@@ -205,7 +205,7 @@ aRb\land aRb'\Rightarrow b=b'
 \end{comment}
 \subsection{合成と結合律}
 \begin{Def}
-集合$A$と集合$B$の二項関係$F\in A\times B$と集合$B$と集合$C$の二項関係$G\in B\times C$について, その{\bf 合成}$G\circ F\in A\times C$を
+集合$A,B,C$に関する二項関係$F\in A\times B$と$G\in B\times C$について, その{\bf 合成}$G\circ F\in A\times C$を
 \[
 G\circ F=\{(a,c)\in A\times C|\text{とある}b\in B\text{が存在して}(a,b)\in F \text{かつ} (b,c)\in G\text{である}\}
 \]
@@ -221,14 +221,14 @@ G\circ F=\{(a,c)\in A\times C|\text{とある}b\in B\text{が存在して}(a,b)\
 \end{Prop}
 
 \begin{Def}
-集合$A,B,C$に対する2つの写像$f:A\rightarrow B$と$g:B\rightarrow C$について, その{\bf 合成写像} $g\circ f:A\rightarrow C$を
+集合$A,B,C$に関する写像$f:A\rightarrow B$と$g:B\rightarrow C$について, その{\bf 合成写像} $g\circ f:A\rightarrow C$を
 \[
 (g\circ f)(a)=g(f(a))
 \]
 で定義する. ここで$a$は$A$の元である.
 \end{Def}
 \begin{Prop}
-写像の合成は{\bf 結合律}を満たす.
+写像の合成は結合律を満たす.
 すなわち, 集合$A,B,C,D$に対する3つの写像$f:A\rightarrow B, g:B\rightarrow C,
 h:C\rightarrow D$について
 \[
