@@ -99,9 +99,15 @@
 \section{集合}
 {\bf 集合}とは, ひとまず素朴に「ものの集まり」と定義される. 集合を構成する「もの」を{\bf 元}という.
 \begin{Notation}
-集合は各元を$\{\}$で囲むことで表される. 特に, とある条件を満たす$a$全体からなる集合は$\{a\mid a\text{についての条件}\}$を用いて表現する.
+集合は各元をカンマで区切り, $\{\}$で囲むことで表される. 
+\end{Notation}
+\begin{Notation}
+とある条件を満たす$x$全体からなる集合は$\{x\mid x\text{についての条件}\}$を用いて表す.
 \end{Notation}
 \begin{example}$\{1,2,3\}$や$\{a,b,c\}$, 自然数全体$\mathbb{N}$, 整数全体$\mathbb{Z}$, 実数全体$\mathbb{R}$, 複素数全体$\mathbb{C}$は集合である.
+\end{example}
+\begin{example}
+$\{2a\mid a\in\mathbb{N}\}$や$\{a^3\mid a\in\mathbb{N}\}$は集合である.
 \end{example}
 \begin{Notation}
 $a$が集合$S$の元であることを$a\in S$で表す.
@@ -119,21 +125,6 @@ $\mathscr{P}S=\{A\mid A\subset S\}$
 \end{Def}
 
 \begin{Def}
-次が成り立つ演算$\curlyeqprec$を{\bf 順序}という.
-\begin{enumerate}
-\item $x \curlyeqprec x$
-\item $x\curlyeqprec y,x\curlyeqprec y\Rightarrow x=y$
-\item $x \curlyeqprec y, y \curlyeqprec z\Rightarrow x \curlyeqprec z$
-\end{enumerate}
-\end{Def}
-\begin{Def}
-元に関して順序が与えられている集合を{\bf 順序集合}という.
-\end{Def}
-\begin{example}
-自然数全体$\mathbb{N}$, 整数全体$\mathbb{Z}$, 実数全体$\mathbb{R}$は順序集合である.
-\end{example}
-
-\begin{Def}
 集合$A,B$に対して$\{(a,b)\mid a\in A, b\in B\}$を{\bf $A$と$B$の
 積集合}という.
 \end{Def}
@@ -142,7 +133,7 @@ $A$と$B$の
 積集合を$A\times B$で表す.
 \end{Notation}
 
-集合を「ものの集まり」と素朴に定義することは, 矛盾を孕んでいる. この矛盾を避けるための議論はのちに行う. 
+実は, 集合を「ものの集まり」と素朴に定義することは, 矛盾を孕んでいる. この矛盾を避けるための議論はのちに行う. 
 また, 集合論の公理には立ち入らないこととする.
 
 \section{二項関係・写像（関数）}
@@ -163,16 +154,37 @@ $R$が集合$A,B$の二項関係であるとする.
 {\bf $R$は$A$から$B$への写像\index{しゃぞう@写像}である}という.
 \end{Def}
 \begin{Notation}
-$f$が$A$から$B$への写像であることを$f:A\rightarrow B$で表す.
+$f$が集合$A$から集合$B$への写像であることを$f:A\rightarrow B$で表す.
 \end{Notation}
 \begin{caution}
 以下では, 「{\bf 関数\index{かんすう@関数}}」と「写像」を同じ意味で用いる.
 \end{caution}
+\begin{Notation}
+$f$が集合$A$から集合$B$への写像に関して, $b\in B$が$a\in A$に対応することを
+\[
+b=f(a)
+\]
+で表す.
+\end{Notation}
 \begin{Def}
-{\bf 単射}
+集合$A$から集合$B$への写像$f$が,
+任意の$a_1,a_2\in A$について
+\[
+a_1\neq a_2\rightarrow f(a_1)\neq f(a_2)
+\]
+を満たすとき{\bf $f$は単射である}という.
 \end{Def}
 \begin{Def}
-{\bf 全射}
+集合$A$から集合$B$への写像$f$が,
+任意の$b\in B$について
+とある$a\in A$が存在して
+\[
+f(a)=b
+\]
+となるとき{\bf $f$は全射である}という.
+\end{Def}
+\begin{Def}
+集合$A$から集合$B$への写像$f$が, 単射であり, かつ全射であるとき{\bf $f$は全単射である}という.
 \end{Def}
 \begin{comment}
 \begin{Def}
@@ -193,15 +205,19 @@ aRb\land aRb'\Rightarrow b=b'
 \end{comment}
 \subsection{合成と結合律}
 \begin{Def}
-二項関係の{\bf 合成}を次で定義する
-
-...
-\end{Def}
-\begin{Def}
-{\bf 結合律}とは...
+集合$A$と集合$B$の二項関係$F\in A\times B$と集合$B$と集合$C$の二項関係$G\in B\times C$について, その{\bf 合成}$G\circ F\in A\times C$を
+\[
+G\circ F=\{(a,c)\in A\times C|\text{とある}b\in B\text{が存在して}(a,b)\in F \text{かつ} (b,c)\in G\text{である}\}
+\]
+で定義する.
 \end{Def}
 \begin{Prop}
-二項関係の合成は結合律を満たす
+二項関係の合成は{\bf 結合律}を満たす.
+結合律とは, 集合$A,B,C,D$に対する3つの二項関係$F\in(A\times B),G\in(B\times C),H\in(C\times D)$について
+\[
+(H\circ G)\circ F=H\circ (G\circ F)
+\]
+が成り立つことをいう.
 \end{Prop}
 
 \begin{Def}
@@ -234,24 +250,8 @@ h:C\rightarrow D$について
 \begin{Def}
 {\bf 位相空間}
 \end{Def}
-\begin{Def}
-{\bf 連続写像}
-\end{Def}
-\begin{Def}
-位相空間$A,B$と2つの連続写像$f:A\rightarrow B,g:B\rightarrow A$に対して, 連続関数
-\[
-\alpha : A\times [0,1]\rightarrow B
-\]
-が存在し,
-\begin{align*}
-\alpha(x,0)=f(x)\\
-\alpha(x,1)=g(x)
-\end{align*}
-となっているとき
-{\bf $\alpha$は$f$と$g$を結ぶホモトピーである}という.
-\end{Def}
 
-\section{ユニバース}
+\section{「宇宙」}
 {\bf 内包原理}とは「集合$S$の元$x$に対してtrue か falseを返す関数$\varphi:S\rightarrow\{\mathrm{true},\mathrm{false}\}$が与えられたとき, 新たな集合
 $
 \{x\in S\mid\varphi(x)=\mathrm{true}\}
@@ -265,40 +265,40 @@ R=\{x\mid x\notin x\}
 もし$R\in R$であると仮定すると, $R$の定義により$R\notin R$となる.
 他方, $R\notin R$と仮定すると, $R$の定義より$R\in R$となってしまう.
 
-このような矛盾が発生しないようにするため, ユニバースという概念を導入する.
+このような矛盾が発生しないようにするため, {\bf 「宇宙」}という概念を導入する.
 \begin{Def}
-以下の性質を満たす$U$を{\bf ユニバース}という.
+以下の性質を満たす集合$U$を{\bf 「宇宙」}という.
 \begin{enumerate}
 \item $x$が$y$の元であり, かつ$y$が$U$の元ならば, $x$は$U$の元である.
 \item $x$が$U$の元であり, かつ$y$が$U$の元ならば, $\{x,y\}$は$U$の元である.
 \item $x$が$U$の元ならば, 冪集合$\mathscr{P}x$が$U$の元であり, かつ$\cup x$も$U$の元である
 \item $w=\{0,1,2,\dots\}$は$U$の元である.
-\item $f:a\rightarrow b$が全射\footnote{未定義...}で, $a$が$U$の元であり, かつ$b$が$U$の部分集合ならば, $b$は$U$の元である
+\item $f:a\rightarrow b$が全射で, $a$が$U$の元であり, かつ$b$が$U$の部分集合ならば, $b$は$U$の元である
 \end{enumerate}
 \end{Def}
 \begin{Def}
-ユニバースの元を{\bf 小集合}という.
+「宇宙」の元を{\bf 小集合}という.
 \end{Def}
 \begin{caution}
-ユニバースは小集合の全体である.
+「宇宙」は小集合の全体である.
 \end{caution}
 \begin{Prop}
-ユニバースは小集合ではない
+「宇宙」は小集合ではない
 \end{Prop}
 \begin{Def}
 $a$と$b$が小集合のとき関数$f:a\rightarrow b$を{\bf 小関数}という.
 \end{Def}
 \begin{Def}
-ユニバースの部分集合を{\bf クラス}という.
+「宇宙」の部分集合を{\bf 類}という.
 \end{Def}
 \begin{Prop}
-ユニバース$U$はクラスである.
+「宇宙」$U$は類である.
 \end{Prop}
 \begin{Def}
-小集合でないクラスを{\bf 真のクラス}という.
+小集合でないクラスを{\bf 真類}という.
 \end{Def}
 \begin{Prop}
-ユニバース$U$は真のクラスである.
+「宇宙」$U$は真類である.
 \end{Prop}
 \section{群・準同型写像・同型写像}
 \begin{Def}
@@ -383,6 +383,36 @@ main = do
     putStrLn $ foo 'A'		-- Char: A
 \end{lstlisting}
 Foo 型クラスは任意の型(a)を受け取り、Stringを返却するメソッド foo を持っている. instance を用いてそれぞれの型が引数に指定された場合の処理を実装している.
+\section{補遺}
+\subsection{順序集合}
+\begin{Def}
+次が成り立つ演算$\curlyeqprec$を{\bf 順序}という.
+\begin{enumerate}
+\item $x \curlyeqprec x$
+\item $x\curlyeqprec y,x\curlyeqprec y\Rightarrow x=y$
+\item $x \curlyeqprec y, y \curlyeqprec z\Rightarrow x \curlyeqprec z$
+\end{enumerate}
+\end{Def}
+\begin{Def}
+元に関して順序が与えられている集合を{\bf 順序集合}という.
+\end{Def}
+\subsection{ホモトピー}
+\begin{Def}
+{\bf 連続写像}
+\end{Def}
+\begin{Def}
+位相空間$A,B$と2つの連続写像$f:A\rightarrow B,g:B\rightarrow A$に対して, 連続関数
+\[
+\alpha : A\times [0,1]\rightarrow B
+\]
+が存在し,
+\begin{align*}
+\alpha(x,0)=f(x)\\
+\alpha(x,1)=g(x)
+\end{align*}
+となっているとき
+{\bf $\alpha$は$f$と$g$を結ぶホモトピーである}という.
+\end{Def}
 
 \chapter{圏}
 \section{圏}
