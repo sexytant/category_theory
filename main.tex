@@ -248,37 +248,16 @@ h:C\rightarrow D$について
 が成り立つ.
 \end{Prop}
 
-\subsection{ホモトピー}
 \begin{Def}
-{\bf 逆写}
+集合$A$から集合$B$への写像$f:A\rightarrow B$について, 集合$B$から集合$A$への写像$g:B\rightarrow A$が存在して, $A$の任意の元$a\in A$に対して
+\[
+f(a)=b \Leftrightarrow g(b)=a
+\]
+が成り立つとき, {\bf $g$は$f$の逆写である}という.
 \end{Def}
 \begin{Notation}
 写像$f$の逆写を$f^{-1}$で表す.
 \end{Notation}
-\begin{Def}
-位相空間$X,Y$における
-写像$f:X\rightarrow Y$について,
-$Y$における任意の開集合$V\subset Y$に対して
-\begin{align*}
-f^{-1}(V)=\{x\in X\mid f(x)\in V\}
-\end{align*}
-が$X$の開集合となるとき,
-$f$は{\bf 連続写像}であるという.
-\end{Def}
-\begin{Def}
-位相空間$A,B$と2つの連続写像$f:A\rightarrow B,g:B\rightarrow A$に対して, 連続関数
-\[
-\alpha : A\times [0,1]\rightarrow B
-\]
-が存在し,
-\begin{align*}
-\alpha(x,0)=f(x)\\
-\alpha(x,1)=g(x)
-\end{align*}
-となっているとき
-{\bf $\alpha$は$f$と$g$を結ぶホモトピーである}という.
-\end{Def}
-
 
 \begin{comment}
 ************************************
@@ -327,6 +306,31 @@ $f$は{\bf 連続写像}であるという.
 {\bf $X$を台集合とし, $\mathcal{O}$を位相とする位相空間}という.
 \end{Def}
 ************************************
+\end{comment}
+\begin{comment}
+\begin{Def}
+位相空間$X,Y$における
+写像$f:X\rightarrow Y$について,
+$Y$における任意の開集合$V\subset Y$に対して
+\begin{align*}
+f^{-1}(V)=\{x\in X\mid f(x)\in V\}
+\end{align*}
+が$X$の開集合となるとき,
+$f$は{\bf 連続写像}であるという.
+\end{Def}
+\begin{Def}
+位相空間$A,B$と2つの連続写像$f:A\rightarrow B,g:B\rightarrow A$に対して, 連続関数
+\[
+\alpha : A\times [0,1]\rightarrow B
+\]
+が存在し,
+\begin{align*}
+\alpha(x,0)=f(x)\\
+\alpha(x,1)=g(x)
+\end{align*}
+となっているとき
+{\bf $\alpha$は$f$と$g$を結ぶホモトピーである}という.
+\end{Def}
 \end{comment}
 
 \begin{comment}
