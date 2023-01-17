@@ -79,6 +79,7 @@
 \maketitle
 \tableofcontents
 \newpage
+\part{準備}
 \chapter{集合と位相}
 \section{集合}
 {\bf 集合 set}とは, ひとまず素朴に「ものの集まり」と定義される. 集合を構成する「もの」を{\bf 元 element}という.
@@ -92,6 +93,9 @@
 \end{example}
 \begin{example}
 $\{2a\mid a\in\mathbb{N}\}$や$\{a^3\mid a\in\mathbb{N}\}$は集合である.
+\end{example}
+\begin{example}
+{\bf 空集合 empty set} $\emptyset=\{\}$は集合である.
 \end{example}
 \begin{Notation}
 $a$が集合$S$の元であることを$a\in S$で表す.
@@ -135,7 +139,7 @@ $a$と$b$の間に$R$の関係があることを$aRb$と表す.
 \end{Notation}
 \subsection{順序集合}
 \begin{Def}
-次を満たす集合$X$から$X$への二項関係$R$を{\bf 順序}という.
+次を満たす集合$X$から$X$への二項関係$R$を{\bf 順序 order}という.
 \begin{enumerate}
 \item 任意の$x\in X$について$(x,x)\in R$
 \item $(x,y)\in R\land(y,x)\in R\Rightarrow x=y$
@@ -144,10 +148,10 @@ $a$と$b$の間に$R$の関係があることを$aRb$と表す.
 \end{enumerate}
 \end{Def}
 \begin{Def}
-順序をもつ集合を{\bf 順序集合}という.
+順序をもつ集合を{\bf 順序集合 orderd set}という.
 \end{Def}
 \begin{Notation}
-順序集合の元$x,y$に順序関係があるとき, ...で表す.
+順序集合の元$x,y$に順序関係があるとき, $x\preceq y$で表す.
 \end{Notation}
 
 \subsection{写像}
@@ -243,6 +247,38 @@ h:C\rightarrow D$について
 \]
 が成り立つ.
 \end{Prop}
+
+\subsection{ホモトピー}
+\begin{Def}
+{\bf 逆写}
+\end{Def}
+\begin{Notation}
+写像$f$の逆写を$f^{-1}$で表す.
+\end{Notation}
+\begin{Def}
+位相空間$X,Y$における
+写像$f:X\rightarrow Y$について,
+$Y$における任意の開集合$V\subset Y$に対して
+\begin{align*}
+f^{-1}(V)=\{x\in X\mid f(x)\in V\}
+\end{align*}
+が$X$の開集合となるとき,
+$f$は{\bf 連続写像}であるという.
+\end{Def}
+\begin{Def}
+位相空間$A,B$と2つの連続写像$f:A\rightarrow B,g:B\rightarrow A$に対して, 連続関数
+\[
+\alpha : A\times [0,1]\rightarrow B
+\]
+が存在し,
+\begin{align*}
+\alpha(x,0)=f(x)\\
+\alpha(x,1)=g(x)
+\end{align*}
+となっているとき
+{\bf $\alpha$は$f$と$g$を結ぶホモトピーである}という.
+\end{Def}
+
 
 \begin{comment}
 ************************************
@@ -383,37 +419,7 @@ h:C\rightarrow D$について
 \end{enumerate}
 \end{Def}
 体ではいわゆる四則演算が可能である
-\section{補遺}
-\subsection{ホモトピー}
-\begin{Def}
-{\bf 逆写}
-\end{Def}
-\begin{Notation}
-写像$f$の逆写を$f^{-1}$で表す.
-\end{Notation}
-\begin{Def}
-位相空間$X,Y$における
-写像$f:X\rightarrow Y$について,
-$Y$における任意の開集合$V\subset Y$に対して
-\begin{align*}
-f^{-1}(V)=\{x\in X\mid f(x)\in V\}
-\end{align*}
-が$X$の開集合となるとき,
-$f$は{\bf 連続写像}であるという.
-\end{Def}
-\begin{Def}
-位相空間$A,B$と2つの連続写像$f:A\rightarrow B,g:B\rightarrow A$に対して, 連続関数
-\[
-\alpha : A\times [0,1]\rightarrow B
-\]
-が存在し,
-\begin{align*}
-\alpha(x,0)=f(x)\\
-\alpha(x,1)=g(x)
-\end{align*}
-となっているとき
-{\bf $\alpha$は$f$と$g$を結ぶホモトピーである}という.
-\end{Def}
+
 \section{「宇宙」}
 {\bf 内包原理}とは「集合$S$の元$x$に対してtrue か falseを返す関数$\varphi:S\rightarrow\{\mathrm{true},\mathrm{false}\}$が与えられたとき, 新たな集合
 $
@@ -517,7 +523,7 @@ main = do
     putStrLn $ foo 'A'		-- Char: A
 \end{lstlisting}
 Foo 型クラスは任意の型(a)を受け取り、Stringを返却するメソッド foo を持っている. instance を用いてそれぞれの型が引数に指定された場合の処理を実装している.
-
+\part{圏論の諸概念}
 \chapter{圏}
 \section{圏}
 \begin{Def}
