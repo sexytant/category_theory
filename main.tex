@@ -79,25 +79,7 @@
 \maketitle
 \tableofcontents
 \newpage
-学習の目安
-\begin{center}
-\begin{tabular}{cl}
-1&準備 「集合」と「二項関係・部分関数・写像（関数）」\\
-2&準備 「群・準同型写像・同型写像」と「体」\\
-3&圏　「圏」\\
-4&圏　「Haskellにおける圏」\\
-5&関手 「関手」と「Haskellの型構築子と関手」\\
-6&関手　「2変数の関手」と「型クラスとHaskの部分圏」\\
-7&自然変換　「自然変換」\\
-8&自然変換　「Haskにおける自然変換\\
-9&定数関手　「定数関手」\\
-10&定数関手　「Haskにおける定数関手」\\
-11&関手圏\\
-12&圏同値\\
-\end{tabular}
-\end{center}
-\newpage
-\chapter{準備}
+\chapter{集合と位相}
 \section{集合}
 {\bf 集合 set}とは, ひとまず素朴に「ものの集まり」と定義される. 集合を構成する「もの」を{\bf 元 element}という.
 \begin{Notation}
@@ -139,6 +121,7 @@ $A$と$B$の
 また, 集合論の公理には立ち入らないこととする.
 
 \section{二項関係・写像（関数）}
+\subsection{二項関係}
 \begin{Def}
 集合$A,B$に対して$R\subset A\times B$であるとき, {\bf $R$は$A$と$B$の二項関係 binary relation}\index{にこうかんけい@二項関係}であるという.
 \end{Def}
@@ -150,6 +133,24 @@ $R$が集合$A,B$の二項関係であるとする.
 \begin{Notation}
 $a$と$b$の間に$R$の関係があることを$aRb$と表す.
 \end{Notation}
+\subsection{順序集合}
+\begin{Def}
+次を満たす集合$X$から$X$への二項関係$R$を{\bf 順序}という.
+\begin{enumerate}
+\item 任意の$x\in X$について$(x,x)\in R$
+\item $(x,y)\in R\land(y,x)\in R\Rightarrow x=y$
+\item $(x,y)\in R\land (y,z)\in R
+\Rightarrow (x,z)\in R$
+\end{enumerate}
+\end{Def}
+\begin{Def}
+順序をもつ集合を{\bf 順序集合}という.
+\end{Def}
+\begin{Notation}
+順序集合の元$x,y$に順序関係があるとき, ...で表す.
+\end{Notation}
+
+\subsection{写像}
 \begin{Def}
 $R$が集合$A,B$の二項関係であるとする.
 任意の$a\in A$について, とある$b\in B$が一意に存在して$aRb$となるとき,
@@ -188,7 +189,9 @@ b=f(a)
 \begin{Def}
 集合$A$から集合$B$への写像$f$が, 単射であり, かつ全射であるとき{\bf $f$は全単射 bijection である}という.
 \end{Def}
+
 \begin{comment}
+************************************
 \begin{Def}
 $R$が集合$A,B$の二項関係であるとする.
 
@@ -204,7 +207,9 @@ aRb\land aRb'\Rightarrow b=b'
 \begin{Prop}
 部分関数は二項関係である. これは定義より明らかである.
 \end{Prop}
+************************************
 \end{comment}
+
 \subsection{合成と結合律}
 \begin{Def}
 集合$A,B,C$に関する二項関係$F\in A\times B$と$G\in B\times C$について, その{\bf 合成 composition} $G\circ F\in A\times C$を
@@ -238,7 +243,9 @@ h:C\rightarrow D$について
 \]
 が成り立つ.
 \end{Prop}
+
 \begin{comment}
+************************************
 \begin{Def}
 部分関数の合成
 \end{Def}
@@ -246,8 +253,167 @@ h:C\rightarrow D$について
 \begin{Prop}
 部分関数の合成は結合律を満たす.
 \end{Prop}
+************************************
 \end{comment}
 
+\begin{comment}
+************************************
+\section{族}
+\begin{Def}
+集合$I$ 
+から集合$X$への写像$f:I\rightarrow X$が存在するとき, 集合$\{x_i\in X\mid x_i=f(i), i\in I\}$のことを
+{\bf $I$を添字集合 index set とする$X$の元の族}という.
+\end{Def}
+************************************
+\end{comment}
+
+\begin{comment}
+************************************
+\section{位相空間}
+\begin{Def}
+{\bf $X$上の集合族}という.
+\end{Def}
+\begin{Def}
+集合$X$に関して, $X$の冪集合$\mathscr{P}(X)$の部分集合のことを{\bf $X$上の部分集合族}という.
+\end{Def}
+
+\begin{Def}
+集合$X$の部分集合族$\mathcal{O}$について, 次が成り立つとき$\mathcal{O}$を{\bf 集合$X$の位相}という.
+\begin{enumerate}
+\item $X\in\mathcal{O}$,$\emptyset\in\mathcal{O}$
+\item 任意の$U,V\in\mathcal{O}$について$U\cap V\in\mathcal{O}$である.
+\item ...
+\end{enumerate}
+\end{Def}
+
+\begin{Def}
+集合$X$とその位相$\mathcal{O}$の組$(X,\mathcal{O})$を
+{\bf $X$を台集合とし, $\mathcal{O}$を位相とする位相空間}という.
+\end{Def}
+************************************
+\end{comment}
+
+\begin{comment}
+************************************
+\begin{Def}
+集合$X$に関して, 写像$d:X\times X\rightarrow \mathbb{R}$が以下の条件を満たすとき, {\bf $d$は$X$上の距離metricである}という.
+\begin{enumerate}
+\item 任意の$x,y\in X$について$d(x,y)=0\Leftrightarrow x=y$
+\item 任意の$x,y\in X$について$d(x,y)=d(y,x)$
+\item 任意の$x,y,z\in X$について$d(x,y)+d(y,z)\geq d(x,z)$
+\end{enumerate}
+\end{Def}
+\begin{Def}
+集合$X$と$X$上の距離$d$の組$(X,d)$を{\bf 距離空間 metric space}という
+\end{Def}
+\begin{Def}
+集合$X$の部分集合$U\subset X$と$X$上の距離$d$について, 以下が成り立つとき, {\bf $U\subset X$は開集合である}という.
+
+任意の$x\in U$に対して, とある実数$\epsilon > 0$が存在し, $d(x,y)<\epsilon$を満たす全ての$y\in X$が$y\in U$となる 
+\end{Def}
+************************************
+\end{comment}
+
+\chapter{代数系}
+\section{群}
+\begin{Def}
+集合$G$に関する写像$\mu:G\times G\rightarrow G$
+を{\bf $G$上の二項演算 binary operation $\mu$}という.
+\end{Def}
+\begin{Def}
+集合$G$と$G$上の二項演算$\mu$について, とある元$e\in G$が存在して, 任意の元$g\in G$に対して\[\mu(e,g)=\mu(g,e)=g\]が成り立つとき, $e$を{\bf $G$の単位元 identity element}という.
+\end{Def}
+\begin{Def}
+集合$G$と$G$上の二項演算$\mu$について, 任意の元$g\in G$に対して, とある元$h$が存在して \[\mu(g,h)=\mu(h,g)=e\]が成り立つとき, $h$を{\bf $g$の逆元 inverse element }という.
+ここで$e$は$G$の単位元である.
+\end{Def}
+\begin{Notation}
+集合$G$における元$g\in G$の逆元を$g^{-1}$で表す.
+\end{Notation}
+\begin{Def}
+集合$G$と$G$上の二項演算$\mu$が以下の条件を満たすとき{\bf$(G,\mu)$は 群 group である}という
+\begin{enumerate}
+\item $\mu$が結合律を満たす. すなわち, 任意の$G$の元$g,h,k$に対して\[\mu(g,\mu(h,k))=\mu(\mu(g,h),k)\]が成り立つ.
+\item $G$は単位元をもつ.
+\item $G$の任意の元に対して逆元が存在する.
+\end{enumerate}
+\end{Def}
+\begin{Def}
+群$(G_1,\mu_1)$から群$(G_2,\mu_2)$への写像$f$が任意の$G_1$の元$g, g'$について \[f(\mu_1(g,g')) = \mu_2(f(g),f(g'))\] を満たすとき、{\bf $f$は$(G_1,\mu_1)$から$(G_2,\mu_2)$への準同型写像 homomorphism である}という.
+\end{Def}
+\begin{Def}
+群$(G_1,\mu_1)$から群$(G_2,\mu_2)$への準同型写像$f$が全単射であるとき,
+{\bf $f$は$(G_1,\mu_1)$から$(G_2,\mu_2)$への同型写像 isomorphism である}という
+\end{Def}
+\begin{Def}
+群$(G,\mu)$において,
+任意の$a,b\in G$に対して$\mu(a,b)=\mu(b,a)$が成り立つとき,
+{\bf 群$(G,\mu)$は可換群\index{かかんぐん@可換群} commutative group である}という\footnote{アーベル群 abelian groupともいう}.
+\end{Def}
+\begin{comment}
+\begin{Def}
+位相空間$X$と自然数$n$に対して次の手続きで決定されるアーベル群$H_n(X)$を{\bf$n$次 ホモロジー群}と呼ぶ
+
+...
+
+\end{Def}
+\end{comment}
+\section{環}
+\begin{Def}
+{\bf 加法}
+\end{Def}
+\begin{Def}
+{\bf 乗法}
+\end{Def}
+\begin{Def}
+{\bf 分配 distributive property}
+\end{Def}
+
+
+\section{体}
+\begin{Def}
+以下の条件を満たす集合を{\bf 体}という.
+\begin{enumerate}
+\item
+加法について可換群になっている．すなわち,加法について閉じていて，単位元と逆元が存在する．
+\item 
+乗法について可換群になっている. すなわち,乗法について閉じていて，単位元と逆元が存在する.
+\item 
+加法と乗法について分配法則が成り立つ.
+\end{enumerate}
+\end{Def}
+体ではいわゆる四則演算が可能である
+\section{補遺}
+\subsection{ホモトピー}
+\begin{Def}
+{\bf 逆写}
+\end{Def}
+\begin{Notation}
+写像$f$の逆写を$f^{-1}$で表す.
+\end{Notation}
+\begin{Def}
+位相空間$X,Y$における
+写像$f:X\rightarrow Y$について,
+$Y$における任意の開集合$V\subset Y$に対して
+\begin{align*}
+f^{-1}(V)=\{x\in X\mid f(x)\in V\}
+\end{align*}
+が$X$の開集合となるとき,
+$f$は{\bf 連続写像}であるという.
+\end{Def}
+\begin{Def}
+位相空間$A,B$と2つの連続写像$f:A\rightarrow B,g:B\rightarrow A$に対して, 連続関数
+\[
+\alpha : A\times [0,1]\rightarrow B
+\]
+が存在し,
+\begin{align*}
+\alpha(x,0)=f(x)\\
+\alpha(x,1)=g(x)
+\end{align*}
+となっているとき
+{\bf $\alpha$は$f$と$g$を結ぶホモトピーである}という.
+\end{Def}
 \section{「宇宙」}
 {\bf 内包原理}とは「集合$S$の元$x$に対してtrue か falseを返す関数$\varphi:S\rightarrow\{\mathrm{true},\mathrm{false}\}$が与えられたとき, 新たな集合
 $
@@ -290,6 +456,7 @@ $a$と$b$が小集合のとき関数$f:a\rightarrow b$を{\bf 小関数 small fu
 \begin{proof}
 もし, 「宇宙」が「宇宙」の元であるとすると,...と矛盾する.
 \end{proof}
+\section{類}
 \begin{Def}
 「宇宙」の部分集合を{\bf 類 class} という.
 \end{Def}
@@ -308,117 +475,23 @@ $a$と$b$が小集合のとき関数$f:a\rightarrow b$を{\bf 小関数 small fu
 \begin{proof}
 「宇宙」は小集合ではなく, かつ類である.
 \end{proof}
-\section{位相空間}
-\begin{Def}
-集合$X$に関して, 写像$d:X\times X\rightarrow \mathbb{R}$が以下の条件を満たすとき, {\bf $d$は$X$上の距離metricである}という.
-\begin{enumerate}
-\item 任意の$x,y\in X$について$d(x,y)=0\Leftrightarrow x=y$
-\item 任意の$x,y\in X$について$d(x,y)=d(y,x)$
-\item 任意の$x,y,z\in X$について$d(x,y)+d(y,z)\geq d(x,z)$
-\end{enumerate}
-\end{Def}
-\begin{Def}
-集合$X$と$X$上の距離$d$の組$(X,d)$を{\bf 距離空間 metric space}という
-\end{Def}
-\begin{Def}
-集合$X$の部分集合$U\subset X$と$X$上の距離$d$について, 以下が成り立つとき, {\bf $U\subset X$は開集合である}という.
-
-任意の$x\in U$に対して, とある実数$\epsilon > 0$が存在し, $d(x,y)<\epsilon$を満たす全ての$y\in X$が$y\in U$となる 
-\end{Def}
-\begin{Def}
-{\bf 開集合系}
-\end{Def}
-\begin{Def}
-{\bf 位相}
-\end{Def}
-\begin{Def}
-{\bf 位相空間}
-\end{Def}
-
-\section{群・準同型写像・同型写像}
-\begin{Def}
-集合$A$に関する写像$\mu:A\times A\rightarrow A$
-を{\bf $A$上の二項演算 binary operation $\mu$}という.
-\end{Def}
-\begin{Def}
-集合$G$について, とある元$e\in G$が存在して, 任意の元$g\in G$に対して\[\mu(e,g)=\mu(g,e)=g\]が成り立つとき, $e$を{\bf $G$の単位元 identity element}という.
-\end{Def}
-\begin{Def}
-集合$G$について, 任意の元$g\in G$に対して, とある元$h$が存在して \[\mu(g,h)=\mu(h,g)=e\]が成り立つとき, $h$を{\bf $g$の逆元 inverse element }という.
-ここで$e$は$G$の単位元である.
-\end{Def}
-\begin{Notation}
-集合$G$における元$g\in G$の逆元を$g^{-1}$で表す.
-\end{Notation}
-\begin{Def}
-集合$G$と$G$上の二項演算$\mu$が以下の条件を満たすとき{\bf$(G,\mu)$は 群 group である}という
-\begin{enumerate}
-\item $\mu$が結合律を満たす. すなわち, 任意の$G$の元$g,h,k$に対して\[\mu(g,\mu(h,k))=\mu(\mu(g,h),k)\]が成り立つ.
-\item $G$は単位元をもつ.
-\item $G$の任意の元に対して逆元が存在する.
-\end{enumerate}
-\end{Def}
-\begin{Def}
-群$(G_1,\mu_1)$から群$(G_2,\mu_2)$への写像$f$が任意の$G_1$の元$g, g'$について \[f(\mu_1(g,g')) = \mu_2(f(g),f(g'))\] を満たすとき、{\bf $f$は$(G_1,\mu_1)$から$(G_2,\mu_2)$への準同型写像 homomorphism である}という.
-\end{Def}
-\begin{Def}
-群$(G_1,\mu_1)$から群$(G_2,\mu_2)$への準同型写像$f$が全単射であるとき,
-{\bf $f$は$(G_1,\mu_1)$から$(G_2,\mu_2)$への同型写像 isomorphism である}という
-\end{Def}
-\begin{Def}
-群$(G,\mu)$において,
-任意の$a,b\in G$に対して$\mu(a,b)=\mu(b,a)$が成り立つとき,
-{\bf 群$(G,\mu)$は可換群\index{かかんぐん@可換群} commutative group である}という\footnote{アーベル群 abelian groupともいう}.
-\end{Def}
-\begin{comment}
-\begin{Def}
-位相空間$X$と自然数$n$に対して次の手続きで決定されるアーベル群$H_n(X)$を{\bf$n$次 ホモロジー群}と呼ぶ
-
-...
-
-\end{Def}
-\end{comment}
-
-
-\section{体}
-\begin{Def}
-{\bf 加法}
-\end{Def}
-\begin{Def}
-{\bf 乗法}
-\end{Def}
-\begin{Def}
-{\bf 分配 distributive property}
-\end{Def}
-\begin{Def}
-以下の条件を満たす集合を{\bf 体}という.
-\begin{enumerate}
-\item
-加法について可換群になっている．すなわち,加法について閉じていて，単位元と逆元が存在する．
-\item 
-乗法について可換群になっている. すなわち,乗法について閉じていて，単位元と逆元が存在する.
-\item 
-加法と乗法について分配法則が成り立つ.
-\end{enumerate}
-\end{Def}
-体ではいわゆる四則演算が可能である
-\section{Haskellの基礎}
+\chapter{Haskellの基礎}
 関数型プログラミング言語Haskellでは圏論的な視点からライブラリが構築されている.
-\subsection{型}
-\subsubsection{定義済みの型}
+\section{型}
+\subsection{定義済みの型}
 Haskellには標準ライブラリに\verb|Int|, \verb|Integer|, 
 \verb|Char|,
 \verb|Float|,
 \verb|Double|,
 \verb|Bool|
 などの型が定義済みである.
-\subsubsection{新型定義}
+\subsection{新型定義}
 定義済みの型をもとにタプル,リストあるいは\verb|Maybe|のような型構築子によって新たな型を無限に作り出すことができる.
 \begin{example}
 \verb|[Integer]|, \verb|Maybe Int|,
 \verb|(Int,[Char])| などはすべてHaskellの型である.
 \end{example}
-\subsubsection{データ型}
+\subsection{データ型}
 \begin{lstlisting}
 data Color = Red | Green | Blue 
 \end{lstlisting}
@@ -426,7 +499,7 @@ data Color = Red | Green | Blue
 \begin{lstlisting}
 data Color = Red | Green | Blue deriving Show
 \end{lstlisting}
-\subsubsection{型クラス}
+\subsection{型クラス}
 \begin{lstlisting}
 class Foo a where
     foo :: a -> String
@@ -444,43 +517,6 @@ main = do
     putStrLn $ foo 'A'		-- Char: A
 \end{lstlisting}
 Foo 型クラスは任意の型(a)を受け取り、Stringを返却するメソッド foo を持っている. instance を用いてそれぞれの型が引数に指定された場合の処理を実装している.
-\section{補遺}
-\subsection{順序集合}
-\begin{Def}
-次が成り立つ演算$\curlyeqprec$を{\bf 順序}という.
-\begin{enumerate}
-\item $x \curlyeqprec x$
-\item $x\curlyeqprec y,x\curlyeqprec y\Rightarrow x=y$
-\item $x \curlyeqprec y, y \curlyeqprec z\Rightarrow x \curlyeqprec z$
-\end{enumerate}
-\end{Def}
-\begin{Def}
-元に関して順序が与えられている集合を{\bf 順序集合}という.
-\end{Def}
-\subsection{ホモトピー}
-\begin{Def}
-位相空間$X,Y$における
-写像$f:X\rightarrow Y$について,
-$Y$における任意の開集合$V\subset Y$に対して
-\begin{align*}
-f^{-1}(V)=\{x\in X\mid f(x)\in V\}
-\end{align*}
-が$X$の開集合となるとき,
-$f$は{\bf 連続写像}であるという.
-\end{Def}
-\begin{Def}
-位相空間$A,B$と2つの連続写像$f:A\rightarrow B,g:B\rightarrow A$に対して, 連続関数
-\[
-\alpha : A\times [0,1]\rightarrow B
-\]
-が存在し,
-\begin{align*}
-\alpha(x,0)=f(x)\\
-\alpha(x,1)=g(x)
-\end{align*}
-となっているとき
-{\bf $\alpha$は$f$と$g$を結ぶホモトピーである}という.
-\end{Def}
 
 \chapter{圏}
 \section{圏}
@@ -503,11 +539,16 @@ h\circ(g\circ f)=(h\circ g)\circ f
 $f\circ 1_A=f$かつ$1_A\circ g=g$
 \end{enumerate}
 \end{Def}
-\begin{Def}
-同型射と逆射
-\end{Def}
 \begin{Notation}
 圏$\mathscr{C}$の対象$A,B$に対して$f:A\rightarrow B$となる射の全体を$\mathrm{Hom}_{\mathscr{C}}(A,B)$で表す.
+\end{Notation}
+\begin{Def}
+圏$\mathscr{C}$の射$f:A\rightarrow B$に対して,
+ある射$g:B\rightarrow A$が存在して$g\circ f=1_A$かつ$f\circ g=1_B$となるとき,
+{\bf $f$は同型射である}という. また, このとき$g$を$f$の{\bf 逆射}という.
+\end{Def}
+\begin{Notation}
+射$f$の逆射を$f^{-1}$で表す.
 \end{Notation}
 \begin{Prop}
 ある射の逆射は存在すれば, 一意に定まる
@@ -635,12 +676,14 @@ $f\circ f=1_A$ならば...
 圏の積は圏である.
 \end{Prop}
 \section{Haskellにおける圏 (Hask)}
-
+\begin{Prop}
 すべてのHaskellの型を対象とし, それらの間の関数を射とする圏Haskは小圏である.
+\end{Prop}
+\begin{proof}
+\end{proof}
 \begin{caution}
 Haskellにおいて, 型\verb|A|,\verb|B|に対して, 型構築子によってつくられる\verb|A->B|は1つの型となる.
 \end{caution}
-\section{まとめ}
 \chapter{関手}
 \section{関手}
 \begin{Def}
@@ -750,7 +793,7 @@ Haskellにおける型構築子\verb|Maybe|は...
 \section{型クラスとHaskの部分圏}
 {\bf ソート関手}
 \lstinputlisting{src/haskell/sort.hs}
-\section{まとめ}
+
 \chapter{自然変換}
 \section{自然変換}
 \begin{Def}
@@ -784,7 +827,7 @@ $\mathscr{B}$の射$\alpha_A:FA\rightarrow GA$
 
 \section{Haskにおける定数関手}
 \subsection{length関数}
-\section{まとめ}
+
 \chapter{関手圏}
 \section{関手圏}
 \begin{Prop}
