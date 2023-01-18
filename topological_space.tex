@@ -1,0 +1,134 @@
+\begin{comment}
+************************************
+\section{族}
+\begin{Def}
+集合$I$ 
+から集合$X$への写像$f:I\rightarrow X$が存在するとき, 集合$\{x_i\in X\mid x_i=f(i), i\in I\}$のことを
+{\bf $I$を添字集合 index set とする$X$の元の族}という.
+\end{Def}
+************************************
+\end{comment}
+\section{位相空間}
+\subsection{位相空間}
+
+\begin{Def}
+集合$X$に関して, $X$の冪集合$\mathscr{P}(X)$の部分集合のことを{\bf $X$上の部分集合系}という.
+\end{Def}
+
+\begin{Def}
+集合$X$上の部分集合系$\mathscr{D}$が次を満たすとき, {\bf$\mathscr{D}$は$X$上の開集合系である}という.
+\begin{enumerate}
+\item $X\in\mathscr{D}$かつ$\emptyset\in\mathscr{D}$
+\item （重複部分）
+\item （合併）
+\end{enumerate}
+\end{Def}
+\begin{Def}
+開集合系の元を{\bf 開集合 open set}という.
+\end{Def}
+\begin{Def}
+集合$X$上の部分集合系$\mathcal{F}$が次を満たすとき, {\bf$\mathscr{F}$は$X$上の閉集合系である}という.
+\begin{enumerate}
+\item $X\in\mathscr{F}$かつ$\emptyset\in\mathscr{F}$
+\item （共通部分）\footnote{未定義}
+\item （集合族\footnote{未定義}の合併）\footnote{未定義}
+\end{enumerate}
+\end{Def}
+\begin{Def}
+閉集合系の元を{\bf 閉集合 closed set}という.
+\end{Def}
+\begin{Def}
+集合$X$から$X$のべき集合$\mathscr{P}(X)$への写像
+$\mathscr{U}:X\rightarrow\mathscr{P}(X)$が, 任意の$X$上の元$x\in X$に対して以下を満たすとき,
+{\bf $\mathscr{U}$は$X$上の近傍系である}という
+\begin{enumerate}
+\item
+\item
+\item
+\end{enumerate}
+\end{Def}
+\begin{Def}
+$x$の近傍neiborhoodであるという
+\end{Def}
+\begin{Def}
+集合$X$のべき集合$\mathscr{P}(x)$について, 写像$f:\mathscr{P}(x)\rightarrow\mathscr{P}(x)$
+が次を満たすとき,
+{\bf $f$は$X$上の閉包作用素 closure である}という.
+\end{Def}
+\begin{Def}
+集合$X$のべき集合$\mathscr{P}(x)$について, 写像$f:\mathscr{P}(x)\rightarrow\mathscr{P}(x)$
+が次を満たすとき,
+{\bf $f$は$X$上の開核作用素である}という.
+\end{Def}
+\begin{Def}
+集合$X$に対する開集合系, 閉集合系, 近傍系, 閉包作用素, 開核作用素を{\bf $X$の位相}という
+\end{Def}
+\begin{Prop}
+集合$X$に対して, 開集合系, 閉集合系, 近傍系, 閉包作用素, 開核作用素のいずれか1つの位相を定めると, ほか4つの位相も定まる. 
+\end{Prop}
+\begin{Def}
+集合$X$とその位相$\mathcal{O}$の組$(X,\mathcal{O})$を
+{\bf $X$を台集合とし, $\mathcal{O}$を位相とする位相空間 topological space}という.
+\end{Def}
+
+\begin{comment}
+************************************
+
+
+\begin{Def}
+集合$X$の部分集合族$\mathcal{O}$について, 次が成り立つとき$\mathcal{O}$を{\bf 集合$X$の位相}という.
+\begin{enumerate}
+\item $X\in\mathcal{O}$,$\emptyset\in\mathcal{O}$
+\item 任意の$U,V\in\mathcal{O}$について$U\cap V\in\mathcal{O}$である.
+\item ...
+\end{enumerate}
+\end{Def}
+
+************************************
+\end{comment}
+\subsection{ホモトピー}
+\begin{Def}
+位相空間$X,Y$における
+写像$f:X\rightarrow Y$について,
+$Y$における任意の開集合$V\subset Y$に対して
+\begin{align*}
+f^{-1}(V)=\{x\in X\mid f(x)\in V\}
+\end{align*}
+が$X$の開集合となるとき,
+$f$は{\bf 連続写像}であるという.
+\end{Def}
+\begin{Def}
+位相空間$A,B$と2つの連続写像$f:A\rightarrow B,g:B\rightarrow A$に対して, 連続関数
+\[
+\alpha : A\times [0,1]\rightarrow B
+\]
+が存在し,
+\begin{align*}
+\alpha(x,0)=f(x)\\
+\alpha(x,1)=g(x)
+\end{align*}
+となっているとき
+{\bf $\alpha$は$f$と$g$を結ぶホモトピーである}という.
+\end{Def}
+
+
+\begin{comment}
+************************************
+\begin{Def}
+集合$X$に関して, 写像$d:X\times X\rightarrow \mathbb{R}$が以下の条件を満たすとき, {\bf $d$は$X$上の距離metricである}という.
+\begin{enumerate}
+\item 任意の$x,y\in X$について$d(x,y)=0\Leftrightarrow x=y$
+\item 任意の$x,y\in X$について$d(x,y)=d(y,x)$
+\item 任意の$x,y,z\in X$について$d(x,y)+d(y,z)\geq d(x,z)$
+\end{enumerate}
+\end{Def}
+\begin{Def}
+集合$X$と$X$上の距離$d$の組$(X,d)$を{\bf 距離空間 metric space}という
+\end{Def}
+\begin{Def}
+集合$X$の部分集合$U\subset X$と$X$上の距離$d$について, 以下が成り立つとき, {\bf $U\subset X$は開集合である}という.
+
+任意の$x\in U$に対して, とある実数$\epsilon > 0$が存在し, $d(x,y)<\epsilon$を満たす全ての$y\in X$が$y\in U$となる 
+\end{Def}
+************************************
+\end{comment}

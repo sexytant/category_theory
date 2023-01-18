@@ -271,89 +271,7 @@ f(a)=b \Leftrightarrow g(b)=a
 ************************************
 \end{comment}
 
-\begin{comment}
-************************************
-\section{族}
-\begin{Def}
-集合$I$ 
-から集合$X$への写像$f:I\rightarrow X$が存在するとき, 集合$\{x_i\in X\mid x_i=f(i), i\in I\}$のことを
-{\bf $I$を添字集合 index set とする$X$の元の族}という.
-\end{Def}
-************************************
-\end{comment}
-\section{位相空間}
-\subsection{位相空間}
-\begin{comment}
-************************************
 
-\begin{Def}
-{\bf $X$上の集合族}という.
-\end{Def}
-\begin{Def}
-集合$X$に関して, $X$の冪集合$\mathscr{P}(X)$の部分集合のことを{\bf $X$上の部分集合族}という.
-\end{Def}
-
-\begin{Def}
-集合$X$の部分集合族$\mathcal{O}$について, 次が成り立つとき$\mathcal{O}$を{\bf 集合$X$の位相}という.
-\begin{enumerate}
-\item $X\in\mathcal{O}$,$\emptyset\in\mathcal{O}$
-\item 任意の$U,V\in\mathcal{O}$について$U\cap V\in\mathcal{O}$である.
-\item ...
-\end{enumerate}
-\end{Def}
-
-\begin{Def}
-集合$X$とその位相$\mathcal{O}$の組$(X,\mathcal{O})$を
-{\bf $X$を台集合とし, $\mathcal{O}$を位相とする位相空間}という.
-\end{Def}
-************************************
-\end{comment}
-\subsection{ホモトピー}
-\begin{Def}
-位相空間$X,Y$における
-写像$f:X\rightarrow Y$について,
-$Y$における任意の開集合$V\subset Y$に対して
-\begin{align*}
-f^{-1}(V)=\{x\in X\mid f(x)\in V\}
-\end{align*}
-が$X$の開集合となるとき,
-$f$は{\bf 連続写像}であるという.
-\end{Def}
-\begin{Def}
-位相空間$A,B$と2つの連続写像$f:A\rightarrow B,g:B\rightarrow A$に対して, 連続関数
-\[
-\alpha : A\times [0,1]\rightarrow B
-\]
-が存在し,
-\begin{align*}
-\alpha(x,0)=f(x)\\
-\alpha(x,1)=g(x)
-\end{align*}
-となっているとき
-{\bf $\alpha$は$f$と$g$を結ぶホモトピーである}という.
-\end{Def}
-
-
-\begin{comment}
-************************************
-\begin{Def}
-集合$X$に関して, 写像$d:X\times X\rightarrow \mathbb{R}$が以下の条件を満たすとき, {\bf $d$は$X$上の距離metricである}という.
-\begin{enumerate}
-\item 任意の$x,y\in X$について$d(x,y)=0\Leftrightarrow x=y$
-\item 任意の$x,y\in X$について$d(x,y)=d(y,x)$
-\item 任意の$x,y,z\in X$について$d(x,y)+d(y,z)\geq d(x,z)$
-\end{enumerate}
-\end{Def}
-\begin{Def}
-集合$X$と$X$上の距離$d$の組$(X,d)$を{\bf 距離空間 metric space}という
-\end{Def}
-\begin{Def}
-集合$X$の部分集合$U\subset X$と$X$上の距離$d$について, 以下が成り立つとき, {\bf $U\subset X$は開集合である}という.
-
-任意の$x\in U$に対して, とある実数$\epsilon > 0$が存在し, $d(x,y)<\epsilon$を満たす全ての$y\in X$が$y\in U$となる 
-\end{Def}
-************************************
-\end{comment}
 
 \chapter{代数系}
 \section{群}
@@ -490,23 +408,32 @@ $a$と$b$が小集合のとき関数$f:a\rightarrow b$を{\bf 小関数 small fu
 関数型プログラミング言語Haskellでは圏論的な視点からライブラリが構築されている.
 \section{型}
 \subsection{定義済みの型}
-Haskellには標準ライブラリに\verb|Int|, \verb|Integer|, 
-\verb|Char|,
-\verb|Float|,
-\verb|Double|,
-\verb|Bool|
-などの型が定義済みである.
-\subsection{新型定義}
+Haskellには標準ライブラリに
+\begin{table}[h]
+\caption{Haskellの標準ライブラリに定義済みの型}
+\begin{center}
+\begin{tabular}{ll}
+\verb|Int|&固定長整数\\
+\verb|Integer|&多倍長整数 \\
+\verb|Char|&文字\\
+\verb|Float|&単精度浮動小数点数\\
+\verb|Double|&倍精度浮動小数点数\\
+\verb|Bool|&ブール代数\\
+\end{tabular}
+\end{center}
+\end{table}
+\subsection{型構築子}
 定義済みの型をもとにタプル,リストあるいは\verb|Maybe|のような型構築子によって新たな型を無限に作り出すことができる.
 \begin{example}
 \verb|[Integer]|, \verb|Maybe Int|,
 \verb|(Int,[Char])| などはすべてHaskellの型である.
 \end{example}
-\subsection{データ型}
+\subsection{データ宣言}
+例として\verb|Red|, \verb|Green|, \verb|Blue|からなるデータ\verb|Color|の宣言は以下のように記述する.
 \begin{lstlisting}
 data Color = Red | Green | Blue 
 \end{lstlisting}
-データ型は型クラス\verb|Show|を付与することにより出力が可能となる.
+データを表示するためには, \verb|Color| を型クラス \verb|Show| のインスタンスにする必要があることに注意する.
 \begin{lstlisting}
 data Color = Red | Green | Blue deriving Show
 \end{lstlisting}
