@@ -1,0 +1,52 @@
+\section{「宇宙」}
+{\bf 内包原理}とは「集合$S$の元$x$に対してtrue か falseを返す関数$\varphi:S\rightarrow\{\mathrm{true},\mathrm{false}\}$が与えられたとき, 新たな集合
+$
+\{x\in S\mid\varphi(x)=\mathrm{true}\}
+$
+を構成できる」という集合が満たすべき性質のことをいう. 
+
+ここまで, 集合を「ものの集まり」と素朴に定義してきたが, 次のような集合$R$を内包原理に基づいて構成しようとすると矛盾が生じる.\footnote{ラッセルのパラドックスと呼ばれる}
+\[
+R=\{X\mid X\notin X\}
+\]
+もし$R\in R$であると仮定すると, $R$の定義により$R\notin R$となる.
+他方, $R\notin R$と仮定すると, $R$の定義より$R\in R$となってしまう.
+
+このような矛盾が発生しないようにするため, {\bf 「宇宙」universe}という概念を導入する.
+\begin{Def}
+以下の性質を満たす集合$U$を{\bf 「宇宙」universe}という.
+\begin{enumerate}
+\item $X\in Y\land Y\in U\Rightarrow X\in U$
+\item $X\in U\land Y\in U\Rightarrow\{X,Y\}\in U$
+\item $X\in U\Rightarrow \mathscr{P}X\in U\land \cup X\in U$\footnote{未定義の記法}
+\item $\mathbb{N}\in U$
+\item $f:A\rightarrow B$が全射で, $A\in U\land B\subset U\Rightarrow B \in U$
+\end{enumerate}
+\end{Def}
+\begin{Def}
+「宇宙」の元を{\bf 小集合 small set}という.
+\end{Def}
+\begin{Def}
+$a$と$b$が小集合のとき関数$f:a\rightarrow b$を{\bf 小関数 small function}という.
+\end{Def}
+
+\begin{caution}
+「宇宙」は小集合の全体である.
+\end{caution}
+\begin{Prop}
+「宇宙」は小集合ではない
+\end{Prop}
+\section{類}
+\begin{Def}
+「宇宙」の部分集合を{\bf 類 class} という.
+\end{Def}
+\begin{Prop}
+「宇宙」は類である.
+\end{Prop}
+
+\begin{Def}
+小集合でない類を{\bf 真類 proper class}という.
+\end{Def}
+\begin{Prop}
+「宇宙」は真類である.
+\end{Prop}

@@ -80,7 +80,7 @@
 \tableofcontents
 \newpage
 \part{準備}
-\chapter{集合と位相}
+\chapter{集合}
 \section{集合}
 {\bf 集合 set}とは, ひとまず素朴に「ものの集まり」と定義される. 集合を構成する「もの」を{\bf 元 element}という.
 \begin{Notation}
@@ -120,10 +120,10 @@ $\mathscr{P}S=\{A\mid A\subset S\}$
 $A$と$B$の
 直積を$A\times B$で表す.
 \end{Notation}
-
+\begin{comment}
 実は, 集合を「ものの集まり」と素朴に定義することは, 矛盾を孕んでいる. この矛盾を避けるための議論はのちに行う. 
 また, 集合論の公理には立ち入らないこととする.
-
+\end{comment}
 \section{二項関係・写像（関数）}
 \subsection{二項関係}
 \begin{Def}
@@ -259,31 +259,29 @@ f(a)=b \Leftrightarrow g(b)=a
 写像$f$の逆写を$f^{-1}$で表す.
 \end{Notation}
 
-\begin{comment}
-************************************
-\begin{Def}
-部分関数の合成
-\end{Def}
-
-\begin{Prop}
-部分関数の合成は結合律を満たす.
-\end{Prop}
-************************************
-\end{comment}
-
 
 
 \chapter{代数系}
-\section{群}
+\section{二項演算とマグマ}
 \begin{Def}
-集合$G$に関する写像$\mu:G\times G\rightarrow G$
-を{\bf $G$上の二項演算 binary operation $\mu$}という.
+集合$S$に関する写像$\mu:S\times S\rightarrow S$
+を{\bf $S$上の二項演算 binary operation $\mu$}という.
 \end{Def}
+\begin{Def}
+集合$M$と集合$M$上の二項演算$\mu$の組$(M,\mu)$を{\bf マグマ magma}という.
+\end{Def}
+\section{半群}
+\begin{Def}
+マグマ$(G,\mu)$について,
+$\mu$が結合律を満たす, すなわち任意の$G$の元$g,h,k\in G$に対して\[\mu(g,\mu(h,k))=\mu(\mu(g,h),k)\]
+が成り立つとき, {\bf $(G,\mu)$は半群 semigroupである}という.
+\end{Def}
+\section{群}
 \begin{Def}
 集合$G$と$G$上の二項演算$\mu$について, とある元$e\in G$が存在して, 任意の元$g\in G$に対して\[\mu(e,g)=\mu(g,e)=g\]が成り立つとき, $e$を{\bf $G$の単位元 identity element}という.
 \end{Def}
 \begin{Def}
-集合$G$と$G$上の二項演算$\mu$について, 任意の元$g\in G$に対して, とある元$h$が存在して \[\mu(g,h)=\mu(h,g)=e\]が成り立つとき, $h$を{\bf $g$の逆元 inverse element }という.
+集合$G$と$G$上の二項演算$\mu$について, 任意の元$g\in G$に対して, とある元$h\in G$が存在して \[\mu(g,h)=\mu(h,g)=e\]が成り立つとき, $h$を{\bf $g$の逆元 inverse element }という.
 ここで$e$は$G$の単位元である.
 \end{Def}
 \begin{Notation}
@@ -317,12 +315,13 @@ f(a)=b \Leftrightarrow g(b)=a
 
 \end{Def}
 \end{comment}
+\begin{comment}
 \section{環}
 \begin{Def}
-{\bf 加法}
+可換群$(G,+)$が次を満たすとき, {\bf $(G,+)$は加法群である}といい, {\bf $+$を加法}という.
 \end{Def}
 \begin{Def}
-{\bf 乗法}
+{\bf \times を乗法}という.
 \end{Def}
 \begin{Def}
 {\bf 分配 distributive property}
@@ -342,68 +341,8 @@ f(a)=b \Leftrightarrow g(b)=a
 \end{enumerate}
 \end{Def}
 体ではいわゆる四則演算が可能である
+\end{comment}
 
-\section{「宇宙」}
-{\bf 内包原理}とは「集合$S$の元$x$に対してtrue か falseを返す関数$\varphi:S\rightarrow\{\mathrm{true},\mathrm{false}\}$が与えられたとき, 新たな集合
-$
-\{x\in S\mid\varphi(x)=\mathrm{true}\}
-$
-を構成できる」という集合が満たすべき性質のことをいう. 
-
-ここまで, 集合を「ものの集まり」と素朴に定義してきたが, 次のような集合$R$を内包原理に基づいて構成しようとすると矛盾が生じる.\footnote{ラッセルのパラドックスと呼ばれる}
-\[
-R=\{X\mid X\notin X\}
-\]
-もし$R\in R$であると仮定すると, $R$の定義により$R\notin R$となる.
-他方, $R\notin R$と仮定すると, $R$の定義より$R\in R$となってしまう.
-
-このような矛盾が発生しないようにするため, {\bf 「宇宙」universe}という概念を導入する.
-\begin{Def}
-以下の性質を満たす集合$U$を{\bf 「宇宙」universe}という.
-\begin{enumerate}
-\item $X\in Y\land Y\in U\Rightarrow X\in U$
-\item $X\in U\land Y\in U\Rightarrow\{X,Y\}\in U$
-\item $X\in U\Rightarrow \mathscr{P}X\in U\land \cup X\in U$\footnote{未定義の記法}
-\item $\mathbb{N}\in U$
-\item $f:A\rightarrow B$が全射で, $A\in U\land B\subset U\Rightarrow B \in U$
-\end{enumerate}
-\end{Def}
-\begin{Def}
-「宇宙」の元を{\bf 小集合 small set}という.
-\end{Def}
-\begin{Def}
-$a$と$b$が小集合のとき関数$f:a\rightarrow b$を{\bf 小関数 small function}という.
-\end{Def}
-以上を定義することにより, ...
-
-\begin{caution}
-「宇宙」は小集合の全体である.
-\end{caution}
-\begin{Prop}
-「宇宙」は小集合ではない
-\end{Prop}
-\begin{proof}
-もし, 「宇宙」が「宇宙」の元であるとすると,...と矛盾する.
-\end{proof}
-\section{類}
-\begin{Def}
-「宇宙」の部分集合を{\bf 類 class} という.
-\end{Def}
-\begin{Prop}
-「宇宙」は類である.
-\end{Prop}
-\begin{proof}
-「宇宙」は「宇宙」の部分集合である.
-\end{proof}
-\begin{Def}
-小集合でない類を{\bf 真類 proper class}という.
-\end{Def}
-\begin{Prop}
-「宇宙」は真類である.
-\end{Prop}
-\begin{proof}
-「宇宙」は小集合ではなく, かつ類である.
-\end{proof}
 \chapter{Haskellの基礎}
 関数型プログラミング言語Haskellでは圏論的な視点からライブラリが構築されている.
 \section{型}
