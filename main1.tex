@@ -18,6 +18,7 @@
 \usepackage{comment}
 \usepackage{hyperref}
 \usepackage{pxjahyper}
+\usepackage{bm}
 \theoremstyle{plain}
 
 \newtheorem{thm}{定理}[chapter]
@@ -124,7 +125,7 @@ $A$と$B$の
 実は, 集合を「ものの集まり」と素朴に定義することは, 矛盾を孕んでいる. この矛盾を避けるための議論はのちに行う. 
 また, 集合論の公理には立ち入らないこととする.
 \end{comment}
-\section{二項関係・写像（関数）}
+\section{二項関係・写像}
 \subsection{二項関係}
 \begin{Def}
 集合$A,B$に対して$R\subset A\times B$であるとき, {\bf $R$は$A$と$B$の二項関係 binary relation}\index{にこうかんけい@二項関係}であるという.
@@ -163,9 +164,11 @@ $R$が集合$A,B$の二項関係であるとする.
 \begin{Notation}
 集合$A$から集合$B$への写像$f$を$f:A\rightarrow B$で表す.
 \end{Notation}
+\begin{comment}
 \begin{caution}
 以下では, 「{\bf 関数 function\index{かんすう@関数}}」と「写像」を同じ意味で用いる.
 \end{caution}
+\end{comment}
 \begin{Notation}
 集合$A$から集合$B$への写像に$f$に関して, $b\in B$が$a\in A$に対応することを
 \[
@@ -194,6 +197,16 @@ b=f(a)
 集合$A$から集合$B$への写像$f$が, 単射であり, かつ全射であるとき{\bf $f$は全単射 bijection である}という.
 \end{Def}
 
+\begin{Def}
+集合$A$から集合$B$への写像$f:A\rightarrow B$について, 集合$B$から集合$A$への写像$g:B\rightarrow A$が存在して, $A$の任意の元$a\in A$に対して
+\[
+f(a)=b \Leftrightarrow g(b)=a
+\]
+が成り立つとき, {\bf $g$は$f$の逆写像 inverse mapping である}という.
+\end{Def}
+\begin{Notation}
+写像$f$の逆写像を$f^{-1}$で表す.
+\end{Notation}
 \begin{comment}
 ************************************
 \begin{Def}
@@ -248,16 +261,7 @@ h:C\rightarrow D$について
 が成り立つ.
 \end{Prop}
 
-\begin{Def}
-集合$A$から集合$B$への写像$f:A\rightarrow B$について, 集合$B$から集合$A$への写像$g:B\rightarrow A$が存在して, $A$の任意の元$a\in A$に対して
-\[
-f(a)=b \Leftrightarrow g(b)=a
-\]
-が成り立つとき, {\bf $g$は$f$の逆写 inverse mapping である}という.
-\end{Def}
-\begin{Notation}
-写像$f$の逆写を$f^{-1}$で表す.
-\end{Notation}
+
 
 
 
@@ -399,12 +403,13 @@ Foo 型クラスは任意の型(a)を受け取り、Stringを返却するメソ�
 \section{圏}
 \begin{Def}
 {\bf 対象}の集合$\mathrm{Obj}$と
-{\bf 射}の集合$\mathrm{Mor}$からなり, 以下の演算が定義されているものを{\bf 圏}という.
+{\bf 射}の集合$\mathrm{Mor}$からなり, 以下の演算\footnote{?}が定義されているものを{\bf 圏}という.
 \begin{enumerate}
-\item 射$f\in\mathrm{Mor}$には{\bf 始域}$\mathrm{dom}f$および{\bf 終域}$\mathrm{cod}f$となる対象がそれぞれ一意に定まる\footnote{$\mathrm{dom}f=A\in\mathrm{Obj}(\mathscr{C}),\mathrm{cod}f=B\in\mathrm{Obj}(\mathscr{C})$のとき$f:A\rightarrow B$とかく.}
-\item $\mathrm{dom} g=\mathrm{cod}f$を満たす射$f,g\in\mathrm{Mor}$に対して,
-{\bf 合成射}$g\circ f:\mathrm{dom}f\rightarrow\mathrm{cod}g$が一意に定まる
-\item 射の合成は結合律を満たす. すなわち, 対象$A,B,C,D\in\rm{Obj}$についての射の列$f,g,h$が与えられたとき
+\item 射$f\in\mathrm{Mor}$には{\bf 始域}および{\bf 終域}となる対象がそれぞれ一意に定まる
+\item 射$f,g\in\mathrm{Mor}$について,
+$f$の終域と$g$の始域が一致するとき,
+{\bf 合成射}$g\circ f$が一意に定まる
+\item 射の合成は結合律を満たす. すなわち, 射$f,g,h$について, ...であるとき
 \[
 h\circ(g\circ f)=(h\circ g)\circ f
 \]
@@ -416,6 +421,21 @@ h\circ(g\circ f)=(h\circ g)\circ f
 $f\circ 1_A=f$かつ$1_A\circ g=g$
 \end{enumerate}
 \end{Def}
+\begin{Notation}
+圏$\mathscr{C}$の対象を$\mathrm{Obj}(\mathscr{C})$で表す.
+\end{Notation}
+\begin{Notation}
+圏$\mathscr{C}$の射を$\mathrm{Mor}(\mathscr{C})$で表す.
+\end{Notation}
+\begin{Notation}
+射$f$の始域を$\mathrm{dom}f$で表す.
+\end{Notation}
+\begin{Notation}
+射$f$の終域を$\mathrm{cod}f$で表す.
+\end{Notation}
+\begin{Notation}
+始域が$A$,終域が$B$である射$f$を$f:A\rightarrow B$で表す.
+\end{Notation}
 \begin{Notation}
 圏$\mathscr{C}$の対象$A,B$に対して$f:A\rightarrow B$となる射の全体を$\mathrm{Hom}_{\mathscr{C}}(A,B)$で表す.
 \end{Notation}
@@ -443,21 +463,34 @@ f(a_3)=a_1
 というように, これらの要素が写像$f$によって回転していると考えることができる.
 \end{example}
 \subsection{小圏・局所小圏・大圏}
+\subsubsection{小圏}
 \begin{Def}
 対象の集合,射の集合がともに小集合である圏を{\bf 小圏}\index{しょうけん@小圏}という.
 \end{Def}
+\begin{example}\footnote{実例と命題の区別が曖昧...}
+対象も射もない圏${\bf 0}$は小圏である.
+\end{example}
+\begin{example}
+対象が1つで, 恒等射のみをもつ圏${\bf 1}$は小圏である.
+\end{example}
+\begin{example}
+対象が$A,B$の2つで, 
+恒等射と射$f:A\rightarrow B$のみをもつ圏
+${\bf 2}$は小圏である.
+\end{example}
 \begin{example}
 順序集合は小圏である.
 \end{example}
 \begin{Def}
 すべての対象の組$A,B$に対して$\mathrm{Hom}_{\mathscr{C}}(A,B)$が小集合である圏$\mathscr{C}$を{\bf 局所小圏}という.
 \end{Def}
+\subsubsection{大圏}
 \begin{Def}
 小圏でない圏を{\bf 大圏}という.
 \end{Def}
 
 \begin{example}
-すべての小集合を対象とし, それらの間の写像を射とする圏$\mathrm{Set}$は大圏である.
+すべての小集合\footnote{「宇宙」で定義しているが, 現在本文から外している}を対象とし, それらの間の写像を射とする圏$\mathrm{Set}$は大圏である.
 \end{example}
 \begin{example}
 すべての群を対象とし, それらの間の準同型写像を射とする圏$\mathrm{Grp}$は大圏である.
@@ -466,20 +499,24 @@ f(a_3)=a_1
 すべてのアーベル群を対象とし, それらの間の準同型写像を射とする圏$\mathrm{Ab}$は大圏である.
 \end{example}
 \begin{example}
-すべての位相空間を対象とし, それらの間の連続写像\footnote{未定義？}を射とする圏$\mathrm{Top}$は大圏である.
+すべての位相空間\footnote{定義を本文から外している}を対象とし, それらの間の連続写像\footnote{定義を本文から外している}を射とする圏$\mathrm{Top}$は大圏である.
 \end{example}
 \begin{example}
-ある体$k$に対して,
+ある体\footnote{定義した箇所をコメントアウトしている}$k$に対して,
 すべての$k$次線形空間\footnote{未定義？}を対象とし,
 それらの間の$k$次線形写像\footnote{未定義？}を射とする
 圏$\mathrm{Vect}_k$は大圏である.
 \end{example}
 \subsection{部分圏}
+\begin{Notation}
+圏$C$における射$f,g\in\mathrm{Mor}(\mathscr{C})$の合成を$g\circ_{\mathscr{C}}f$で表す.
+\end{Notation}
 \begin{Def}
 圏$\mathscr{A}$が圏$\mathscr{B}$に対して, 以下の$3$条件を満たすとき, {\bf $\mathscr{A}$は$\mathscr{B}$の部分圏である}という.
 \begin{enumerate}
 \item $\mathrm{Obj}(\mathscr{A})$が$\mathrm{Obj}(\mathscr{B})$の部分集合である.
-\item
+\item 圏$\mathscr{A}$の2つの対象の組の全体が,
+圏$\mathscr{B}$の2つの対象の組の全体の部分集合である.
 \item
 \end{enumerate}
 \end{Def}
@@ -497,16 +534,12 @@ f(a_3)=a_1
 双対の原理
 \end{caution}
 \subsection{圏の生成}
-自明な圏
-
-非自明な圏
-
-
 \begin{Prop}
 集合$A$に対して写像$f:A\rightarrow A$を定める.
 このとき, 対象の集合$\mathrm{Obj}=\{A\}$と, 射の集合$\mathrm{Mor}=\{1_A,f\}$からなる圏を得ることができる.
 ここで, 射$1_A$は$A$についての恒等射である.
 \end{Prop}
+\begin{comment}
 \begin{proof}
 $\mathrm{dom} f=\mathrm{cod}f$であるから, 合成射$f\circ f$を定めることができる.
 このとき$f\circ f=1_A$もしくは$f\circ f=f$である.
@@ -524,24 +557,32 @@ $f\circ f=1_A$ならば...
 以上より, いずれの場合も, 射の合成が結合律を満たすことがわかる.
 したがって$f\circ f=1_A$と定めても$f\circ f=f$と定めても圏を生成することができる.
 \end{proof}
+\end{comment}
 \begin{Prop}
 集合$A$に対して写像$f:A\rightarrow A$を定め, 正の整数$n$に対して$f^n=\underbrace{f\circ f \circ \dots \circ f}_{n}$
 とする.
 このとき, 対象の集合$\mathrm{Obj}=\{A\}$と, 射の集合$\mathrm{Mor}=\{1_A,f,f^2,\dots,f^n,\dots\}$からなる圏を得ることができる.
 ここで, 射$1_A$は$A$についての恒等射である.
 \end{Prop}
+\begin{comment}
 \begin{proof}
 \end{proof}
+\end{comment}
 \begin{Prop}
 集合$A,B$に対して,写像$f:A\rightarrow B$と$g:\rightarrow A$を定める.
 このとき, 対象の集合$\mathrm{Obj}=\{A,B\}$と射の集合$\mathrm{Mor}=\{1_A,1_B,f,g,f\circ g\}$からなる圏を得ることができる.
 ここで, 射$1_A,1_B$はそれぞれ$A,B$についての恒等射である.
 \end{Prop}
+\begin{comment}
 \begin{proof}
 \end{proof}
-
+\end{comment}
+\begin{Def}
+集合$S_1,\dots,S_N$に関する写像$f_1,\dots,f_M$について,
+対象の集合を$\{S_1,\dots,S_N\}$,
+射の集合を恒等射と$f_1,\dots,f_M$およびそれらの合成のみからなる集合とする圏が存在するとき, 射の列$\{f_1,\dots,f_M\}$を{\bf 生成系 system of generators}という.
 {\bf 生成系}
-
+\end{Def}
 {\bf 生成元}
 
 {\bf 関係}
