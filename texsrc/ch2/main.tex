@@ -1,0 +1,90 @@
+\section{マグマ・半群・群}
+\subsection{マグマ}
+\begin{Def}
+集合$S$に関する写像$\mu:S\times S\rightarrow S$
+を{\bf $S$上の二項演算 binary operation $\mu$}という.
+\end{Def}
+\begin{Def}
+集合$M$と集合$M$上の二項演算$\mu$の組$(M,\mu)$を{\bf マグマ magma}という.
+\end{Def}
+\subsection{半群}
+\begin{Def}
+マグマ$(G,\mu)$について,
+$\mu$が結合律を満たす, すなわち任意の元$g,h,k\in G$に対して\[\mu(g,\mu(h,k))=\mu(\mu(g,h),k)\]
+が成り立つとき, {\bf $(G,\mu)$は半群 semigroupである}という.
+\end{Def}
+\subsection{群}
+\begin{Def}
+マグマ$(G,\mu)$について, とある元$e\in G$が存在し, 任意の元$g\in G$に対して\[\mu(e,g)=\mu(g,e)=g\]が成り立つとき, $e$を{\bf $G$の単位元 identity element}という.
+\end{Def}
+\begin{Def}
+マグマ$(G,\mu)$について, 任意の元$g\in G$に対して, とある元$h\in G$が存在して \[\mu(g,h)=\mu(h,g)=e\]が成り立つとき, $h$を{\bf $g$の逆元 inverse element }という.
+ここで$e$は$G$の単位元である.
+\end{Def}
+\begin{Notation}
+マグマ$(G,\mu)$における元$g\in G$の逆元を$g^{-1}$で表す.
+\end{Notation}
+\begin{Def}
+半群$(G,\mu)$が単位元をもち, かつ任意の元に対して逆元が存在するとき\bf{$(G,\mu)$は群 groupである}という
+\end{Def}
+\begin{Def}
+群$(G_1,\mu_1)$から群$(G_2,\mu_2)$への写像$f$が任意の$G_1$の元$g, g'$について \[f(\mu_1(g,g')) = \mu_2(f(g),f(g'))\] を満たすとき、{\bf $f$は$(G_1,\mu_1)$から$(G_2,\mu_2)$への準同型写像 homomorphism である}という.
+\end{Def}
+\begin{Def}
+群$(G_1,\mu_1)$から群$(G_2,\mu_2)$への準同型写像$f$が全単射であるとき,
+{\bf $f$は$(G_1,\mu_1)$から$(G_2,\mu_2)$への同型写像 isomorphism である}という
+\end{Def}
+\begin{Def}
+群$(G,\mu)$において,
+任意の$a,b\in G$に対して$\mu(a,b)=\mu(b,a)$が成り立つとき,
+{\bf 群$(G,\mu)$は可換群\index{かかんぐん@可換群} commutative group である}という\footnote{アーベル群 abelian groupともいう}.
+\end{Def}
+\begin{comment}
+\begin{Def}
+位相空間$X$と自然数$n$に対して次の手続きで決定されるアーベル群$H_n(X)$を{\bf$n$次 ホモロジー群}と呼ぶ
+
+...
+
+\end{Def}
+\end{comment}
+
+\section{環}
+\begin{Def}
+集合$R$と$R$上の二項演算$+,*$が次を満たすとき, {\bf $(R,+,*)$は環 ring である}といい, $+$を{\bf 加法}, $*$を{\bf 乗法}という. 
+\begin{enumerate}
+\item $(R,+)$が可換群である.
+\item $(R,*)$が半群である.
+\item 任意の$a,b,c\in R$に対して
+\begin{align*}
+a*(b+c)&=a*b+a*c\\
+(a+b)*c&=a*c+b*c
+\end{align*}
+が成り立つ.
+\end{enumerate}
+\end{Def}
+\begin{caution}
+定義2.11の第3の条件のことを乗法の加法に対する{\bf 分配律 distributive property}という.
+\end{caution}
+\section{体}
+\begin{Def}
+環$(K,+,*)$において,
+群$(K,+)$の単位元を{\bf $(K,+,*)$の零元}という.
+\end{Def}
+\begin{Notation}
+環$(K,+,*)$における零元を$0_K$で表す.
+\end{Notation}
+\begin{Def}
+環$(K,+,*)$において,
+群$(K,*)$の単位元を{\bf $(K,+,*)$の乗法単位元}という.
+\end{Def}
+\begin{Notation}
+環$(K,+,*)$における乗法単位元を$1_K$で表す.
+\end{Notation}
+
+\begin{Def}
+環$(K,+,*)$が次を満たすとき, {\bf $(K,+,*)$は体 fieldである}という.
+\begin{enumerate}
+\item 乗法について零元以外の元が可換群をなす, すなわち$(K\setminus\{0_K\},*)$が可換群である.
+\item 零元と乗法単位元が異なる, すなわち$0_K\neq 1_K$である.
+\end{enumerate}
+\end{Def}

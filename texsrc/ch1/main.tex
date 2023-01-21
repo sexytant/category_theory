@@ -1,0 +1,178 @@
+\section{集合}
+{\bf 集合 set}とは, ひとまず素朴に「ものの集まり」と定義される. 集合を構成する「もの」を{\bf 元 element}という.
+\begin{Notation}
+集合は各元をカンマで区切り$\{\}$で囲むことで表される. 
+\end{Notation}
+\begin{Notation}
+とある条件を満たす$x$全体からなる集合は$\{x\mid x\text{についての条件}\}$を用いて表す.
+\end{Notation}
+\begin{example}$\{1,2,3\}$や$\{a,b,c\}$, 自然数全体$\mathbb{N}$, 整数全体$\mathbb{Z}$, 実数全体$\mathbb{R}$, 複素数全体$\mathbb{C}$は集合である.
+\end{example}
+\begin{example}
+$\{2a\mid a\in\mathbb{N}\}$や$\{a^3\mid a\in\mathbb{N}\}$は集合である.
+\end{example}
+\begin{example}
+{\bf 空集合 empty set} $\emptyset=\{\}$は集合である.
+\end{example}
+\begin{Notation}
+$a$が集合$S$の元であることを$a\in S$で表す.
+\end{Notation}
+\begin{Def}
+集合$A$の元のすべてが集合$B$の元であるとき{\bf $A$は$B$の部分集合 subsetである}という.  
+\end{Def}
+\begin{Notation}
+集合$A$が集合$B$の部分集合であることを$A\subset B$で表す.
+\end{Notation}
+\begin{Def}
+集合$S$が与えられたとき, $S$の部分集合の全体
+$\mathscr{P}S=\{A\mid A\subset S\}$
+を{\bf $S$の冪集合 power set}という.
+\end{Def}
+
+\begin{Def}
+集合$A,B$に対して$\{(a,b)\mid a\in A, b\in B\}$を{\bf $A$と$B$の
+直積 direct product}という.
+\end{Def}
+\begin{Notation}
+$A$と$B$の
+直積を$A\times B$で表す.
+\end{Notation}
+\begin{comment}
+実は, 集合を「ものの集まり」と素朴に定義することは, 矛盾を孕んでいる. この矛盾を避けるための議論はのちに行う. 
+また, 集合論の公理には立ち入らないこととする.
+\end{comment}
+\section{二項関係・写像}
+\subsection{二項関係}
+\begin{Def}
+集合$A,B$に対して$R\subset A\times B$であるとき, {\bf $R$は$A$と$B$の二項関係 binary relation}\index{にこうかんけい@二項関係}であるという.
+\end{Def}
+\begin{Def}
+$R$が集合$A,B$の二項関係であるとする. 
+とある$a\in A, b\in B$の組$(a,b)$が$R$の元であるとき,
+{\bf $a$と$b$に間に$R$の関係\index{かんけい@関係}がある}という.
+\end{Def}
+\begin{Notation}
+$a$と$b$の間に$R$の関係があることを$aRb$と表す.
+\end{Notation}
+\subsection{順序集合}
+\begin{Def}
+次を満たす集合$X$から$X$への二項関係$R$を{\bf 順序 order}という.
+\begin{enumerate}
+\item 任意の$x\in X$について$(x,x)\in R$
+\item $(x,y)\in R\land(y,x)\in R\Rightarrow x=y$
+\item $(x,y)\in R\land (y,z)\in R
+\Rightarrow (x,z)\in R$
+\end{enumerate}
+\end{Def}
+\begin{Def}
+順序をもつ集合を{\bf 順序集合 orderd set}という.
+\end{Def}
+\begin{Notation}
+順序集合の元$x,y$に順序関係があるとき, $x\preceq y$で表す.
+\end{Notation}
+
+\subsection{写像}
+\begin{Def}
+$R$が集合$A,B$の二項関係であるとする.
+任意の$a\in A$について, とある$b\in B$が一意に存在して$aRb$となるとき,
+{\bf $R$は$A$から$B$への写像map\index{しゃぞう@写像}である}という.
+\end{Def}
+\begin{Notation}
+集合$A$から集合$B$への写像$f$を$f:A\rightarrow B$で表す.
+\end{Notation}
+\begin{comment}
+\begin{caution}
+以下では, 「{\bf 関数 function\index{かんすう@関数}}」と「写像」を同じ意味で用いる.
+\end{caution}
+\end{comment}
+\begin{Notation}
+集合$A$から集合$B$への写像に$f$に関して, $b\in B$が$a\in A$に対応することを
+\[
+b=f(a)
+\]
+で表す.
+\end{Notation}
+\begin{Def}
+集合$A$から集合$B$への写像$f$が,
+任意の$a_1,a_2\in A$について
+\[
+a_1\neq a_2\Rightarrow f(a_1)\neq f(a_2)
+\]
+を満たすとき{\bf $f$は単射 injection である}という.
+\end{Def}
+\begin{Def}
+集合$A$から集合$B$への写像$f$が,
+任意の$b\in B$に対して
+とある$a\in A$が存在して
+\[
+b=f(a)
+\]
+であるとき{\bf $f$は全射surjection である}という.
+\end{Def}
+\begin{Def}
+集合$A$から集合$B$への写像$f$が, 単射であり, かつ全射であるとき{\bf $f$は全単射 bijection である}という.
+\end{Def}
+
+\begin{Def}
+集合$A$から集合$B$への写像$f:A\rightarrow B$について, 集合$B$から集合$A$への写像$g:B\rightarrow A$が存在して, $A$の任意の元$a\in A$に対して
+\[
+f(a)=b \Leftrightarrow g(b)=a
+\]
+が成り立つとき, {\bf $g$は$f$の逆写像 inverse mapping である}という.
+\end{Def}
+\begin{Notation}
+写像$f$の逆写像を$f^{-1}$で表す.
+\end{Notation}
+\begin{comment}
+************************************
+\begin{Def}
+$R$が集合$A,B$の二項関係であるとする.
+
+任意の$a\in A$について$b,b'\in B$が存在し,
+\[
+aRb\land aRb'\Rightarrow b=b'
+\]
+が成り立つとき, {\bf $R$は$A$から$B$への部分関数\index{ぶぶんかんすう@部分関数}}という.\footnote{ここいらない気がする}
+\end{Def}
+\begin{Prop}
+関数は部分関数である. これは定義より明らかである.
+\end{Prop}
+\begin{Prop}
+部分関数は二項関係である. これは定義より明らかである.
+\end{Prop}
+************************************
+\end{comment}
+
+\subsection{合成と結合律}
+\begin{Def}
+集合$A,B,C$に関する二項関係$F\in A\times B$と$G\in B\times C$について, その{\bf 合成 composition} $G\circ F\in A\times C$を
+\[
+G\circ F=\{(a,c)\in A\times C|\text{とある}b\in B\text{が存在して}(a,b)\in F \text{かつ} (b,c)\in G\text{である}\}
+\]
+で定義する.
+\end{Def}
+\begin{Prop}
+二項関係の合成は{\bf 結合律 associative law}を満たす.
+結合律とは, 集合$A,B,C,D$に対する3つの二項関係$F\in(A\times B),G\in(B\times C),H\in(C\times D)$について
+\[
+(H\circ G)\circ F=H\circ (G\circ F)
+\]
+が成り立つことをいう.
+\end{Prop}
+
+\begin{Def}
+集合$A,B,C$に関する写像$f:A\rightarrow B$と$g:B\rightarrow C$について, その合成 $g\circ f:A\rightarrow C$を
+\[
+(g\circ f)(a)=g(f(a))
+\]
+で定義する. ここで$a$は$A$の元である.
+\end{Def}
+\begin{Prop}
+写像の合成は結合律を満たす.
+すなわち, 集合$A,B,C,D$に対する3つの写像$f:A\rightarrow B, g:B\rightarrow C,
+h:C\rightarrow D$について
+\[
+(h\circ g)\circ f=h\circ(g\circ f)
+\]
+が成り立つ.
+\end{Prop}
