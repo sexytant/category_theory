@@ -152,6 +152,7 @@ main = do
     putStrLn $ foo 'A'		-- Char: A
 \end{lstlisting}
 Foo 型クラスは任意の型(a)を受け取り、Stringを返却するメソッド foo を持っている. instance を用いてそれぞれの型が引数に指定された場合の処理を実装している.
+
 \part{圏論の諸概念}
 \chapter{圏}
 \section{圏}
@@ -458,13 +459,13 @@ Haskellにおける型構築子\verb|Maybe|は...
 \subsubsection{Tree関手}
 一般に木構造を生成する型構築子は関手にできる. これを{\bf Tree関手}と呼ぶ.
 
-\lstinputlisting{src/haskell/Tree.hs}
+\lstinputlisting{../hssrc/Tree.hs}
 \section{２変数の関手}
 {\bf Hom関手}
-\lstinputlisting{src/haskell/homfunctors.hs}
+\lstinputlisting{../hssrc/homfunctors.hs}
 \section{型クラスとHaskの部分圏}
 {\bf ソート関手}
-\lstinputlisting{src/haskell/sort.hs}
+\lstinputlisting{../hssrc/sort.hs}
 
 \chapter{自然変換}
 \section{自然変換}
