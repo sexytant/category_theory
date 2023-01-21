@@ -261,12 +261,9 @@ h:C\rightarrow D$について
 が成り立つ.
 \end{Prop}
 
-
-
-
-
 \chapter{代数系}
-\section{二項演算とマグマ}
+\section{マグマ・半群・群}
+\subsection{マグマ}
 \begin{Def}
 集合$S$に関する写像$\mu:S\times S\rightarrow S$
 を{\bf $S$上の二項演算 binary operation $\mu$}という.
@@ -274,30 +271,25 @@ h:C\rightarrow D$について
 \begin{Def}
 集合$M$と集合$M$上の二項演算$\mu$の組$(M,\mu)$を{\bf マグマ magma}という.
 \end{Def}
-\section{半群}
+\subsection{半群}
 \begin{Def}
 マグマ$(G,\mu)$について,
-$\mu$が結合律を満たす, すなわち任意の$G$の元$g,h,k\in G$に対して\[\mu(g,\mu(h,k))=\mu(\mu(g,h),k)\]
+$\mu$が結合律を満たす, すなわち任意の元$g,h,k\in G$に対して\[\mu(g,\mu(h,k))=\mu(\mu(g,h),k)\]
 が成り立つとき, {\bf $(G,\mu)$は半群 semigroupである}という.
 \end{Def}
-\section{群}
+\subsection{群}
 \begin{Def}
-集合$G$と$G$上の二項演算$\mu$について, とある元$e\in G$が存在して, 任意の元$g\in G$に対して\[\mu(e,g)=\mu(g,e)=g\]が成り立つとき, $e$を{\bf $G$の単位元 identity element}という.
+マグマ$(G,\mu)$について, とある元$e\in G$が存在し, 任意の元$g\in G$に対して\[\mu(e,g)=\mu(g,e)=g\]が成り立つとき, $e$を{\bf $G$の単位元 identity element}という.
 \end{Def}
 \begin{Def}
-集合$G$と$G$上の二項演算$\mu$について, 任意の元$g\in G$に対して, とある元$h\in G$が存在して \[\mu(g,h)=\mu(h,g)=e\]が成り立つとき, $h$を{\bf $g$の逆元 inverse element }という.
+マグマ$(G,\mu)$について, 任意の元$g\in G$に対して, とある元$h\in G$が存在して \[\mu(g,h)=\mu(h,g)=e\]が成り立つとき, $h$を{\bf $g$の逆元 inverse element }という.
 ここで$e$は$G$の単位元である.
 \end{Def}
 \begin{Notation}
-集合$G$における元$g\in G$の逆元を$g^{-1}$で表す.
+マグマ$(G,\mu)$における元$g\in G$の逆元を$g^{-1}$で表す.
 \end{Notation}
 \begin{Def}
-集合$G$と$G$上の二項演算$\mu$が以下の条件を満たすとき{\bf$(G,\mu)$は 群 group である}という
-\begin{enumerate}
-\item $\mu$が結合律を満たす. すなわち, 任意の$G$の元$g,h,k$に対して\[\mu(g,\mu(h,k))=\mu(\mu(g,h),k)\]が成り立つ.
-\item $G$は単位元をもつ.
-\item $G$の任意の元に対して逆元が存在する.
-\end{enumerate}
+半群$(G,\mu)$が単位元をもち, かつ任意の元に対して逆元が存在するとき\bf{$(G,\mu)$は群 groupである}という
 \end{Def}
 \begin{Def}
 群$(G_1,\mu_1)$から群$(G_2,\mu_2)$への写像$f$が任意の$G_1$の元$g, g'$について \[f(\mu_1(g,g')) = \mu_2(f(g),f(g'))\] を満たすとき、{\bf $f$は$(G_1,\mu_1)$から$(G_2,\mu_2)$への準同型写像 homomorphism である}という.
