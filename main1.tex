@@ -311,33 +311,48 @@ $\mu$が結合律を満たす, すなわち任意の元$g,h,k\in G$に対して\
 
 \end{Def}
 \end{comment}
-\begin{comment}
+
 \section{環}
 \begin{Def}
-可換群$(G,+)$が次を満たすとき, {\bf $(G,+)$は加法群である}といい, {\bf $+$を加法}という.
-\end{Def}
-\begin{Def}
-{\bf \times を乗法}という.
-\end{Def}
-\begin{Def}
-{\bf 分配 distributive property}
-\end{Def}
-
-
-\section{体}
-\begin{Def}
-以下の条件を満たす集合を{\bf 体}という.
+集合$R$と$R$上の二項演算$+,*$が次を満たすとき, {\bf $(R,+,*)$は環 ring である}といい, $+$を{\bf 加法}, $*$を{\bf 乗法}という. 
 \begin{enumerate}
-\item
-加法について可換群になっている．すなわち,加法について閉じていて，単位元と逆元が存在する．
-\item 
-乗法について可換群になっている. すなわち,乗法について閉じていて，単位元と逆元が存在する.
-\item 
-加法と乗法について分配法則が成り立つ.
+\item $(R,+)$が可換群である.
+\item $(R,*)$が半群である.
+\item 任意の$a,b,c\in R$に対して
+\begin{align*}
+a*(b+c)&=a*b+a*c\\
+(a+b)*c&=a*c+b*c
+\end{align*}
+が成り立つ.
 \end{enumerate}
 \end{Def}
-体ではいわゆる四則演算が可能である
-\end{comment}
+\begin{caution}
+定義2.11の第3の条件のことを乗法の加法に対する{\bf 分配律 distributive property}という.
+\end{caution}
+\section{体}
+\begin{Def}
+環$(K,+,*)$において,
+群$(K,+)$の単位元を{\bf $(K,+,*)$の零元}という.
+\end{Def}
+\begin{Notation}
+環$(K,+,*)$における零元を$0_K$で表す.
+\end{Notation}
+\begin{Def}
+環$(K,+,*)$において,
+群$(K,*)$の単位元を{\bf $(K,+,*)$の乗法単位元}という.
+\end{Def}
+\begin{Notation}
+環$(K,+,*)$における乗法単位元を$1_K$で表す.
+\end{Notation}
+
+\begin{Def}
+環$(K,+,*)$が次を満たすとき, {\bf $(K,+,*)$は体 fieldである}という.
+\begin{enumerate}
+\item 乗法について零元以外の元が可換群をなす, すなわち$(K\setminus\{0_K\},*)$が可換群である.
+\item 零元と乗法単位元が異なる, すなわち$0_K\neq 1_K$である.
+\end{enumerate}
+\end{Def}
+
 
 \chapter{Haskellの基礎}
 関数型プログラミング言語Haskellでは圏論的な視点からライブラリが構築されている.
