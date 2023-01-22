@@ -93,44 +93,43 @@
 \part{圏論の諸概念}
 \chapter{圏}
 \input{ch4/main}
+
 \chapter{関手}
 \section{関手}
 \begin{Def}
 圏$\mathscr{A}$の対象$\mathrm{Obj}(\mathscr{A})$から圏$\mathscr{B}$の対象$\mathrm{Obj}(\mathscr{B})$への関数を
-{\bf $\mathscr{A}$から$\mathscr{B}$への対象関数}という.
+{\bf $\mathscr{A}$から$\mathscr{B}$への対象関数 function on objects}という.
 \end{Def}
 \begin{Def}
-{\bf 射関数}
+{\bf 射関数 function on morphisms}
 \end{Def}
 \begin{Def}
-圏$\mathscr{A},\mathscr{B}$に対する対称関数と射関数の組を{\bf $\mathscr{A}$から$\mathscr{B}$への関手}という.
+圏$\mathscr{A},\mathscr{B}$に対する対称関数と射関数の組を{\bf $\mathscr{A}$から$\mathscr{B}$への関手 functor}という.
 \end{Def}
 \begin{example}
 順序を保存する写像
 \end{example}
 \begin{example}
+圏と見做した順序集合間の簡単な関手の例
+\end{example}
+\begin{comment}
+*************************
+\begin{example}
 $n$次ホモロジー関手
 \end{example}
-\begin{example}
-\end{example}
-\begin{example}
-\end{example}
+***************************
+\end{comment}
+
 \subsection{反変関手}
 \begin{Def}
 圏$A^{\mathrm{op}}$から圏$B$への関手
-を{\bf 圏$A$から圏$B$への反変関手}という.
+を{\bf 圏$A$から圏$B$への反変関手 contravariant functor}という.
 \end{Def}
-\begin{example}
-\end{example}
-\begin{Notation}
-\end{Notation}
-\begin{caution}
-\end{caution}
 \subsection{定数関手}
 \begin{Def}
 圏$\mathscr{A}$の任意の対象$A$を圏$\mathscr{B}$のただ一つの対象$B_0$に写し,
 $\mathscr{A}$の任意の射$f$を圏$\mathscr{B}$の恒等射に写す関手を
-{\bf 定数関手}\index{ていすうかんしゅ@定数関手}という
+{\bf 定数関手 constant functor}\index{ていすうかんしゅ@定数関手}という
 \end{Def}
 
 \subsection{忠実関手と充満関手}
@@ -141,7 +140,7 @@ $\mathscr{A}$の任意の射$f$を圏$\mathscr{B}$の恒等射に写す関手を
 から
 集合$\{(F(A_1),F(A_2))\mid\mathrm{Obj}(\mathscr{A}))\}$
 への写像が単射となっているとき,
-{\bf 関手$F$は忠実}であるという.
+{\bf 関手$F$は忠実 faithful}であるという.
 \end{Def}
 \begin{Def}
 圏$\mathscr{A}$から圏$\mathscr{B}$への関手$F$に関して,
@@ -149,15 +148,18 @@ $\mathscr{A}$の任意の射$f$を圏$\mathscr{B}$の恒等射に写す関手を
 から
 集合$\{(F(A_1),F(A_2))\mid\mathrm{Obj}(\mathscr{A}))\}$
 への写像が全射となっているとき,
-{\bf 関手$F$は充満}であるという.
+{\bf 関手$F$は充満 full}であるという.
 \end{Def}
 \begin{Def}圏$\mathscr{A}$から圏$\mathscr{B}$への関手$F$が忠実かつ充満であるとき
-{\bf 関手$F$は充満忠実である}という
+{\bf 関手$F$は充満忠実 full and faithfulである}という
 \end{Def}
+\begin{comment}
 \begin{Def}
 圏$\mathscr{A}$が圏$\mathscr{A}$の部分圏であり, 関手$F:\mathscr{A}\rightarrow\mathscr{B}$が充満であるとき,
 {\bf 圏$\mathscr{A}$は圏 $\mathscr{B}$の充満部分圏である}という.
 \end{Def}
+\end{comment}
+\begin{comment}
 \begin{example}
 ...充満忠実である.
 \end{example}
@@ -174,8 +176,12 @@ $\mathscr{A}$の任意の射$f$を圏$\mathscr{B}$の恒等射に写す関手を
 
 ...忠実だが充満でない. （例1.30)
 \end{example}
+\end{comment}
+\begin{comment}
 \subsection{埋め込み関手}
 \subsection{忘却関手}
+\end{comment}
+\begin{comment}
 \section{Haskellの型構築子と関手}
 \subsubsection{List関手}
 Haskellにおける型構築子\verb|[]|は任意の型\verb|A|に対して型\verb|[A]|を対応させる.
@@ -202,7 +208,7 @@ Haskellにおける型構築子\verb|Maybe|は...
 \section{型クラスとHaskの部分圏}
 {\bf ソート関手}
 \lstinputlisting{../hssrc/sort.hs}
-
+\end{comment}
 \chapter{自然変換}
 \section{自然変換}
 \begin{Def}
