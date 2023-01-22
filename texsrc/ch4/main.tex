@@ -1,0 +1,234 @@
+\section{圏}
+\begin{Def}
+次を満たす集合$S_{\mathrm{Obj}},S_{\mathrm{Mor}}$の組を{\bf 圏 category}という.
+\begin{enumerate}
+\item 任意の$f\in S_\mathrm{Mor}$に対して$\mathrm{dom}f\in S_\mathrm{Obj},\mathrm{cod}f\in S_\mathrm{Obj}$がそれぞれ一意に定まる.
+\item $f\in S_{\mathrm{Mor}},g\in S_{\mathrm{Mor}}$について,
+$\mathrm{cod}f=\mathrm{dom}g$であるとき,
+$g\circ f\in S_{\mathrm{Mor}}$が一意に定まる演算$\circ$が存在する.
+\item $f\in S_{\mathrm{Mor}},g\in S_{\mathrm{Mor}},h\in S_{\mathrm{Mor}}$について, \begin{align*}
+\mathrm{cod} f&=\mathrm{dom} g,\\ \mathrm{cod} g&=\mathrm{dom} h
+\end{align*}であるとき
+\[
+h\circ(g\circ f)=(h\circ g)\circ f
+\]
+が成り立つ.
+\item 任意の$A\in S_{\mathrm{Obj}}$について
+次を満たす$1_A\in S_{\mathrm{Mor}}$が存在する.
+\begin{enumerate}
+\item
+$\mathrm{dom}1_{A}=A$
+\item
+$\mathrm{cod}1_A=A$
+\item $\mathrm{dom} f=\mathrm{cod} g=A$かつ$\mathrm{cod} f=\mathrm{dom}g$を満たす任意の$(f,g)\in S_{\mathrm{Obj}}\times S_{\mathrm{Obj}}$について$f\circ 1_A=f$かつ$1_A\circ g=g$が成り立つ.
+\end{enumerate}
+\end{enumerate}
+\end{Def}
+定義4.1における$S_{\rm Obj}$の元を{\bf 対象 object}, $S_{\rm Mor}$の元を{\bf 射 morphism}という.
+1つ目の条件の$dom f,cod f$はそれぞれ射$f$の{\bf 始域 domain}と{\bf 終域 codomain}という. 2つ目の条件の演算$\circ$は射の合成という. 3つ目の条件で述べているのは, 射の合成が結合律を満たすということである.最後に, 4つ目の条件の$1_A$を対象$A$の{\bf 恒等射 identity morphism}という.
+
+これらの用語を導入して, 定義4.1を改めて記述すると次のようになる.
+\begin{enumerate}
+\item
+圏は対象の集合と射の集合からなる.
+\item
+射は始域と終域をもち, それらはそれぞれ一意に定まる.
+\item
+射は合成可能であり, 射の合成は結合律を満たす.
+\item
+任意の対象について恒等射が存在する.
+\end{enumerate}
+
+\begin{caution}
+恒等射$1_{A}$は一意に定まるので, 定義に一意性を加えても問題ない.
+\end{caution}
+\begin{Notation}
+圏$\mathscr{C}$の対象を$\mathrm{Obj}(\mathscr{C})$で表す.
+\end{Notation}
+\begin{Notation}
+圏$\mathscr{C}$の射を$\mathrm{Mor}(\mathscr{C})$で表す.
+\end{Notation}
+
+\begin{Notation}
+始域が$A$,終域が$B$である射$f$を$f:A\rightarrow B$で表す.
+\end{Notation}
+\begin{Notation}
+圏$\mathscr{C}$の対象$A,B$に対して$f:A\rightarrow B$となる射の全体を$\mathrm{Hom}_{\mathscr{C}}(A,B)$で表す.
+\end{Notation}
+\begin{Def}
+圏$\mathscr{C}$の射$f:A\rightarrow B$に対して,
+ある射$g:B\rightarrow A$が存在して$g\circ f=1_A$かつ$f\circ g=1_B$となるとき,
+{\bf $f$は同型射 isomorphism である}という. また, このとき$g$を$f$の{\bf 逆射}という.
+\end{Def}
+\begin{Notation}
+射$f$の逆射を$f^{-1}$で表す.
+\end{Notation}
+\begin{Prop}
+ある射の逆射は存在すれば, 一意に定まる
+\end{Prop}
+\subsection{情報隠蔽された対象の探究に圏論が提供する方法論}
+オブジェクト指向プログラミングでは,「知らせる必要のない情報は隠蔽しておくほうが安全である」という{\bf 情報隠蔽}の考え方が重要視される.
+これに対して, 圏論は, 対象がもつ情報が隠蔽されている状況下で, 射のみから対象について探究するという方法論を提供する.
+\begin{example}
+どのような要素をもつかわからない集合$A$について写像$f:A\rightarrow A$が定義されていて$f\circ f\circ f$が恒等写像になるとする.
+このとき$A$が3つの要素$a_1,a_2,a_3$をもつと仮定することができ,
+\[
+f(a_1)=a_2, f(a_2)=a_3, 
+f(a_3)=a_1
+\]
+というように, これらの要素が写像$f$によって回転していると考えることができる.
+\end{example}
+\subsection{小圏・局所小圏・大圏}
+\subsubsection{小圏}
+\begin{Def}
+対象の集合,射の集合がともに小集合である圏を{\bf 小圏 small category}\index{しょうけん@小圏}という.
+\end{Def}
+\begin{Prop}
+対象も射もない圏${\bf 0}$は小圏である.
+\end{Prop}
+\begin{Prop}
+対象が1つで, 恒等射のみをもつ圏${\bf 1}$は小圏である.
+\end{Prop}
+\begin{Prop}
+対象が$A,B$の2つで, 
+恒等射と射$f:A\rightarrow B$のみをもつ圏
+${\bf 2}$は小圏である.
+\end{Prop}
+\begin{Prop}
+順序集合は小圏である.
+\end{Prop}
+\begin{Def}
+すべての対象の組$A,B$に対して$\mathrm{Hom}_{\mathscr{C}}(A,B)$が小集合である圏$\mathscr{C}$を{\bf 局所小圏 locally small category}という.
+\end{Def}
+\subsubsection{大圏}
+\begin{Def}
+小圏でない圏を{\bf 大圏 large category}という.
+\end{Def}
+\begin{comment}*************************
+\begin{Prop}
+すべての小集合\footnote{「宇宙」で定義しているが, 現在本文から外している}を対象とし, それらの間の写像を射とする圏$\mathrm{Set}$は大圏である.
+\end{Prop}
+***************************\end{comment}
+\begin{Prop}
+すべての群を対象とし, それらの間の準同型写像を射とする圏$\mathrm{Grp}$は大圏である.
+\end{Prop}
+\begin{Prop}
+すべてのアーベル群を対象とし, それらの間の準同型写像を射とする圏$\mathrm{Ab}$は大圏である.
+\end{Prop}
+\begin{comment}*************************
+\begin{Prop}
+すべての位相空間\footnote{定義を本文から外している}を対象とし, それらの間の連続写像\footnote{定義を本文から外している}を射とする圏$\mathrm{Top}$は大圏である.
+\end{Prop}
+\end{comment}
+\begin{comment}*************************
+\begin{example}
+ある体\footnote{定義を本文から外している}$k$に対して,
+すべての$k$次線形空間\footnote{未定義}を対象とし,
+それらの間の$k$次線形写像\footnote{未定義}を射とする
+圏$\mathrm{Vect}_k$は大圏である.
+\end{example}
+***************************\end{comment}
+\begin{comment}*************************
+\subsection{部分圏}
+\begin{Notation}
+圏$C$における射$f,g\in\mathrm{Mor}(\mathscr{C})$の合成を$g\circ_{\mathscr{C}}f$で表す.
+\end{Notation}
+\begin{Def}
+圏$\mathscr{A}$が圏$\mathscr{B}$に対して, 以下の条件を満たすとき, {\bf $\mathscr{A}$は$\mathscr{B}$の部分圏である}という.
+\begin{enumerate}
+\item $\mathrm{Obj}(\mathscr{A})\subset\mathrm{Obj}(\mathscr{B})$
+\item $\mathscr{A}$の2つの対象の組の全体が,
+$\mathscr{B}$の2つの対象の組の全体の部分集合である.
+\item ...
+\end{enumerate}
+\end{Def}
+\begin{Prop}
+圏$\mathrm{Ab}$は圏$\mathrm{Grp}$の部分圏である.
+\end{Prop}
+
+***************************\end{comment}
+\subsection{双対}
+\begin{Def}
+任意の圏$\mathscr{C}$に対して, 対象が$\mathscr{C}$と同じで, 射の向きが$\mathscr{C}$と反対である圏を\bf{双対圏}\index{そうついけん@双対圏}という.
+\end{Def}
+\begin{Notation}
+圏$\mathscr{C}$の双対圏を$\mathscr{C}^{\mathrm{op}}$で表す.
+\end{Notation}
+\begin{comment}
+\begin{caution}
+双対の原理
+\end{caution}
+\end{comment}
+\subsection{圏の生成}
+\begin{Prop}
+集合$A$に対して写像$f:A\rightarrow A$を定める.
+このとき, 対象の集合$\mathrm{Obj}=\{A\}$と, 射の集合$\mathrm{Mor}=\{1_A,f\}$からなる圏を得ることができる.
+ここで, 射$1_A$は$A$についての恒等射である.
+\end{Prop}
+\begin{comment}
+\begin{proof}
+$\mathrm{dom} f=\mathrm{cod}f$であるから, 合成射$f\circ f$を定めることができる.
+このとき$f\circ f=1_A$もしくは$f\circ f=f$である.
+
+$f\circ f=1_A$ならば...
+
+...
+
+となる.
+一方, $f\circ f=1_A$ならば...
+
+...
+
+となる.
+以上より, いずれの場合も, 射の合成が結合律を満たすことがわかる.
+したがって$f\circ f=1_A$と定めても$f\circ f=f$と定めても圏を生成することができる.
+\end{proof}
+\end{comment}
+\begin{Prop}
+集合$A$に対して写像$f:A\rightarrow A$を定め, 正の整数$n$に対して$f^n=\underbrace{f\circ f \circ \dots \circ f}_{n}$
+とする.
+このとき, 対象の集合$\mathrm{Obj}=\{A\}$と, 射の集合$\mathrm{Mor}=\{1_A,f,f^2,\dots,f^n,\dots\}$からなる圏を得ることができる.
+ここで, 射$1_A$は$A$についての恒等射である.
+\end{Prop}
+\begin{comment}
+\begin{proof}
+\end{proof}
+\end{comment}
+\begin{Prop}
+集合$A,B$に対して,写像$f:A\rightarrow B$と$g:\rightarrow A$を定める.
+このとき, 対象の集合$\mathrm{Obj}=\{A,B\}$と射の集合$\mathrm{Mor}=\{1_A,1_B,f,g,f\circ g\}$からなる圏を得ることができる.
+ここで, 射$1_A,1_B$はそれぞれ$A,B$についての恒等射である.
+\end{Prop}
+\begin{comment}
+\begin{proof}
+\end{proof}
+\end{comment}
+\begin{Def}
+集合$S_1,\dots,S_N$に関する写像$f_1,\dots,f_M$について,
+対象の集合を$\{S_1,\dots,S_N\}$,
+射の集合を恒等射と$f_1,\dots,f_M$およびそれらの合成のみからなる集合とする圏が存在するとき, 射の列$\{f_1,\dots,f_M\}$を{\bf 生成系 system of generators}という.
+\end{Def}
+\begin{Def}
+圏$\mathscr{A},\mathscr{B}$の積$\mathscr{A}\times\mathscr{B}$を次の$S_{\mathrm{Obj}}\left(\mathscr{A},\mathscr{B}\right),S_{\mathrm{Mor}}\left(\mathscr{A},\mathscr{B}\right)$の組で定義する
+\begin{itemize}
+\item $S_{\mathrm{Obj}}\left(\mathscr{A},\mathscr{B}\right)
+=\left\{(A,B)\mid A\in\mathrm{Obj}(\mathscr{A}),B\in\mathrm{Obj}(\mathscr{B})\right\}$
+\item $S_{\mathrm{Mor}}\left(\mathscr{A},\mathscr{B}\right)
+=\{(f_A,f_B)\mid f_A\in\mathrm{Mor(\mathscr{A})},
+f_B\in\mathrm{Mor(\mathscr{B})}\}$
+\end{itemize}
+\end{Def}
+\begin{Prop}
+圏の積は圏である.
+\end{Prop}
+\begin{comment}
+\section{Haskellにおける圏 (Hask)}
+\begin{Prop}
+すべてのHaskellの型を対象とし, それらの間の関数を射とする圏Haskは小圏である.
+\end{Prop}
+\begin{proof}
+\end{proof}
+\begin{caution}
+Haskellにおいて, 型\verb|A|,\verb|B|に対して, 型構築子によってつくられる\verb|A->B|は1つの型となる.
+\end{caution}
+\end{comment}
