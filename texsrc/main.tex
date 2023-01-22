@@ -84,74 +84,11 @@
 \chapter{集合}
 \input{ch1/main}
 
-
 \chapter{代数系}
 \input{ch2/main}
 
-
-
 \chapter{Haskellの基礎}
-関数型プログラミング言語Haskellでは圏論的な視点からライブラリが構築されている.
-\section{型}
-\subsection{定義済みの型}
-Haskellには標準ライブラリに表3.1に示す型が定義済みである.
-\begin{table}[h]
-\caption{Haskellの標準ライブラリに定義済みの型}
-\begin{center}
-\begin{tabular}{ll}
-\verb|Int|&固定長整数\\
-\verb|Integer|&多倍長整数 \\
-\verb|Char|&文字\\
-\verb|Float|&単精度浮動小数点数\\
-\verb|Double|&倍精度浮動小数点数\\
-\verb|Bool|&ブール代数\\
-\end{tabular}
-\end{center}
-\end{table}
-
-例として, 固定長整数の変数\verb|a|は次のように宣言する.
-\begin{lstlisting}
-a :: Int
-\end{lstlisting}
-
-\subsection{型構築子}
-同じ型の値を一方向に並べ, 前の要素が後の要素のポインタをもつようにしたデータ構造を{\bf リスト}という.
-一方, リストに対して, 異なる型を含むことを許容するデータ構造を{\bf タプル}という.
-
-定義済みの型をもとに新たな型を作り出す
-Haskellにおいて, 
-タプル,リストあるいは\verb|Maybe|のような型構築子によってを無限に作り出すことができる.
-\begin{example}
-\verb|[Integer]|, \verb|Maybe Int|,
-\verb|(Int,[Char])| などはすべてHaskellの型である.
-\end{example}
-\subsection{データ型}
-例として\verb|Red|, \verb|Green|, \verb|Blue|からなるデータ\verb|Color|の宣言は以下のように記述する.
-\begin{lstlisting}
-data Color = Red | Green | Blue 
-\end{lstlisting}
-データを表示するためには, \verb|Color| を型クラス \verb|Show| のインスタンスにする必要があることに注意する.
-\begin{lstlisting}
-data Color = Red | Green | Blue deriving Show
-\end{lstlisting}
-\subsection{型クラス}
-\begin{lstlisting}
-class Foo a where
-    foo :: a -> String
-instance Foo Bool where
-    foo True = "Bool: True"
-    foo False = "Bool: False"
-instance Foo Int where
-    foo x = "Int: " ++ show x
-instance Foo Char where
-    foo x = "Char: " ++ [x]
-
-main = do
-    putStrLn $ foo True		-- Bool: True
-    putStrLn $ foo (123::Int)	-- Int: 123
-    putStrLn $ foo 'A'		-- Char: A
-\end{lstlisting}
-Foo 型クラスは任意の型(a)を受け取り、Stringを返却するメソッド foo を持っている. instance を用いてそれぞれの型が引数に指定された場合の処理を実装している.
+\input{ch3/main}
 
 \part{圏論の諸概念}
 \chapter{圏}
