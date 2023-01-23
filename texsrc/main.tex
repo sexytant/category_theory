@@ -95,169 +95,10 @@
 \input{ch4/main}
 
 \chapter{関手}
-\section{関手}
-\begin{Def}
-圏$\mathscr{A}$の対象$\mathrm{Obj}(\mathscr{A})$から圏$\mathscr{B}$の対象$\mathrm{Obj}(\mathscr{B})$への写像を
-{\bf 圏$\mathscr{A}$から圏$\mathscr{B}$への対象関数 function on objects}という.
-\end{Def}
-\begin{Def}
-圏$\mathscr{A}$に関する射の集合\[\mathrm{Map}_{\mathscr{A}}=\{f_{\mathscr{A}}:A_1\rightarrow A_2\mid A_1\in\mathrm{Obj}(\mathscr{A}),A_2\in\mathrm{Obj}(\mathscr{A})\}\]
-から, その各元に対して, 
-圏$\mathscr{A}$から圏$\mathscr{B}$への対象関数$F_{\rm obj}(\mathscr{A},\mathscr{B})(\cdot)$を作用させて定まる射の集合
-\[
-\mathrm{Map_\mathscr{B}}=\{f_{\mathscr{B}}:F_{\rm obj}(\mathscr{A},\mathscr{B})(A_1),
-F_{\rm obj}(\mathscr{A},\mathscr{B})(A_2)\mid A_1\in\mathrm{Obj}(\mathscr{A}),A_2\in\mathrm{Obj}(\mathscr{A})\}
-\]
-への写像$F_{\rm Mor}(\mathscr{A},\mathscr{B}):\mathrm{Map}_{\mathscr{A}}\rightarrow\mathrm{Map}_{\mathscr{B}}$
-を
-{\bf 圏$\mathscr{A}$から圏$\mathscr{B}$への射関数 function on morphisms}という.
-\end{Def}
-\begin{Def}
-圏$\mathscr{A},\mathscr{B}$に対する対象関数と射関数の組を{\bf $圏\mathscr{A}$から圏$\mathscr{B}$への関手 functor}という.
-\end{Def}
-\begin{comment}
-\begin{example}
-順序を保存する写像
-\end{example}
-\end{comment}
-\begin{comment}
-\begin{example}
-圏と見做した順序集合間の簡単な関手の例
-\end{example}
-\end{comment}
-\begin{comment}
-*************************
-\begin{example}
-$n$次ホモロジー関手
-\end{example}
-***************************
-\end{comment}
+\input{ch5/main}
 
-\subsection{反変関手}
-\begin{Def}
-圏$\mathscr{A}^{\mathrm{op}}$から圏$\mathscr{B}$への関手
-を{\bf 圏$\mathscr{A}$から圏$\mathscr{B}$への反変関手 contravariant functor}という.
-\end{Def}
-\subsection{定数関手}
-\begin{Def}
-圏$\mathscr{A}$の任意の対象$A$を圏$\mathscr{B}$のただ一つの対象$B_0$に写し,
-$\mathscr{A}$の任意の射$f$を$\mathscr{B}$の恒等射に写す関手を
-{\bf 圏$\mathscr{A}$から圏$\mathscr{B}$への定数関手 constant functor}\index{ていすうかんしゅ@定数関手}という
-\end{Def}
-
-\subsection{忠実関手と充満関手}
-\begin{Def}
-圏$\mathscr{A}$
-から圏$\mathscr{B}$への関手$F$に関して,
-集合$\{(A_1,A_2)\mid A_1,A_2\in\mathrm{Obj}(\mathscr{A})\}$
-から
-集合$\{(F(A_1),F(A_2))\mid A_1,A_2\mathrm{Obj}(\mathscr{A}))\}$
-への写像が単射となっているとき,
-{\bf 関手$F$は忠実 faithful}であるという.
-\end{Def}
-\begin{Def}
-圏$\mathscr{A}$から圏$\mathscr{B}$への関手$F$に関して,
-集合$\{(A_1,A_2)\mid A_1,A_2\in\mathrm{Obj}(\mathscr{A})\}$
-から
-集合$\{(F(A_1),F(A_2))\mid A_1,A_2\in\mathrm{Obj}(\mathscr{A}))\}$
-への写像が全射となっているとき,
-{\bf 関手$F$は充満 full}であるという.
-\end{Def}
-\begin{Def}圏$\mathscr{A}$から圏$\mathscr{B}$への関手$F$が忠実かつ充満であるとき
-{\bf 関手$F$は充満忠実 full and faithfulである}という
-\end{Def}
-\begin{comment}
-\begin{Def}
-圏$\mathscr{A}$が圏$\mathscr{A}$の部分圏であり, 関手$F:\mathscr{A}\rightarrow\mathscr{B}$が充満であるとき,
-{\bf 圏$\mathscr{A}$は圏 $\mathscr{B}$の充満部分圏である}という.
-\end{Def}
-\end{comment}
-\begin{comment}
-\begin{example}
-...充満忠実である.
-\end{example}
-\begin{example}
-...忠実だが充満でない
-\end{example}
-\begin{example}
-充満だが忠実でない
-\end{example}
-\begin{example}
-複素数...
-
-...
-
-...忠実だが充満でない. （例1.30)
-\end{example}
-\end{comment}
-\begin{comment}
-\subsection{埋め込み関手}
-\subsection{忘却関手}
-\end{comment}
-\begin{comment}
-\section{Haskellの型構築子と関手}
-\subsubsection{List関手}
-Haskellにおける型構築子\verb|[]|は任意の型\verb|A|に対して型\verb|[A]|を対応させる.
-これは, HaskからHaskへの対称関数とみなせる.
-型\verb|A|と型\verb|B|および関数\verb|f::A->B|が与えられとき\verb|map f::[A]->[B]|が決定される.
-
-...
-
-型構築子\verb|[]|は{\bf List関手}\index{りすとかんしゅ@List関手}と呼ばれる
-\subsubsection{Maybe関手}
-Haskellにおける型構築子\verb|Maybe|は...
-
-...
-
-型構築子\verb|Maybe|は{\bf Maybe関手}\index{めいびーかんしゅ@Maybe関手}
-と呼ばれる.
-\subsubsection{Tree関手}
-一般に木構造を生成する型構築子は関手にできる. これを{\bf Tree関手}と呼ぶ.
-
-\lstinputlisting{../hssrc/Tree.hs}
-\section{２変数の関手}
-{\bf Hom関手}
-\lstinputlisting{../hssrc/homfunctors.hs}
-\section{型クラスとHaskの部分圏}
-{\bf ソート関手}
-\lstinputlisting{../hssrc/sort.hs}
-\end{comment}
 \chapter{自然変換}
-\section{自然変換}
-\begin{Def}
-圏$\mathscr{A}$から圏$\mathscr{B}$への関手$F,G$について,
-\begin{enumerate}
-\item $\mathscr{A}$の任意の対象$A$ 
-に対して
-$\mathscr{B}$の射$\alpha_A:FA\rightarrow GA$
-が存在し
-\item $\mathscr{A}$の任意の射$f:A_1\rightarrow A_2$
-が
-\[
-\alpha_{A_2}\circ Ff
-=Gf\circ\alpha_{A_1}
-\]
-を満たすとき
-\end{enumerate}に対して
-{\bf 集合$\alpha=\{\alpha_A\mid A\in\mathrm{Obj}(\mathscr{A})\}$は関手$F$から関手$G$への自然変換\index{しぜんへんかん@自然変換}である}という.
-\end{Def}
-\begin{Notation}
-関手$F$から関手$G$への自然変換$\alpha$を$\alpha:F\rightarrow G$で表す.
-\end{Notation}
-\begin{comment}
-\begin{Notation}
-関手$F$から関手$G$への自然変換$\alpha$を次の図表で表す.
-\end{Notation}
-\end{comment}
-\begin{comment}
-\section{Haskにおける自然変換}
-\subsection{concat}
-\subsection{List関手からMaybe関手への自然変換safehead}
-\subsection{concatとsafeheadの垂直合成}
-\subsection{二分木からリストへのflatten関数}
-
-\section{Haskにおける定数関手}
-\subsection{length関数}
+\input{ch6/main}
 
 \chapter{関手圏}
 \section{関手圏}
@@ -279,7 +120,7 @@ $\mathscr{A}$から$\mathscr{B}$への関手圏を$[\mathscr{A},\mathscr{B}]$
 
 ...が同型者であることは同値である.
 \end{Prop}
-\end{comment}
+
 \chapter{圏同値}
 \section{圏同値}
 \begin{Def}

@@ -1,0 +1,36 @@
+\section{自然変換}
+\begin{Def}
+圏$\mathscr{A}$から圏$\mathscr{B}$への関手$F,G$について,
+\begin{enumerate}
+\item $\mathscr{A}$の任意の対象$A$ 
+に対して
+$\mathscr{B}$の射$\alpha_A:FA\rightarrow GA$
+が存在し
+\item $\mathscr{A}$の任意の射$f:A_1\rightarrow A_2$
+が
+\[
+\alpha_{A_2}\circ Ff
+=Gf\circ\alpha_{A_1}
+\]
+を満たすとき
+\end{enumerate}に対して
+{\bf 集合$\alpha=\{\alpha_A\mid A\in\mathrm{Obj}(\mathscr{A})\}$は関手$F$から関手$G$への自然変換\index{しぜんへんかん@自然変換}である}という.
+\end{Def}
+\begin{Notation}
+関手$F$から関手$G$への自然変換$\alpha$を$\alpha:F\rightarrow G$で表す.
+\end{Notation}
+\begin{comment}
+\begin{Notation}
+関手$F$から関手$G$への自然変換$\alpha$を次の図表で表す.
+\end{Notation}
+\end{comment}
+\begin{comment}
+\section{Haskにおける自然変換}
+\subsection{concat}
+\subsection{List関手からMaybe関手への自然変換safehead}
+\subsection{concatとsafeheadの垂直合成}
+\subsection{二分木からリストへのflatten関数}
+
+\section{Haskにおける定数関手}
+\subsection{length関数}
+\end{comment}
