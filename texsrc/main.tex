@@ -97,21 +97,34 @@
 \chapter{関手}
 \section{関手}
 \begin{Def}
-圏$\mathscr{A}$の対象$\mathrm{Obj}(\mathscr{A})$から圏$\mathscr{B}$の対象$\mathrm{Obj}(\mathscr{B})$への関数を
-{\bf $\mathscr{A}$から$\mathscr{B}$への対象関数 function on objects}という.
+圏$\mathscr{A}$の対象$\mathrm{Obj}(\mathscr{A})$から圏$\mathscr{B}$の対象$\mathrm{Obj}(\mathscr{B})$への写像を
+{\bf 圏$\mathscr{A}$から圏$\mathscr{B}$への対象関数 function on objects}という.
 \end{Def}
 \begin{Def}
-{\bf 射関数 function on morphisms}
+圏$\mathscr{A}$に関する射の集合\[\mathrm{Map}_{\mathscr{A}}=\{f_{\mathscr{A}}:A_1\rightarrow A_2\mid A_1\in\mathrm{Obj}(\mathscr{A}),A_2\in\mathrm{Obj}(\mathscr{A})\}\]
+から, その各元に対して, 
+圏$\mathscr{A}$から圏$\mathscr{B}$への対象関数$F_{\rm obj}(\mathscr{A},\mathscr{B})(\cdot)$を作用させて定まる射の集合
+\[
+\mathrm{Map_\mathscr{B}}=\{f_{\mathscr{B}}:F_{\rm obj}(\mathscr{A},\mathscr{B})(A_1),
+F_{\rm obj}(\mathscr{A},\mathscr{B})(A_2)\mid A_1\in\mathrm{Obj}(\mathscr{A}),A_2\in\mathrm{Obj}(\mathscr{A})\}
+\]
+への写像$F_{\rm Mor}(\mathscr{A},\mathscr{B}):\mathrm{Map}_{\mathscr{A}}\rightarrow\mathrm{Map}_{\mathscr{B}}$
+を
+{\bf 圏$\mathscr{A}$から圏$\mathscr{B}$への射関数 function on morphisms}という.
 \end{Def}
 \begin{Def}
-圏$\mathscr{A},\mathscr{B}$に対する対称関数と射関数の組を{\bf $\mathscr{A}$から$\mathscr{B}$への関手 functor}という.
+圏$\mathscr{A},\mathscr{B}$に対する対象関数と射関数の組を{\bf $圏\mathscr{A}$から圏$\mathscr{B}$への関手 functor}という.
 \end{Def}
+\begin{comment}
 \begin{example}
 順序を保存する写像
 \end{example}
+\end{comment}
+\begin{comment}
 \begin{example}
 圏と見做した順序集合間の簡単な関手の例
 \end{example}
+\end{comment}
 \begin{comment}
 *************************
 \begin{example}
@@ -122,14 +135,14 @@ $n$次ホモロジー関手
 
 \subsection{反変関手}
 \begin{Def}
-圏$A^{\mathrm{op}}$から圏$B$への関手
-を{\bf 圏$A$から圏$B$への反変関手 contravariant functor}という.
+圏$\mathscr{A}^{\mathrm{op}}$から圏$\mathscr{B}$への関手
+を{\bf 圏$\mathscr{A}$から圏$\mathscr{B}$への反変関手 contravariant functor}という.
 \end{Def}
 \subsection{定数関手}
 \begin{Def}
 圏$\mathscr{A}$の任意の対象$A$を圏$\mathscr{B}$のただ一つの対象$B_0$に写し,
-$\mathscr{A}$の任意の射$f$を圏$\mathscr{B}$の恒等射に写す関手を
-{\bf 定数関手 constant functor}\index{ていすうかんしゅ@定数関手}という
+$\mathscr{A}$の任意の射$f$を$\mathscr{B}$の恒等射に写す関手を
+{\bf 圏$\mathscr{A}$から圏$\mathscr{B}$への定数関手 constant functor}\index{ていすうかんしゅ@定数関手}という
 \end{Def}
 
 \subsection{忠実関手と充満関手}
@@ -138,7 +151,7 @@ $\mathscr{A}$の任意の射$f$を圏$\mathscr{B}$の恒等射に写す関手を
 から圏$\mathscr{B}$への関手$F$に関して,
 集合$\{(A_1,A_2)\mid A_1,A_2\in\mathrm{Obj}(\mathscr{A})\}$
 から
-集合$\{(F(A_1),F(A_2))\mid\mathrm{Obj}(\mathscr{A}))\}$
+集合$\{(F(A_1),F(A_2))\mid A_1,A_2\mathrm{Obj}(\mathscr{A}))\}$
 への写像が単射となっているとき,
 {\bf 関手$F$は忠実 faithful}であるという.
 \end{Def}
@@ -146,7 +159,7 @@ $\mathscr{A}$の任意の射$f$を圏$\mathscr{B}$の恒等射に写す関手を
 圏$\mathscr{A}$から圏$\mathscr{B}$への関手$F$に関して,
 集合$\{(A_1,A_2)\mid A_1,A_2\in\mathrm{Obj}(\mathscr{A})\}$
 から
-集合$\{(F(A_1),F(A_2))\mid\mathrm{Obj}(\mathscr{A}))\}$
+集合$\{(F(A_1),F(A_2))\mid A_1,A_2\in\mathrm{Obj}(\mathscr{A}))\}$
 への写像が全射となっているとき,
 {\bf 関手$F$は充満 full}であるという.
 \end{Def}
@@ -231,9 +244,12 @@ $\mathscr{B}$の射$\alpha_A:FA\rightarrow GA$
 \begin{Notation}
 関手$F$から関手$G$への自然変換$\alpha$を$\alpha:F\rightarrow G$で表す.
 \end{Notation}
+\begin{comment}
 \begin{Notation}
 関手$F$から関手$G$への自然変換$\alpha$を次の図表で表す.
 \end{Notation}
+\end{comment}
+\begin{comment}
 \section{Haskにおける自然変換}
 \subsection{concat}
 \subsection{List関手からMaybe関手への自然変換safehead}
@@ -263,17 +279,19 @@ $\mathscr{A}$から$\mathscr{B}$への関手圏を$[\mathscr{A},\mathscr{B}]$
 
 ...が同型者であることは同値である.
 \end{Prop}
+\end{comment}
 \chapter{圏同値}
 \section{圏同値}
 \begin{Def}
 \bf{圏同値}
 \end{Def}
-
+\begin{comment}
 \section{Haskにおける自然同型}
 \subsection{mirror関数}
 Tree関手からTree関手への自然同型
 \subsection{Maybe関手とEither()関手の間の自然同型}
 \section{まとめ}
 aa
+\end{comment}
 \printindex
 \end{document}

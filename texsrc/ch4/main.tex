@@ -1,31 +1,31 @@
 \section{圏}
 \begin{Def}
-次を満たす集合$S_{\mathrm{Obj}},S_{\mathrm{Mor}}$の組を{\bf 圏 category}という.
+次を満たす集合$S_{\mathrm{obj}},S_{\mathrm{mor}}$の組を{\bf 圏 category}という.
 \begin{enumerate}
-\item 任意の$f\in S_\mathrm{Mor}$に対して$\mathrm{dom}f\in S_\mathrm{Obj},\mathrm{cod}f\in S_\mathrm{Obj}$がそれぞれ一意に定まる.
-\item $f\in S_{\mathrm{Mor}},g\in S_{\mathrm{Mor}}$について,
+\item 任意の$f\in S_\mathrm{mor}$に対して$\mathrm{dom}f\in S_\mathrm{obj},\mathrm{cod}f\in S_\mathrm{obj}$がそれぞれ一意に定まる.
+\item $f\in S_{\mathrm{mor}},g\in S_{\mathrm{mor}}$について,
 $\mathrm{cod}f=\mathrm{dom}g$であるとき,
-$g\circ f\in S_{\mathrm{Mor}}$が一意に定まる演算$\circ$が存在する.
-\item $f\in S_{\mathrm{Mor}},g\in S_{\mathrm{Mor}},h\in S_{\mathrm{Mor}}$について, \begin{align*}
+$g\circ f\in S_{\mathrm{mor}}$が一意に定まる演算$\circ$が存在する.
+\item $f\in S_{\mathrm{mor}},g\in S_{\mathrm{mor}},h\in S_{\mathrm{mor}}$について, \begin{align*}
 \mathrm{cod} f&=\mathrm{dom} g,\\ \mathrm{cod} g&=\mathrm{dom} h
 \end{align*}であるとき
 \[
 h\circ(g\circ f)=(h\circ g)\circ f
 \]
 が成り立つ.
-\item 任意の$A\in S_{\mathrm{Obj}}$について
-次を満たす$1_A\in S_{\mathrm{Mor}}$が存在する.
+\item 任意の$A\in S_{\mathrm{obj}}$について
+次を満たす$1_A\in S_{\mathrm{mor}}$が存在する.
 \begin{enumerate}
 \item
 $\mathrm{dom}1_{A}=A$
 \item
 $\mathrm{cod}1_A=A$
-\item $\mathrm{dom} f=\mathrm{cod} g=A$かつ$\mathrm{cod} f=\mathrm{dom}g$を満たす任意の$(f,g)\in S_{\mathrm{Obj}}\times S_{\mathrm{Obj}}$について$f\circ 1_A=f$かつ$1_A\circ g=g$が成り立つ.
+\item $\mathrm{dom} f=\mathrm{cod} g=A$かつ$\mathrm{cod} f=\mathrm{dom}g$を満たす任意の$(f,g)\in S_{\mathrm{obj}}\times S_{\mathrm{obj}}$について$f\circ 1_A=f$かつ$1_A\circ g=g$が成り立つ.
 \end{enumerate}
 \end{enumerate}
 \end{Def}
-定義4.1における$S_{\rm Obj}$の元を{\bf 対象 object}, $S_{\rm Mor}$の元を{\bf 射 morphism}という.
-1つ目の条件の$dom f,cod f$はそれぞれ射$f$の{\bf 始域 domain}と{\bf 終域 codomain}という. 2つ目の条件の演算$\circ$は射の合成という. 3つ目の条件で述べているのは, 射の合成が結合律を満たすということである.最後に, 4つ目の条件の$1_A$を対象$A$の{\bf 恒等射 identity morphism}という.
+定義4.1における$S_{\rm obj}$の元を{\bf 対象 object}, $S_{\rm mor}$の元を{\bf 射 morphism}という.
+1つ目の条件の$dom f,cod f$はそれぞれ{\bf 射$f$の始域 domain と 終域 codomain}という. 2つ目の条件の演算$\circ$は射の合成という. 3つ目の条件で述べているのは, 射の合成が結合律を満たすということである.最後に, 4つ目の条件の$1_A$を{\bf 対象$A$の恒等射 identity morphism}という.
 
 これらの用語を導入して, 定義4.1を改めて記述すると次のようになる.
 \begin{enumerate}
@@ -43,7 +43,7 @@ $\mathrm{cod}1_A=A$
 恒等射$1_{A}$は一意に定まるので, 定義に一意性を加えても問題ない.
 \end{caution}
 \begin{Notation}
-圏$\mathscr{C}$の対象を$\mathrm{Obj}(\mathscr{C})$で表す.
+圏$\mathscr{C}$の対象の集合を$\mathrm{Obj}(\mathscr{C})$で表す.
 \end{Notation}
 \begin{Notation}
 圏$\mathscr{C}$の射を$\mathrm{Mor}(\mathscr{C})$で表す.
@@ -58,7 +58,7 @@ $\mathrm{cod}1_A=A$
 \begin{Def}
 圏$\mathscr{C}$の射$f:A\rightarrow B$に対して,
 ある射$g:B\rightarrow A$が存在して$g\circ f=1_A$かつ$f\circ g=1_B$となるとき,
-{\bf $f$は同型射 isomorphism である}という. また, このとき$g$を$f$の{\bf 逆射}という.
+{\bf 射$f$は同型射 isomorphism である}という. また, このとき$g$を{\bf 射$f$の逆射}という.
 \end{Def}
 \begin{Notation}
 射$f$の逆射を$f^{-1}$で表す.
@@ -206,7 +206,7 @@ $f\circ f=1_A$ならば...
 \begin{Def}
 集合$S_1,\dots,S_N$に関する写像$f_1,\dots,f_M$について,
 対象の集合を$\{S_1,\dots,S_N\}$,
-射の集合を恒等射と$f_1,\dots,f_M$およびそれらの合成のみからなる集合とする圏が存在するとき, 射の列$\{f_1,\dots,f_M\}$を{\bf 生成系 system of generators}という.
+射の集合を恒等射と$f_1,\dots,f_M$およびそれらの合成のみからなる集合とする圏$\mathscr{C}$が存在するとき, 射の列$\{f_1,\dots,f_M\}$を{$\mathscr{C}$の\bf 生成系 system of generators}という.
 \end{Def}
 \begin{Def}
 圏$\mathscr{A},\mathscr{B}$の積$\mathscr{A}\times\mathscr{B}$を次の$S_{\mathrm{Obj}}\left(\mathscr{A},\mathscr{B}\right),S_{\mathrm{Mor}}\left(\mathscr{A},\mathscr{B}\right)$の組で定義する
