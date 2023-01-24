@@ -1,6 +1,9 @@
 \section{集合}
 {\bf 集合 set}とは, ひとまず素朴に「ものの集まり」と定義される. 集合を構成する「もの」を{\bf 元 element}という.
 \begin{Notation}
+$a$が集合$S$の元であることを$a\in S$で表す.
+\end{Notation}
+\begin{Notation}
 集合は各元をカンマで区切り$\{\}$で囲むことで表される. 
 \end{Notation}
 \begin{Notation}
@@ -11,11 +14,12 @@
 \begin{example}
 $\{2a\mid a\in\mathbb{N}\}$や$\{a^3\mid a\in\mathbb{N}\}$は集合である.
 \end{example}
-\begin{example}
-{\bf 空集合 empty set} $\emptyset=\{\}$は集合である.
-\end{example}
+集合論では, 元が存在しない集合$\{\}$の存在を認める.
+\begin{Def}
+元が存在しない集合$\{\}$を{\bf 空集合 emptyset}という.
+\end{Def}
 \begin{Notation}
-$a$が集合$S$の元であることを$a\in S$で表す.
+空集合を$\emptyset$で表す.
 \end{Notation}
 \begin{Def}
 集合$A$の元のすべてが集合$B$の元であるとき{\bf 集合$A$は集合$B$の部分集合 subsetである}という.  
@@ -24,13 +28,15 @@ $a$が集合$S$の元であることを$a\in S$で表す.
 集合$A$が集合$B$の部分集合であることを$A\subset B$で表す.
 \end{Notation}
 \begin{Def}
-集合$S$が与えられたとき, $S$の部分集合の全体
-$\mathscr{P}S=\{A\mid A\subset S\}$
+集合$S$に対する, $S$の部分集合の全体
+$\{A\mid A\subset S\}$
 を{\bf 集合$S$の冪集合 power set}という.
 \end{Def}
-
+\begin{Notation}
+集合$S$の冪集合を$\mathcal{P}S$で表す.
+\end{Notation}
 \begin{Def}
-集合$A,B$に対して$\{(a,b)\mid a\in A, b\in B\}$を{\bf 集合$A$と集合$B$の
+集合$A,B$に対する$\{(a,b)\mid a\in A, b\in B\}$を{\bf 集合$A$と集合$B$の
 直積 direct product}という.
 \end{Def}
 \begin{Notation}
@@ -44,7 +50,7 @@ $\mathscr{P}S=\{A\mid A\subset S\}$
 \section{二項関係・写像}
 \subsection{二項関係}
 \begin{Def}
-集合$A,B$に対して$R\subset A\times B$であるとき, {\bf 集合$R$は集合$A$と集合$B$の二項関係 binary relation}\index{にこうかんけい@二項関係}であるという.
+集合$A,B$の直積の部分集合を, {\bf 集合$A$と集合$B$の二項関係 binary relation}\index{にこうかんけい@二項関係}であるという.
 \end{Def}
 \begin{Def}
 $R$が集合$A,B$の二項関係であるとする. 
