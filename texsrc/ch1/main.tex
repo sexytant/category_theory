@@ -28,8 +28,7 @@ $\{2a\mid a\in\mathbb{N}\}$や$\{a^3\mid a\in\mathbb{N}\}$は集合である.
 集合$A$が集合$B$の部分集合であることを$A\subset B$で表す.
 \end{Notation}
 \begin{Def}
-集合$S$に対する, $S$の部分集合の全体
-$\{A\mid A\subset S\}$
+集合$S$に対する$\{A\mid A\subset S\}$
 を{\bf 集合$S$の冪集合 power set}という.
 \end{Def}
 \begin{Notation}
@@ -52,36 +51,39 @@ $\{A\mid A\subset S\}$
 \begin{Def}
 集合$A,B$の直積の部分集合を, {\bf 集合$A$と集合$B$の二項関係 binary relation}\index{にこうかんけい@二項関係}であるという.
 \end{Def}
+\begin{comment}
 \begin{Def}
-$R$が集合$A,B$の二項関係であるとする. 
+集合$A,B$の二項関係$\mathrm{R}$に関して, 
 とある$a\in A, b\in B$の組$(a,b)$が$R$の元であるとき,
-{\bf $a$と$b$に間に$R$の関係\index{かんけい@関係}がある}という.
+{\bf $a$と$b$に間に$\mathrm{R}$の関係\index{かんけい@関係}がある}という.
 \end{Def}
 \begin{Notation}
-$a$と$b$の間に$R$の関係があることを$aRb$と表す.
+$a$と$b$の間に$\mathrm{R}$の関係があることを$aRb$と表す.
 \end{Notation}
+\end{comment}
 \subsection{順序集合}
 \begin{Def}
-次を満たす集合$X$から$X$への二項関係$R$を{\bf 順序 order}という.
+次を満たす集合$X$から$X$への二項関係$\mathrm{R}$を{\bf 順序 order}という.
 \begin{enumerate}
-\item 任意の$x\in X$について$(x,x)\in R$
-\item $(x,y)\in R\land(y,x)\in R\Rightarrow x=y$
-\item $(x,y)\in R\land (y,z)\in R
-\Rightarrow (x,z)\in R$
+\item 任意の$X$の元$x$について$(x,x)\in \mathrm{R}$である.
+\item 任意の$X$の元$x,y$について$(x,y)\in \mathrm{R}$かつ$(y,x)\in \mathrm{R}$ならば$x=y$が成り立つ.
+\item 任意の$X$の元$x,y,z$について$(x,y)\in \mathrm{R}$かつ $(y,z)\in \mathrm{R}$ならば
+$(x,z)\in \mathrm{R}$が成り立つ.
 \end{enumerate}
 \end{Def}
+\begin{comment}
 \begin{Def}
 順序をもつ集合を{\bf 順序集合 orderd set}という.
 \end{Def}
 \begin{Notation}
 順序集合の元$x,y$に順序関係があるとき, $x\preceq y$で表す.
 \end{Notation}
-
+\end{comment}
 \subsection{写像}
 \begin{Def}
-$R$が集合$A,B$の二項関係であるとする.
-任意の$a\in A$について, とある$b\in B$が一意に存在して$aRb$となるとき,
-{\bf 二項関係$R$は集合$A$から集合$B$への写像map\index{しゃぞう@写像}である}という.
+集合$A,B$の二項関係$f$について,
+任意の$a\in A$に, 対応する$b\in B$が一意に存在して$(a,b)\in\mathrm{f}$となるとき,
+{\bf 二項関係$R$は集合$f$から集合$B$への写像map\index{しゃぞう@写像}である}という.
 \end{Def}
 \begin{Notation}
 集合$A$から集合$B$への写像$f$を$f:A\rightarrow B$で表す.
@@ -92,22 +94,22 @@ $R$が集合$A,B$の二項関係であるとする.
 \end{caution}
 \end{comment}
 \begin{Notation}
-集合$A$から集合$B$への写像$f$に関して, $b\in B$が$a\in A$に対応することを
+写像$f:A\rightarrow B$に関して, $b\in B$が$a\in A$に対応することを
 \[
 b=f(a)
 \]
 で表す.
 \end{Notation}
 \begin{Def}
-集合$A$から集合$B$への写像$f$が,
+写像$f:A\rightarrow B$が,
 任意の$a_1,a_2\in A$について
 \[
 a_1\neq a_2\Rightarrow f(a_1)\neq f(a_2)
 \]
-を満たすとき{\bf 写像$f$は単射 injection である}という.
+を満たすとき{\bf 写像$f:A\rightarrow B$は単射 injection である}という.
 \end{Def}
 \begin{Def}
-集合$A$から集合$B$への写像$f$が,
+写像$f:A\rightarrow B$に関して,
 任意の$b\in B$に対して
 とある$a\in A$が存在して
 \[
@@ -116,15 +118,15 @@ b=f(a)
 であるとき{\bf 写像$f$は全射surjection である}という.
 \end{Def}
 \begin{Def}
-集合$A$から集合$B$への写像$f$が, 単射であり, かつ全射であるとき{\bf 写像$f$は全単射 bijection である}という.
+写像$f:A\rightarrow B$が, 単射であり, かつ全射であるとき{\bf 写像$f:A\rightarrow B$は全単射 bijection である}という.
 \end{Def}
 
 \begin{Def}
-集合$A$から集合$B$への写像$f:A\rightarrow B$について, 集合$B$から集合$A$への写像$g:B\rightarrow A$が存在して, $A$の任意の元$a\in A$に対して
+写像$f:A\rightarrow B$に対して,写像$g:B\rightarrow A$が存在して, 任意の$a\in A$に対して
 \[
 f(a)=b \Leftrightarrow g(b)=a
 \]
-が成り立つとき, {\bf 写像$g$は写像$f$の逆写像 inverse mapping である}という.
+が成り立つとき, {\bf 写像$g:B\rightarrow A$は写像$f:A\rightarrow B$の逆写像 inverse mapping である}という.
 \end{Def}
 \begin{Notation}
 写像$f$の逆写像を$f^{-1}$で表す.
@@ -151,34 +153,40 @@ aRb\land aRb'\Rightarrow b=b'
 
 \subsection{合成と結合律}
 \begin{Def}
-集合$A,B,C$に関する二項関係$F\in A\times B$と$G\in B\times C$について, その{\bf 合成 composition} $G\circ F\in A\times C$を
+二項関係$F\in A\times B$と$G\in B\times C$に対する
 \[
-G\circ F=\{(a,c)\in A\times C|\text{とある}b\in B\text{が存在して}(a,b)\in F \text{かつ} (b,c)\in G\text{である}\}
+\{(a,c)\in A\times C|\text{とある}b\in B\text{が存在して}(a,b)\in F \text{かつ} (b,c)\in G\text{である}\}
 \]
-で定義する.
+を{\bf 二項関係$F\in A\times B$と$G\in B\times C$の合成 composition}という.
 \end{Def}
+\begin{Notation}
+二項関係$F\in A\times B$と$G\in B\times C$の合成を$G\circ F$で表す.
+\end{Notation}
 \begin{Prop}
-二項関係の合成は{\bf 結合律 associative law}を満たす.
-結合律とは, 集合$A,B,C,D$に対する3つの二項関係$F\in(A\times B),G\in(B\times C),H\in(C\times D)$について
+二項関係$F\in A\times B ,G\in B\times C, H\in C\times D$について
 \[
 (H\circ G)\circ F=H\circ (G\circ F)
 \]
-が成り立つことをいう.
+が成り立つ.
 \end{Prop}
-
-\begin{Def}
-集合$A,B,C$に関する写像$f:A\rightarrow B$と$g:B\rightarrow C$について, その合成 $g\circ f:A\rightarrow C$を
-\[
-(g\circ f)(a)=g(f(a))
-\]
-で定義する. ここで$a$は$A$の元である.
-\end{Def}
+このことを二項関係が{\bf 結合律 associative law}を満たすという.
 \begin{Prop}
-写像の合成は結合律を満たす.
-すなわち, 集合$A,B,C,D$に対する3つの写像$f:A\rightarrow B, g:B\rightarrow C,
+写像$f:A\rightarrow B$と$g:B\rightarrow C$に対して,
+これらの合成を定義することができる.
+\end{Prop}
+\begin{Def}
+写像$f:A\rightarrow B$と$g:B\rightarrow C$の合成して得られる写像を
+{\bf 写像$f:A\rightarrow B$と$g:B\rightarrow C$の合成写像 composition mapping}という.
+\end{Def}
+\begin{Notation}
+写像$f:A\rightarrow B$と$g:B\rightarrow C$の合成写像を$g\circ f$で表す.
+\end{Notation}
+\begin{Prop}
+写像$f:A\rightarrow B, g:B\rightarrow C,
 h:C\rightarrow D$について
 \[
 (h\circ g)\circ f=h\circ(g\circ f)
 \]
 が成り立つ.
 \end{Prop}
+このことを写像が結合律を満たすという.
