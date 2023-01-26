@@ -1,6 +1,6 @@
 \section{圏}
 \begin{Def}
-次を満たす集合$S_{\mathrm{obj}},S_{\mathrm{mor}}$の組を{\bf 圏 category}という.
+集合の組$(S_{\mathrm{obj}},S_{\mathrm{mor}})$が次の条件を満たすとき{\bf 集合の組$(S_{\mathrm{obj}},S_{\mathrm{mor}})$は圏 categoryをなす}という.
 \begin{enumerate}
 \item 任意の$f\in S_\mathrm{mor}$に対して$\mathrm{dom}(f)\in S_\mathrm{obj},\mathrm{cod}(f)\in S_\mathrm{obj}$がそれぞれ一意に定まる.
 \item $f\in S_{\mathrm{mor}},g\in S_{\mathrm{mor}}$について,
@@ -43,10 +43,10 @@ $\mathrm{cod}(1_A)=A$
 恒等射$1_{A}$は一意に定まるので, 定義に一意性を加えても問題ない.
 \end{caution}
 \begin{Notation}
-圏$\mathscr{C}$の対象の集合を$\mathrm{Obj}(\mathscr{C})$で表す.
+圏$\mathscr{C}$の対象全体の集合を$\mathrm{Obj}(\mathscr{C})$で表す.
 \end{Notation}
 \begin{Notation}
-圏$\mathscr{C}$の射を$\mathrm{Mor}(\mathscr{C})$で表す.
+圏$\mathscr{C}$の射全体の集合を$\mathrm{Mor}(\mathscr{C})$で表す.
 \end{Notation}
 
 \begin{Notation}
@@ -65,8 +65,9 @@ $\mathrm{cod}(1_A)=A$
 射$f$の逆射を$f^{-1}$で表す.
 \end{Notation}
 \begin{Prop}
-ある射の逆射は存在すれば, 一意に定まる
+射$f$が同型射であるとき, $f^{-1}$は一意に定まる.
 \end{Prop}
+\begin{comment}
 \subsection{情報隠蔽された対象の探究に圏論が提供する方法論}
 オブジェクト指向プログラミングでは,「知らせる必要のない情報は隠蔽しておくほうが安全である」という{\bf 情報隠蔽}の考え方が重要視される.
 これに対して, 圏論は, 対象がもつ情報が隠蔽されている状況下で, 射のみから対象について探究するという方法論を提供する.
@@ -79,6 +80,7 @@ f(a_3)=a_1
 \]
 というように, これらの要素が写像$f$によって回転していると考えることができる.
 \end{example}
+\end{comment}
 \subsection{小圏・局所小圏・大圏}
 \subsubsection{小圏}
 \begin{Def}
@@ -213,7 +215,7 @@ $\{S_1,\dots,S_N\}$を対象とし,
 $1_{S_1},\dots,1_{S_N}$と$f_1,\dots,f_M$およびそれらの合成のみを射とする圏$\mathscr{C}$が存在するとき, $\{f_1,\dots,f_M\}$を{\bf 圏$\mathscr{C}$の生成系 system of generators}という.
 \end{Def}
 \begin{Def}
-圏$\mathscr{A},\mathscr{B}$の積に対して, 次の$S_{\mathrm{Obj}}\left(\mathscr{A},\mathscr{B}\right),S_{\mathrm{Mor}}\left(\mathscr{A},\mathscr{B}\right)$の組を{\bf 圏$\mathscr{A},\mathscr{B}$の積}という.
+圏$\mathscr{A},\mathscr{B}$の積に対して, 次の集合の組$(S_{\mathrm{Obj}}\left(\mathscr{A},\mathscr{B}\right),S_{\mathrm{Mor}}\left(\mathscr{A},\mathscr{B}\right))$を{\bf 圏$\mathscr{A},\mathscr{B}$の積}という.
 \begin{itemize}
 \item $S_{\mathrm{Obj}}\left(\mathscr{A},\mathscr{B}\right)
 =\left\{(A,B)\mid A\in\mathrm{Obj}(\mathscr{A}),B\in\mathrm{Obj}(\mathscr{B})\right\}$
@@ -226,6 +228,6 @@ f_B\in\mathrm{Mor(\mathscr{B})}\}$
 圏$\mathscr{A},\mathscr{B}$の積を$\mathscr{A}\times\mathscr{B}$で表す.
 \end{Def}
 \begin{Prop}
-圏の積は圏である.
+圏の積は圏をなす.
 \end{Prop}
 
