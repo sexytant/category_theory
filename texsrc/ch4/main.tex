@@ -82,7 +82,7 @@ f(a_3)=a_1
 \subsection{小圏・局所小圏・大圏}
 \subsubsection{小圏}
 \begin{Def}
-対象の集合,射の集合がともに小集合である圏を{\bf 小圏 small category}\index{しょうけん@小圏}という.
+圏$\mathscr{C}$について, $\mathrm{Obj}(\mathscr{C}),\mathrm{Mor}(\mathscr{C})$が小集合であるとき,{\bf 圏$\mathscr{C}$は小圏 small category}\index{しょうけん@小圏}であるという.
 \end{Def}
 \begin{Prop}
 対象も射もない圏${\bf 0}$は小圏である.
@@ -98,12 +98,13 @@ ${\bf 2}$は小圏である.
 \begin{Prop}
 順序集合は小圏である.
 \end{Prop}
+\subsubsection{局所小圏}
 \begin{Def}
-すべての対象の組$A,B$に対して$\mathrm{Hom}_{\mathscr{C}}(A,B)$が小集合である圏$\mathscr{C}$を{\bf 局所小圏 locally small category}という.
+圏$\mathscr{C}$について, 任意の$A\in\mathrm{Obj}(\mathscr{C}),B\in\mathrm{Obj}(\mathscr{C})$の組に対して$\mathrm{Hom}_{\mathscr{C}}(A,B)$が小集合であるとき, {\bf 圏$\mathscr{C}$は 局所小圏 locally small category である}という.
 \end{Def}
 \subsubsection{大圏}
 \begin{Def}
-小圏でない圏を{\bf 大圏 large category}という.
+圏$\mathscr{C}$が小圏でないとき{\bf 圏$\mathscr{C}$は大圏 large categoryである}という.
 \end{Def}
 
 \begin{comment}
@@ -154,7 +155,7 @@ $\mathscr{B}$の2つの対象の組の全体の部分集合である.
 \end{comment}
 \subsection{双対}
 \begin{Def}
-任意の圏$\mathscr{C}$に対して, 対象が$\mathscr{C}$と同じで, 射の向きが$\mathscr{C}$と反対である圏を\bf{双対圏}\index{そうついけん@双対圏}という.
+圏$\mathscr{C}$に対して, 対象が$\mathscr{C}$と同じで, 射の向きが$\mathscr{C}$と反対である圏を\bf{圏$\mathscr{C}$の双対圏}\index{そうついけん@双対圏}という.
 \end{Def}
 \begin{Notation}
 圏$\mathscr{C}$の双対圏を$\mathscr{C}^{\mathrm{op}}$で表す.
@@ -167,7 +168,7 @@ $\mathscr{B}$の2つの対象の組の全体の部分集合である.
 \subsection{圏の生成}
 \begin{Prop}
 集合$A$と写像$f:A\rightarrow A$
-について, $(\{A\},\{1_A,f\})$は圏となる.
+について, 集合の組$(\{A\},\{1_A,f\})$は圏をなす.
 \end{Prop}
 \begin{comment}
 \begin{proof}
@@ -191,8 +192,8 @@ $f\circ f=1_A$ならば...
 \begin{Prop}
 集合$A$と写像$f:A\rightarrow A$について, 正の整数$n$に対して$f^n=\underbrace{f\circ f \circ \dots \circ f}_{n}$
 とするとき,
-$(\{A\},\{1_A,f,f^2,\dots,\})$
-は圏となる.
+集合の組$(\{A\},\{1_A,f,f^2,\dots,\})$
+は圏をなす.
 \end{Prop}
 \begin{comment}
 \begin{proof}
@@ -200,7 +201,7 @@ $(\{A\},\{1_A,f,f^2,\dots,\})$
 \end{comment}
 \begin{Prop}
 集合$A,B$と写像$f:A\rightarrow B,\ g:B\rightarrow A$について,
-$(\{A,B\}, \{1_A,1_B,f,g,f\circ g\})$は圏となる.
+集合の組$(\{A,B\}, \{1_A,1_B,f,g,f\circ g\})$は圏をなす.
 \end{Prop}
 \begin{comment}
 \begin{proof}
@@ -212,7 +213,7 @@ $\{S_1,\dots,S_N\}$を対象とし,
 $1_{S_1},\dots,1_{S_N}$と$f_1,\dots,f_M$およびそれらの合成のみを射とする圏$\mathscr{C}$が存在するとき, $\{f_1,\dots,f_M\}$を{\bf 圏$\mathscr{C}$の生成系 system of generators}という.
 \end{Def}
 \begin{Def}
-圏$\mathscr{A},\mathscr{B}$の積$\mathscr{A}\times\mathscr{B}$を次の$S_{\mathrm{Obj}}\left(\mathscr{A},\mathscr{B}\right),S_{\mathrm{Mor}}\left(\mathscr{A},\mathscr{B}\right)$の組で定義する
+圏$\mathscr{A},\mathscr{B}$の積に対して, 次の$S_{\mathrm{Obj}}\left(\mathscr{A},\mathscr{B}\right),S_{\mathrm{Mor}}\left(\mathscr{A},\mathscr{B}\right)$の組を{\bf 圏$\mathscr{A},\mathscr{B}$の積}という.
 \begin{itemize}
 \item $S_{\mathrm{Obj}}\left(\mathscr{A},\mathscr{B}\right)
 =\left\{(A,B)\mid A\in\mathrm{Obj}(\mathscr{A}),B\in\mathrm{Obj}(\mathscr{B})\right\}$
@@ -220,6 +221,9 @@ $1_{S_1},\dots,1_{S_N}$と$f_1,\dots,f_M$およびそれらの合成のみを射
 =\{(f_A,f_B)\mid f_A\in\mathrm{Mor(\mathscr{A})},
 f_B\in\mathrm{Mor(\mathscr{B})}\}$
 \end{itemize}
+\end{Def}
+\begin{Def}
+圏$\mathscr{A},\mathscr{B}$の積を$\mathscr{A}\times\mathscr{B}$で表す.
 \end{Def}
 \begin{Prop}
 圏の積は圏である.
