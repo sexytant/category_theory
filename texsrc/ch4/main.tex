@@ -2,12 +2,12 @@
 \begin{Def}
 次を満たす集合$S_{\mathrm{obj}},S_{\mathrm{mor}}$の組を{\bf 圏 category}という.
 \begin{enumerate}
-\item 任意の$f\in S_\mathrm{mor}$に対して$\mathrm{dom}f\in S_\mathrm{obj},\mathrm{cod}f\in S_\mathrm{obj}$がそれぞれ一意に定まる.
+\item 任意の$f\in S_\mathrm{mor}$に対して$\mathrm{dom}(f)\in S_\mathrm{obj},\mathrm{cod}(f)\in S_\mathrm{obj}$がそれぞれ一意に定まる.
 \item $f\in S_{\mathrm{mor}},g\in S_{\mathrm{mor}}$について,
-$\mathrm{cod}f=\mathrm{dom}g$であるとき,
+$\mathrm{cod}(f)=\mathrm{dom}(g)$であるとき,
 $S_{\mathrm{mor}}$上の二項演算$\circ$が存在する.
 \item $f\in S_{\mathrm{mor}},g\in S_{\mathrm{mor}},h\in S_{\mathrm{mor}}$について, \begin{align*}
-\mathrm{cod} f&=\mathrm{dom} g,\\ \mathrm{cod} g&=\mathrm{dom} h
+\mathrm{cod}(f)&=\mathrm{dom}(g),\\ \mathrm{cod}(g)&=\mathrm{dom}(h)
 \end{align*}であるとき
 \[
 h\circ(g\circ f)=(h\circ g)\circ f
@@ -17,10 +17,10 @@ h\circ(g\circ f)=(h\circ g)\circ f
 次を満たす$1_A\in S_{\mathrm{mor}}$が存在する.
 \begin{enumerate}
 \item
-$\mathrm{dom}1_{A}=A$
+$\mathrm{dom}(1_{A})=A$
 \item
-$\mathrm{cod}1_A=A$
-\item $\mathrm{dom} f=\mathrm{cod} g=A$かつ$\mathrm{cod} f=\mathrm{dom}g$を満たす任意の$(f,g)\in S_{\mathrm{obj}}\times S_{\mathrm{obj}}$について$f\circ 1_A=f$かつ$1_A\circ g=g$が成り立つ.
+$\mathrm{cod}(1_A)=A$
+\item $\mathrm{dom}(f)=\mathrm{cod} (g)=A$かつ$\mathrm{cod} (f)=\mathrm{dom}(g)$を満たす任意の$(f,g)\in S_{\mathrm{obj}}\times S_{\mathrm{obj}}$について$f\circ 1_A=f$かつ$1_A\circ g=g$が成り立つ.
 \end{enumerate}
 \end{enumerate}
 \end{Def}
