@@ -119,39 +119,70 @@ ${\bf 2}$は小圏である.
 \begin{Prop}
 すべての可換群を対象とし, それらの間の準同型写像を射とする圏$\mathrm{Ab}$は大圏である.
 \end{Prop}
-\begin{comment}*************************
+\begin{comment}
+*************************
 \begin{Prop}
 すべての位相空間\footnote{定義を本文から外している}を対象とし, それらの間の連続写像\footnote{定義を本文から外している}を射とする圏$\mathrm{Top}$は大圏である.
 \end{Prop}
 \end{comment}
-\begin{comment}*************************
+\begin{comment}
+*************************
 \begin{example}
 ある体\footnote{定義を本文から外している}$k$に対して,
 すべての$k$次線形空間\footnote{未定義}を対象とし,
 それらの間の$k$次線形写像\footnote{未定義}を射とする
 圏$\mathrm{Vect}_k$は大圏である.
 \end{example}
-***************************\end{comment}
-\begin{comment}
-*************************
+***************************
+\end{comment}
+
 \subsection{部分圏}
 \begin{Notation}
-圏$C$における射$f,g\in\mathrm{Mor}(\mathscr{C})$の合成を$g\circ_{\mathscr{C}}f$で表す.
+圏$\mathscr{C}$における射$f,g\in\mathrm{Mor}(\mathscr{C})$の合成を$g\circ_{\mathscr{C}}f$で表す.
 \end{Notation}
-\begin{Def}
-圏$\mathscr{A}$が圏$\mathscr{B}$に対して, 以下の条件を満たすとき, {\bf $\mathscr{A}$は$\mathscr{B}$の部分圏である}という.
+\begin{Prop}
+圏$\mathscr{A}$が圏$\mathscr{B}$に対して, 以下の条件を満たすとする.
 \begin{enumerate}
-\item $\mathrm{Obj}(\mathscr{A})\subset\mathrm{Obj}(\mathscr{B})$
-\item $\mathscr{A}$の2つの対象の組の全体が,
-$\mathscr{B}$の2つの対象の組の全体の部分集合である.
-\item ...
+\item
+$\mathrm{Obj}(\mathscr{A})\subset\mathrm{Obj}(\mathscr{B})$
+\item
+$\{(X_1,X_2)\mid X_1\in\mathrm{Obj}(\mathscr{A}),X_2\in \mathrm{Obj}(\mathscr{A})\}
+\subset
+\{(X_1,X_2)\mid X_1\in\mathrm{Obj}(\mathscr{B}),X_2\in \mathrm{Obj}(\mathscr{B})\}
+$
+\end{enumerate}
+このとき$\mathrm{Mor}(\mathscr{A})\subset\mathrm{Mor}(\mathscr{B})$が成り立つ.
+\end{Prop}
+\begin{Def}
+圏$\mathscr{A}$が圏$\mathscr{B}$に対して, 以下の条件を満たすとき, {\bf 圏$\mathscr{A}$は圏$\mathscr{B}$の部分圏である}という.
+\begin{enumerate}
+\item
+$\mathrm{Obj}(\mathscr{A})\subset\mathrm{Obj}(\mathscr{B})$
+\item
+$\{(X_1,X_2)\mid X_1\in\mathrm{Obj}(\mathscr{A}),X_2\in \mathrm{Obj}(\mathscr{A})\}
+\subset
+\{(X_1,X_2)\mid X_1\in\mathrm{Obj}(\mathscr{B}),X_2\in \mathrm{Obj}(\mathscr{B})\}
+$
+\item 任意の$f\in\mathrm{Mor}(\mathscr{A}), g\in\mathrm{Mor}(\mathscr{A})$について
+$g\circ_{\mathscr{A}}f$が存在するならば
+$g\circ_{\mathscr{B}}f$が存在し
+\[
+g\circ_{\mathscr{A}}f=g\circ_{\mathscr{B}}f
+\]
+が成り立つ.
+\item 任意の$f\in\mathrm{Mor}(\mathscr{A}), g\in\mathrm{Mor}(\mathscr{A})$について
+$g\circ_{\mathscr{B}}f$が存在するならば
+$g\circ_{\mathscr{A}}f$が存在し
+\[
+g\circ_{\mathscr{A}}f=g\circ_{\mathscr{B}}f
+\]
+が成り立つ.
 \end{enumerate}
 \end{Def}
 \begin{Prop}
 圏$\mathrm{Ab}$は圏$\mathrm{Grp}$の部分圏である.
 \end{Prop}
-***************************
-\end{comment}
+
 \subsection{双対}
 \begin{Def}
 圏$\mathscr{C}$に対して, 対象が$\mathscr{C}$と同じで, 射の向きが$\mathscr{C}$と反対である圏を\bf{圏$\mathscr{C}$の双対圏}\index{そうついけん@双対圏}という.
