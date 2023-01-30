@@ -74,3 +74,78 @@ instance Monoid a => Monoid (Maybe a)
 \end{lstlisting}
 Maybe は型構築子で Nothing および Just はデータ構築子です。
 \end{comment}
+
+\section{Hask}
+\subsection{Haskに関する数学的な概念}\begin{Def}
+{\bf 始対象}
+\end{Def}
+\begin{Def}
+{\bf 終対象}
+\end{Def}
+\begin{Def}
+{\bf　冪対象}
+\end{Def}
+\begin{Def}
+圏$\mathscr{C}$が次の条件を満たすとき{\bf 圏$\mathscr{C}$はデカルト閉圏である}という.
+\begin{enumerate}
+\item
+$\mathscr{C}$は終対象を持つ。
+\item
+任意の$X\in\mathrm{Obj}(\mathscr{C}),Y\in\mathrm{Obj}(\mathscr{C})$ に対して,
+$X\times Y\in\mathrm{Obj}(\mathscr{C})$である.
+\item
+任意の$X\in\mathrm{Obj}(\mathscr{C}),Y\in\mathrm{Obj}(\mathscr{C})$に対して
+$ZY\in\mathrm{Obj}(\mathscr{C})$である.
+\end{enumerate}
+\end{Def}
+\begin{Def}
+{\bf 多相関数}
+\end{Def}
+\subsection{Hask (\S 4に挿入)}
+
+\begin{Prop}
+Haskellの型全体の集合と,
+それらの間の関数の集合の組は
+デカルト閉圏をなす.
+\end{Prop}
+
+
+\subsection{List関手(\S 5に挿入)}
+
+
+
+\begin{Prop}
+Haskellにおける型構築子\verb|[]|は, HaskからHaskへの対象関数である.
+\end{Prop}
+\begin{proof}
+型構築子\verb|[]|は, 任意の型\verb|A|に対して型\verb|[A]|を対応させるので, 命題が成り立つ.
+\end{proof}
+
+型\verb|A|と型\verb|B|および関数\verb|f::A->B|が与えられとき\verb|map f::[A]->[B]|が決定される.
+\begin{Prop}
+\verb|map|はHaskからHaskへの射関数である.
+\end{Prop}
+\begin{Prop}
+型構築子\verb|[]|と\verb|map|がHaskからHaskへの関手をなす.
+\end{Prop}
+\begin{Proof}
+命題...と命題...より明らか.
+\end{Proof}
+型構築子\verb|[]|を{\bf List関手}\index{りすとかんしゅ@List関手}という.
+\subsubsection{Maybe関手}
+Haskellにおける型構築子\verb|Maybe|は...
+
+...
+
+型構築子\verb|Maybe|は{\bf Maybe関手}\index{めいびーかんしゅ@Maybe関手}
+と呼ばれる.
+\subsubsection{Tree関手}
+一般に木構造を生成する型構築子は関手にできる. これを{\bf Tree関手}と呼ぶ.
+
+\lstinputlisting{../hssrc/Tree.hs}
+\section{２変数の関手}
+{\bf Hom関手}
+\lstinputlisting{../hssrc/homfunctors.hs}
+\section{型クラスとHaskの部分圏}
+{\bf ソート関手}
+\lstinputlisting{../hssrc/sort.hs}
