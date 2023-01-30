@@ -1,0 +1,168 @@
+\section{関手}
+\begin{Def}
+写像$f:\mathrm{Obj}(\mathscr{A})\rightarrow\mathrm{Obj}(\mathscr{B})$を
+{\bf 圏$\mathscr{A}$から圏$\mathscr{B}$への対象関数 function on objects}という.
+\end{Def}
+\begin{Notation}
+圏$\mathscr{A}$から圏$\mathscr{B}$への対象関数を$F_{\rm obj}(\mathscr{A},\mathscr{B})$で表す.
+\end{Notation}
+\begin{Def}
+圏$\mathscr{A}$の射全体の集合\[\mathrm{Mor}(\mathscr{A})=\{f_{\mathscr{A}}:A_1\rightarrow A_2\mid A_1\in\mathrm{Obj}(\mathscr{A}),A_2\in\mathrm{Obj}(\mathscr{A})\}\]
+から, 対象関数$F_{obj}(\mathscr{A},\mathscr{B})(\cdot)$を用いて定まる, 圏$\mathscr{B}$の射の集合
+\[
+\mathrm{Mor}(\mathscr{A}\rightarrow\mathscr{B})=\{f_{\mathscr{B}}:F_{\rm obj}(\mathscr{A},\mathscr{B})(A_1)\rightarrow
+F_{\rm obj}(\mathscr{A},\mathscr{B})(A_2)\mid A_1\in\mathrm{Obj}(\mathscr{A}),A_2\in\mathrm{Obj}(\mathscr{A})\}
+\]
+への写像$F_{\rm mor}(\mathscr{A}\rightarrow\mathscr{B}):\mathrm{Mor}(\mathscr{A})\rightarrow\mathrm{Mor}(\mathscr{A}\rightarrow\mathscr{B})$
+が次の条件を満たすとき, これを
+{\bf 圏$\mathscr{A}$から圏$\mathscr{B}$への射関数 function on morphisms}という.
+\begin{enumerate}
+\item 任意の$A\in\mathrm{Obj}(\mathscr{A})$に対して
+\[
+F_{\rm mor}(\mathscr{A}\rightarrow\mathscr{B})
+(1_A)=1_{F_{\rm mor}(\mathscr{A}\rightarrow\mathscr{B})(A)}\]
+が成り立つ.
+\item 任意の$(A_1,A_2,A_3)\in \mathrm{Obj}(\mathscr{A})^3$
+と$f_{1,2}:A_1\rightarrow A_2, f_{2,3}:A_2\rightarrow A_3$に対して
+\[
+F_{\mathrm{Mor}}(\mathscr{A}\rightarrow\mathscr{B})(f_{2,3}\circ f_{1,2})
+=F_{\mathrm{Mor}}(f_{2,3})\circ F_{\mathrm{Mod}}(f_{1,2}
+\]
+が成り立つ.
+\end{enumerate}
+\end{Def}
+\begin{Notation}
+圏$\mathscr{A}$から圏$\mathscr{B}$への射関数を
+$F_{\rm mor}(\mathscr{A}\rightarrow\mathscr{B})$で表す.
+\end{Notation}
+\begin{Def}
+対象関数$F_{\rm obj}(\mathscr{A},\mathscr{B})$と
+射関数$F_{\rm mor}(\mathscr{A}\rightarrow\mathscr{B})$の組を{\bf 圏$\mathscr{A}$から圏$\mathscr{B}$への関手 functor}という.
+\end{Def}
+\begin{Notation}
+圏$\mathscr{A}$から圏$\mathscr{B}$への関手$F$を
+$F:\mathscr{A}\rightarrow\mathscr{B}$で表す.
+\end{Notation}
+\begin{Def}
+圏$\mathscr{C}$から圏$\mathscr{C}$への関手を{\bf 圏$\mathscr{C}$に関する恒等関手 identity functor}という.
+\end{Def}
+\begin{Notation}
+圏$\mathscr{C}$に関する恒等関手を$\mathrm{Id}(\mathscr{C})$で表す.
+\end{Notation}
+\begin{Def}
+関手$F:\mathscr{A}\rightarrow\mathscr{B},G:\mathscr{B}\rightarrow\mathscr{C}$に対して
+\[F_{\rm obj}(\mathscr{B},\mathscr{C})\circ F_{\rm obj}(\mathscr{A},\mathscr{B}\]
+を対象関数とし.
+\[F_{\rm mor}(\mathscr{B}\rightarrow\mathscr{C})\circ F_{\rm mor}(\mathscr{A}\rightarrow\mathscr{A})\]
+を射関数とする関手
+を{\bf 関手$F:\mathscr{A}\rightarrow\mathscr{B},G:\mathscr{B}\rightarrow\mathscr{C}$の合成 composition}という.
+\end{Def}
+\begin{Notation}
+関手$F:\mathscr{A}\rightarrow\mathscr{B},G:\mathscr{B}\rightarrow\mathscr{C}$の合成を$G\circ F$で表す.
+\end{Notation}
+\begin{comment}
+\begin{example}
+順序を保存する写像
+\end{example}
+\end{comment}
+\begin{comment}
+\begin{example}
+圏と見做した順序集合間の簡単な関手の例
+\end{example}
+\end{comment}
+\begin{comment}
+*************************
+\begin{example}
+$n$次ホモロジー関手
+\end{example}
+***************************
+\end{comment}
+
+\subsection{反変関手}
+\begin{Def}
+関手$F:\mathscr{A}^{\mathrm{op}}\rightarrow\mathscr{B}$
+を{\bf 圏$\mathscr{A}$から圏$\mathscr{B}$への反変関手 contravariant functor}という.
+\end{Def}
+\subsection{定数関手}
+\begin{Def}
+任意の$A\in\mathrm{Obj}(\mathscr{A})$を唯一の$B_0\in\mathrm{Obj}(\mathscr{B})$に写し,
+任意の射$f\in\mathrm{Mor}(\mathscr{A})$を恒等射$1_{B_0}\in\mathrm{Mor}(\mathscr{B})$に写す関手を
+{\bf 圏$\mathscr{A}$から圏$\mathscr{B}$への定数関手 constant functor}\index{ていすうかんしゅ@定数関手}という
+\end{Def}
+
+\subsection{忠実関手と充満関手}
+\begin{Def}
+関手$F:\mathscr{A}\rightarrow\mathscr{B}$に関して,
+写像
+\[f:\{(A_1,A_2)\mid A_1\in\mathrm{Obj}(\mathscr{A}),A_2\in\mathrm{Obj}(\mathscr{A})\}\rightarrow\{(F(A_1),F(A_2))\mid A_1\in\mathrm{Obj}(\mathscr{A}),A_2\in\mathrm{Obj}(\mathscr{A})\}\]
+が単射となっているとき,
+{\bf 関手$F$は忠実 faithfulである}という.
+\end{Def}
+\begin{Def}
+関手$F:\mathscr{A}\rightarrow\mathscr{B}$に関して,
+写像
+\[f:\{(A_1,A_2)\mid A_1\in\mathrm{Obj}(\mathscr{A}),A_2\in\mathrm{Obj}(\mathscr{A})\}\rightarrow\{(F(A_1),F(A_2))\mid A_1\in\mathrm{Obj}(\mathscr{A}),A_2\in\mathrm{Obj}(\mathscr{A})\}\]
+が全射となっているとき,
+{\bf 関手$F$は充満 full である}という.
+\end{Def}
+
+\begin{Def}
+関手$F$が忠実かつ充満であるとき
+{\bf 関手$F$は充満忠実 full and faithfulである}という.
+\end{Def}
+\begin{comment}
+\begin{Def}
+圏$\mathscr{A}$が圏$\mathscr{A}$の部分圏であり, 関手$F:\mathscr{A}\rightarrow\mathscr{B}$が充満であるとき,
+{\bf 圏$\mathscr{A}$は圏 $\mathscr{B}$の充満部分圏である}という.
+\end{Def}
+\end{comment}
+\begin{comment}
+\begin{example}
+...充満忠実である.
+\end{example}
+\begin{example}
+...忠実だが充満でない
+\end{example}
+\begin{example}
+充満だが忠実でない
+\end{example}
+\begin{example}
+複素数...
+
+...
+
+...忠実だが充満でない. （例1.30)
+\end{example}
+\end{comment}
+\begin{comment}
+\subsection{埋め込み関手}
+\subsection{忘却関手}
+\end{comment}
+\begin{comment}
+\section{Haskellの型構築子と関手}
+\subsubsection{List関手}
+Haskellにおける型構築子\verb|[]|は任意の型\verb|A|に対して型\verb|[A]|を対応させる.
+これは, HaskからHaskへの対称関数とみなせる.
+型\verb|A|と型\verb|B|および関数\verb|f::A->B|が与えられとき\verb|map f::[A]->[B]|が決定される.
+
+...
+
+型構築子\verb|[]|は{\bf List関手}\index{りすとかんしゅ@List関手}と呼ばれる
+\subsubsection{Maybe関手}
+Haskellにおける型構築子\verb|Maybe|は...
+
+...
+
+型構築子\verb|Maybe|は{\bf Maybe関手}\index{めいびーかんしゅ@Maybe関手}
+と呼ばれる.
+\subsubsection{Tree関手}
+一般に木構造を生成する型構築子は関手にできる. これを{\bf Tree関手}と呼ぶ.
+
+\lstinputlisting{../hssrc/Tree.hs}
+\section{２変数の関手}
+{\bf Hom関手}
+\lstinputlisting{../hssrc/homfunctors.hs}
+\section{型クラスとHaskの部分圏}
+{\bf ソート関手}
+\lstinputlisting{../hssrc/sort.hs}
+\end{comment}

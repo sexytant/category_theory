@@ -1,0 +1,309 @@
+\section{圏}
+\begin{Def}
+集合の組$(S_{\mathrm{obj}},S_{\mathrm{mor}})$が次の条件を満たすとき{\bf 集合の組$(S_{\mathrm{obj}},S_{\mathrm{mor}})$は圏 categoryをなす}という.
+\begin{enumerate}
+\item 任意の$f\in S_\mathrm{mor}$に対して$\mathrm{dom}(f)\in S_\mathrm{obj},\mathrm{cod}(f)\in S_\mathrm{obj}$がそれぞれ一意に定まる.
+\item $f\in S_{\mathrm{mor}},g\in S_{\mathrm{mor}}$について,
+$\mathrm{cod}(f)=\mathrm{dom}(g)$であるとき,
+$S_{\mathrm{mor}}$上の二項演算$\circ$が存在する.
+\item $f\in S_{\mathrm{mor}},g\in S_{\mathrm{mor}},h\in S_{\mathrm{mor}}$について, \begin{align*}
+\mathrm{cod}(f)&=\mathrm{dom}(g),\\ \mathrm{cod}(g)&=\mathrm{dom}(h)
+\end{align*}であるとき
+\[
+h\circ(g\circ f)=(h\circ g)\circ f
+\]
+が成り立つ.
+\item 任意の$A\in S_{\mathrm{obj}}$について
+次を満たす$1_A\in S_{\mathrm{mor}}$が存在する.
+\begin{enumerate}
+\item
+$\mathrm{dom}(1_{A})=A$
+\item
+$\mathrm{cod}(1_A)=A$
+\item $\mathrm{dom}(f)=\mathrm{cod} (g)=A$かつ$\mathrm{cod} (f)=\mathrm{dom}(g)$を満たす任意の$(f,g)\in S_{\mathrm{obj}}\times S_{\mathrm{obj}}$について$f\circ 1_A=f$かつ$1_A\circ g=g$が成り立つ.
+\end{enumerate}
+\end{enumerate}
+\end{Def}
+定義4.1における$S_{\rm obj}$の元を{\bf 対象 object}, $S_{\rm mor}$の元を{\bf 射 morphism}という.
+1つ目の条件の$\mathrm{dom} f,\mathrm{cod} f$はそれぞれ{\bf 射$f$の始域 domain と 終域 codomain}という. 2つ目の条件の二項演算$\circ$は射の合成という. 3つ目の条件で述べているのは, 射の合成が結合律を満たすということである.最後に, 4つ目の条件の$1_A$を{\bf 対象$A$の恒等射 identity morphism}という.
+
+これらの用語を導入して, 定義4.1を改めて記述すると次のようになる.
+\begin{enumerate}
+\item
+圏は対象の集合と射の集合からなる.
+\item
+射は始域と終域をもち, それらはそれぞれ一意に定まる.
+\item
+射は合成可能であり, 射の合成は結合律を満たす.
+\item
+任意の対象について恒等射が存在する.
+\end{enumerate}
+
+\begin{caution}
+恒等射$1_{A}$は一意に定まるので, 定義に一意性を加えても問題ない.
+\end{caution}
+\begin{Notation}
+圏$\mathscr{C}$の対象全体の集合を$\mathrm{Obj}(\mathscr{C})$で表す.
+\end{Notation}
+\begin{Notation}
+圏$\mathscr{C}$の射全体の集合を$\mathrm{Mor}(\mathscr{C})$で表す.
+\end{Notation}
+
+\begin{Notation}
+始域が$A$,終域が$B$である射$f$を$f:A\rightarrow B$で表す.
+\end{Notation}
+\begin{Notation}
+集合$\{f:A\rightarrow B\mid A\in\mathrm{Obj}(\mathscr{C}), B\in\mathrm{Obj}(\mathscr{C})\}$
+を$\mathrm{Hom}_{\mathscr{C}}(A,B)$で表す.
+\end{Notation}
+\begin{Def}
+とある圏の射$f:A\rightarrow B$に対して,
+とある射$g:B\rightarrow A$が存在して$g\circ f=1_A$かつ$f\circ g=1_B$となるとき,
+{\bf 射$f$は同型射 isomorphism である}という. また, このとき$g$を{\bf 射$f$の逆射}という.
+\end{Def}
+\begin{Notation}
+射$f$の逆射を$f^{-1}$で表す.
+\end{Notation}
+\begin{Prop}
+射$f$が同型射であるとき, $f^{-1}$は一意に定まる.
+\end{Prop}
+\begin{comment}
+\begin{proof}
+\end{proof}
+\end{comment}
+
+\begin{comment}
+\subsection{情報隠蔽された対象の探究に圏論が提供する方法論}
+オブジェクト指向プログラミングでは,「知らせる必要のない情報は隠蔽しておくほうが安全である」という{\bf 情報隠蔽}の考え方が重要視される.
+これに対して, 圏論は, 対象がもつ情報が隠蔽されている状況下で, 射のみから対象について探究するという方法論を提供する.
+\begin{example}
+どのような要素をもつかわからない集合$A$について写像$f:A\rightarrow A$が定義されていて$f\circ f\circ f$が恒等写像になるとする.
+このとき$A$が3つの要素$a_1,a_2,a_3$をもつと仮定することができ,
+\[
+f(a_1)=a_2, f(a_2)=a_3, 
+f(a_3)=a_1
+\]
+というように, これらの要素が写像$f$によって回転していると考えることができる.
+\end{example}
+\end{comment}
+\subsection{小圏・局所小圏・大圏}
+\subsubsection{小圏}
+\begin{Def}
+圏$\mathscr{C}$について, $\mathrm{Obj}(\mathscr{C}),\mathrm{Mor}(\mathscr{C})$が小集合であるとき,{\bf 圏$\mathscr{C}$は小圏 small category}\index{しょうけん@小圏}であるという.
+\end{Def}
+\begin{Prop}
+対象も射もない圏${\bf 0}$は小圏である.
+\end{Prop}
+\begin{comment}
+\begin{proof}
+\end{proof}
+\end{comment}
+
+\begin{Prop}
+対象が1つで, 恒等射のみをもつ圏${\bf 1}$は小圏である.
+\end{Prop}
+\begin{comment}
+\begin{proof}
+\end{proof}
+\end{comment}
+
+\begin{Prop}
+対象が$A,B$の2つで, 
+恒等射と射$f:A\rightarrow B$のみをもつ圏
+${\bf 2}$は小圏である.
+\end{Prop}
+\begin{comment}
+\begin{proof}
+\end{proof}
+\end{comment}
+
+\begin{Prop}
+順序集合は小圏である.
+\end{Prop}
+\begin{comment}
+\begin{proof}
+\end{proof}
+\end{comment}
+
+\subsubsection{局所小圏}
+\begin{Def}
+圏$\mathscr{C}$について, 任意の$A\in\mathrm{Obj}(\mathscr{C}),B\in\mathrm{Obj}(\mathscr{C})$の組に対して$\mathrm{Hom}_{\mathscr{C}}(A,B)$が小集合であるとき, {\bf 圏$\mathscr{C}$は 局所小圏 locally small category である}という.
+\end{Def}
+\subsubsection{大圏}
+\begin{Def}
+圏$\mathscr{C}$が小圏でないとき{\bf 圏$\mathscr{C}$は大圏 large categoryである}という.
+\end{Def}
+
+\begin{Prop}
+すべての小集合を対象とし, それらの間の写像を射とする圏$\mathrm{Set}$は大圏である.
+\end{Prop}
+
+\begin{Prop}
+すべての群を対象とし, それらの間の準同型写像を射とする圏$\mathrm{Grp}$は大圏である.
+\end{Prop}
+\begin{comment}
+\begin{proof}
+\end{proof}
+\end{comment}
+
+\begin{Prop}
+すべての可換群を対象とし, それらの間の準同型写像を射とする圏$\mathrm{Ab}$は大圏である.
+\end{Prop}
+\begin{comment}
+\begin{proof}
+\end{proof}
+\end{comment}
+
+\begin{comment}
+*************************
+\begin{Prop}
+すべての位相空間\footnote{定義を本文から外している}を対象とし, それらの間の連続写像\footnote{定義を本文から外している}を射とする圏$\mathrm{Top}$は大圏である.
+\end{Prop}
+\end{comment}
+\begin{comment}
+*************************
+\begin{example}
+ある体\footnote{定義を本文から外している}$k$に対して,
+すべての$k$次線形空間\footnote{未定義}を対象とし,
+それらの間の$k$次線形写像\footnote{未定義}を射とする
+圏$\mathrm{Vect}_k$は大圏である.
+\end{example}
+***************************
+\end{comment}
+
+\subsection{部分圏}
+\begin{Notation}
+圏$\mathscr{C}$における射$f,g\in\mathrm{Mor}(\mathscr{C})$の合成を$g\circ_{\mathscr{C}}f$で表す.
+\end{Notation}
+\begin{Prop}
+圏$\mathscr{A}$が圏$\mathscr{B}$に対して, 以下の条件を満たすとする.
+\begin{enumerate}
+\item
+$\mathrm{Obj}(\mathscr{A})\subset\mathrm{Obj}(\mathscr{B})$
+\item
+$\{(X_1,X_2)\mid X_1\in\mathrm{Obj}(\mathscr{A}),X_2\in \mathrm{Obj}(\mathscr{A})\}
+\subset
+\{(X_1,X_2)\mid X_1\in\mathrm{Obj}(\mathscr{B}),X_2\in \mathrm{Obj}(\mathscr{B})\}
+$
+\end{enumerate}
+このとき$\mathrm{Mor}(\mathscr{A})\subset\mathrm{Mor}(\mathscr{B})$が成り立つ.
+\end{Prop}
+\begin{comment}
+\begin{proof}
+\end{proof}
+\end{comment}
+
+\begin{Def}
+圏$\mathscr{A}$が圏$\mathscr{B}$に対して, 以下の条件を満たすとき, {\bf 圏$\mathscr{A}$は圏$\mathscr{B}$の部分圏である}という.
+\begin{enumerate}
+\item
+$\mathrm{Obj}(\mathscr{A})\subset\mathrm{Obj}(\mathscr{B})$
+\item
+$\{(X_1,X_2)\mid X_1\in\mathrm{Obj}(\mathscr{A}),X_2\in \mathrm{Obj}(\mathscr{A})\}
+\subset
+\{(X_1,X_2)\mid X_1\in\mathrm{Obj}(\mathscr{B}),X_2\in \mathrm{Obj}(\mathscr{B})\}
+$
+\item 任意の$f\in\mathrm{Mor}(\mathscr{A}), g\in\mathrm{Mor}(\mathscr{A})$について
+$g\circ_{\mathscr{A}}f$が存在するならば
+$g\circ_{\mathscr{B}}f$が存在し
+\[
+g\circ_{\mathscr{A}}f=g\circ_{\mathscr{B}}f
+\]
+が成り立つ.
+\item 任意の$f\in\mathrm{Mor}(\mathscr{A}), g\in\mathrm{Mor}(\mathscr{A})$について
+$g\circ_{\mathscr{B}}f$が存在するならば
+$g\circ_{\mathscr{A}}f$が存在し
+\[
+g\circ_{\mathscr{A}}f=g\circ_{\mathscr{B}}f
+\]
+が成り立つ.
+\end{enumerate}
+\end{Def}
+\begin{Prop}
+圏$\mathrm{Ab}$は圏$\mathrm{Grp}$の部分圏である.
+\end{Prop}
+\begin{comment}
+\begin{proof}
+\end{proof}
+\end{comment}
+
+\subsection{双対}
+\begin{Def}
+圏$\mathscr{C}$に対して, 対象が$\mathscr{C}$と同じで, 射の向きが$\mathscr{C}$と反対である圏を\bf{圏$\mathscr{C}$の双対圏}\index{そうついけん@双対圏}という.
+\end{Def}
+\begin{Notation}
+圏$\mathscr{C}$の双対圏を$\mathscr{C}^{\mathrm{op}}$で表す.
+\end{Notation}
+\begin{comment}
+\begin{caution}
+双対の原理
+\end{caution}
+\end{comment}
+\subsection{圏の生成}
+\begin{Prop}
+集合$A$と写像$f:A\rightarrow A$
+について, 集合の組$(\{A\},\{1_A,f\})$は圏をなす.
+\end{Prop}
+\begin{comment}
+\begin{proof}
+$\mathrm{dom} f=\mathrm{cod}f$であるから, 合成射$f\circ f$を定めることができる.
+このとき$f\circ f=1_A$もしくは$f\circ f=f$である.
+
+$f\circ f=1_A$ならば...
+
+...
+
+となる.
+一方, $f\circ f=1_A$ならば...
+
+...
+
+となる.
+以上より, いずれの場合も, 射の合成が結合律を満たすことがわかる.
+したがって$f\circ f=1_A$と定めても$f\circ f=f$と定めても圏を生成することができる.
+\end{proof}
+\end{comment}
+\begin{Prop}
+集合$A$と写像$f:A\rightarrow A$について, 正の整数$n$に対して$f^n=\underbrace{f\circ f \circ \dots \circ f}_{n}$
+とするとき,
+集合の組$(\{A\},\{1_A,f,f^2,\dots,\})$
+は圏をなす.
+\end{Prop}
+\begin{comment}
+\begin{proof}
+\end{proof}
+\end{comment}
+\begin{Prop}
+集合$A,B$と写像$f:A\rightarrow B,\ g:B\rightarrow A$について,
+集合の組$(\{A,B\}, \{1_A,1_B,f,g,f\circ g\})$は圏をなす.
+\end{Prop}
+\begin{comment}
+\begin{proof}
+\end{proof}
+\end{comment}
+\begin{Def}
+集合$S_1,\dots,S_N$に関する写像$f_1,\dots,f_M$に関して,
+$\{S_1,\dots,S_N\}$を対象とし,
+$1_{S_1},\dots,1_{S_N}$と$f_1,\dots,f_M$およびそれらの合成のみを射とする圏$\mathscr{C}$が存在するとき, $\{f_1,\dots,f_M\}$を{\bf 圏$\mathscr{C}$の生成系 system of generators}という.
+\end{Def}
+\begin{Def}
+圏$\mathscr{A},\mathscr{B}$の積に対して, 次の集合の組$(S_{\mathrm{Obj}}\left(\mathscr{A},\mathscr{B}\right),S_{\mathrm{Mor}}\left(\mathscr{A},\mathscr{B}\right))$を{\bf 圏$\mathscr{A},\mathscr{B}$の積}という.
+\begin{itemize}
+\item $S_{\mathrm{Obj}}\left(\mathscr{A},\mathscr{B}\right)
+=\left\{(A,B)\mid A\in\mathrm{Obj}(\mathscr{A}),B\in\mathrm{Obj}(\mathscr{B})\right\}$
+\item $S_{\mathrm{Mor}}\left(\mathscr{A},\mathscr{B}\right)
+=\{(f_A,f_B)\mid f_A\in\mathrm{Mor(\mathscr{A})},
+f_B\in\mathrm{Mor(\mathscr{B})}\}$
+\end{itemize}
+\end{Def}
+\begin{Def}
+圏$\mathscr{A},\mathscr{B}$の積を$\mathscr{A}\times\mathscr{B}$で表す.
+\end{Def}
+\begin{Prop}
+圏の積は圏をなす.
+\end{Prop}
+\begin{comment}
+\begin{proof}
+\end{proof}
+\end{comment}
+

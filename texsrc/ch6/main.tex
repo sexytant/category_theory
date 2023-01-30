@@ -1,0 +1,36 @@
+\section{自然変換}
+\begin{Def}
+関手$F:\mathscr{A}\rightarrow\mathscr{B}$と関手$G:\mathscr{A}\rightarrow\mathscr{B}$について,
+\begin{enumerate}
+\item 任意の$A\in\mathrm{Obj}(\mathscr{A})$に対して
+$\mathscr{B}$の射$M_{\mathscr{B}}(A):F(A)\rightarrow G(A)$
+が存在する.
+\item 任意の$\mathscr{A}$の射$f:A_1\rightarrow A_2$
+が
+\[
+M_{\mathscr{B}}(A_2)\circ F(f)
+=G(f)\circ M_{\mathscr{B}}(A_1)
+\]
+を満たす.
+\end{enumerate}
+このとき
+$\{M_{\mathscr{B}}(A)\mid A\in\mathrm{Obj}(\mathscr{A})\}$を{\bf 関手$F:\mathscr{A}\rightarrow\mathscr{B}$から関手$G:\mathscr{A}\rightarrow\mathscr{B}$への自然変換 \index{しぜんへんかん@自然変換}natural transformation}という.
+\end{Def}
+\begin{Notation}
+関手$F$から関手$G$への自然変換$\mu$を$\mu:F\rightarrow G$で表す.
+\end{Notation}
+\begin{comment}
+\begin{Notation}
+関手$F$から関手$G$への自然変換$\alpha$を次の図表で表す.
+\end{Notation}
+\end{comment}
+\begin{comment}
+\section{Haskにおける自然変換}
+\subsection{concat}
+\subsection{List関手からMaybe関手への自然変換safehead}
+\subsection{concatとsafeheadの垂直合成}
+\subsection{二分木からリストへのflatten関数}
+
+\section{Haskにおける定数関手}
+\subsection{length関数}
+\end{comment}
