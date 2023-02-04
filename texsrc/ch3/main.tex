@@ -1,8 +1,19 @@
-関数型プログラミング言語Haskellでは圏論的な視点からライブラリが構築されている.
-\section{型}
-\subsection{定義済みの型}
+\section{プログラミングの一般論}
+\subsection{変数と型}
+\subsection{データ構造}
+\subsubsection{リスト・タプル}
+同じ型の値を一方向に並べ, 前の要素が後の要素のポインタをもつようにしたデータ構造を{\bf リスト}という.
+一方, リストに対して, 異なる型を含むことを許容するデータ構造を{\bf タプル}という.
+\subsubsection{木構造}
+\subsection{関数}
+\subsection{クラス}
+\section{Haskell}
+\subsection{Haskellにおける変数と型}
+Haskellにおける変数は, 手続き型言語の変数とは異なり, 値を変更することはできない. \verb|x| という変数に$123$ という値を「代入」するのではなく, $123$ という数値に\verb|x| というラベルを「束縛(バインディング)」すると考える.
+
+\subsubsection{定義済みの型による変数の宣言}
 Haskellには標準ライブラリに表3.1に示す型が定義済みである.
-\begin{table}[h]
+\begin{table}[htbp]
 \caption{Haskellの標準ライブラリに定義済みの型}
 \begin{center}
 \begin{tabular}{ll}
@@ -16,27 +27,45 @@ Haskellには標準ライブラリに表3.1に示す型が定義済みである.
 \end{center}
 \end{table}
 
-例として, 固定長整数の変数\verb|a|は次のように宣言する.
 \begin{lstlisting}
-a :: Int
+x = 123
+\end{lstlisting}
+\subsection{Haskellにおけるデータ構造}
+Haskellにおいてリストは \verb|[]|を用いてリスト型を構築することで宣言できる.
+\begin{lstlisting}
+y = [1, 2, 3]
+\end{lstlisting}
+\subsection{Haskellにおける関数・関数型}
+\begin{lstlisting}
+add x y = x + y
 \end{lstlisting}
 
-\subsection{データ構造}
-同じ型の値を一方向に並べ, 前の要素が後の要素のポインタをもつようにしたデータ構造を{\bf リスト}という.
-一方, リストに対して, 異なる型を含むことを許容するデータ構造を{\bf タプル}という.
+\begin{lstlisting}
+f :: Int -> Int		-- Int 引数を受け取り、Int 値を返却する関数型
+\end{lstlisting}
+\begin{lstlisting}
+g :: Int -> Int -> Double	-- Int 引数を2 つ受け取り、Double 値を返却する関数型
+\end{lstlisting}
+\footnote{関数型が入れ子になっている（カリー化）}
+\subsubsection{map}
+リストに対して関数を適用するときは\verb|map|を用いる
+\begin{lstlisting}
+map (*2) [1, 2, 3] -- [2,4,6]
+\end{lstlisting}
 
 \subsection{データ型}
 例として\verb|Red|, \verb|Green|, \verb|Blue|からなるデータ\verb|Color|の宣言は以下のように記述する.
 \begin{lstlisting}
 data Color = Red | Green | Blue 
 \end{lstlisting}
+
 \begin{comment}
 データを表示するためには, \verb|Color| を型クラス \verb|Show| のインスタンスにする必要があることに注意する.
 \begin{lstlisting}
 data Color = Red | Green | Blue deriving Show
 \end{lstlisting}
 \end{comment}
-\begin{comment}
+
 \subsection{型クラス}
 \begin{lstlisting}
 class Foo a where
@@ -55,9 +84,12 @@ main = do
     putStrLn $ foo 'A'		-- Char: A
 \end{lstlisting}
 Foo 型クラスは任意の型(a)を受け取り、Stringを返却するメソッド foo を持っている. instance を用いてそれぞれの型が引数に指定された場合の処理を実装している.
-\subsection{型構築子}
-また, 一つ以上の具体的な型に対して, 型構築子を適用すると新しい型を構築できる.
-Maybe の定義は,
+\subsection{型構築子・データ構築子}
+Haskellにおいて, リスト型における\verb|[]|や関数型における\verb|->|のように1つ以上の具体的な型に対して作用して, 新しい型を構築するものを{\bf 型構築子}という.
+
+一方, \verb|data|のほか, \verb|Nothing|,\verb|Just|などを{\bf データ構築子}という.
+
+よく知られた型構築子として\verb|Maybe|がある. Maybe の定義は, 次のようになされている.
 \begin{lstlisting}
 data Maybe a = Nothing | Just a
 data Maybe a = Nothing | Just a         
@@ -72,11 +104,12 @@ instance Foldable Maybe
 instance Traversable Maybe 
 instance Monoid a => Monoid (Maybe a) 
 \end{lstlisting}
-Maybe は型構築子で Nothing および Just はデータ構築子です。
-\end{comment}
+
+
 
 \section{Hask}
-\subsection{Haskに関する数学的な概念}\begin{Def}
+\subsection{Haskに関する数学的な概念(\S 4に挿入)}
+\begin{Def}
 {\bf 始対象}
 \end{Def}
 \begin{Def}
