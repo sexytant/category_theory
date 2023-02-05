@@ -7,16 +7,19 @@
 \begin{Def}
 集合$M$と集合$M$上の二項演算$\mu$の組$(M,\mu)$を{\bf マグマ magma}という.
 \end{Def}
-\subsection{半群}
+\subsection{半群・単位的半群}
 \begin{Def}
 マグマ$(G,\mu)$について,
 $\mu$が結合律を満たす, すなわち任意の元$g,h,k\in G$に対して\[\mu(g,\mu(h,k))=\mu(\mu(g,h),k)\]
 が成り立つとき, {\bf マグマ$(G,\mu)$は半群 semigroupである}という.
 \end{Def}
-\subsection{群}
 \begin{Def}
 マグマ$(G,\mu)$について, とある$e\in G$が存在し, 任意の$g\in G$に対して\[\mu(e,g)=\mu(g,e)=g\]を満たすとき, $e$を{\bf マグマ$(G,\mu)$の単位元 identity element}という.
 \end{Def}
+\begin{Def}
+単位元をもつ半群を{\bf 単位的半群 monoid}という.
+\end{Def}
+\subsection{群}
 \begin{Def}
 マグマ$(G,\mu)$について, 任意の$g\in G$に対して, とある$h\in G$が存在して \[\mu(g,h)=\mu(h,g)=e\]を満たすとき, $h$を{\bf マグマ$(G,\mu)$の元$g$に対する逆元 inverse element }という.
 ここで$e$はマグマ$(G,\mu)$の単位元である.
@@ -25,7 +28,7 @@ $\mu$が結合律を満たす, すなわち任意の元$g,h,k\in G$に対して\
 マグマ$(G,\mu)$における元$g\in G$の逆元を$g^{-1}$で表す.
 \end{Notation}
 \begin{Def}
-半群$(G,\mu)$が単位元をもち, かつ任意の元に対して逆元が存在するとき{\bf 半群$(G,\mu)$は群 groupである}という
+単位的半群$(G,\mu)$の任意の元に対して逆元が存在するとき{\bf 単位的半群$(G,\mu)$は群 groupである}という
 \end{Def}
 \begin{Def}
 群$(G_1,\mu_1),(G_2,\mu_2)$について, 写像$f:G_1\rightarrow G_2$が,任意の$g\in G, g'\in G$について \[f(\mu_1(g,g')) = \mu_2(f(g),f(g'))\] を満たすとき, $f$を{\bf 群$(G_1,\mu_1)$から群$(G_2,\mu_2)$への準同型写像 homomorphism}という.
@@ -54,7 +57,7 @@ $f$を{\bf 群$(G_1,\mu_1)$から群$(G_2,\mu_2)$への同型写像 isomorphism}
 multiplicative}という. 
 \begin{enumerate}
 \item $(R,+)$が可換群である.
-\item $(R,*)$がモノイドである.
+\item $(R,*)$が単位的半群である.
 \item 任意の$a,b,c\in R$に対して
 \begin{align*}
 a*(b+c)&=a*b+a*c\\
@@ -69,21 +72,21 @@ a*(b+c)&=a*b+a*c\\
 \section{体}
 \begin{Def}
 環$(K,+,*)$において,
-群$(K,+)$の単位元を{\bf $(K,+,*)$の零元 zero element} という.
+群$(K,+)$の単位元を{\bf 環$(K,+,*)$の零元 zero element} という.
 \end{Def}
 \begin{Notation}
 環$(K,+,*)$における零元を$0_K$で表す.
 \end{Notation}
 \begin{Def}
 環$(K,+,*)$において,
-群$(K,*)$の単位元を{\bf $(K,+,*)$の乗法単位元 multiplicative identity}という.
+単位的半群$(K,*)$の単位元を{\bf 環$(K,+,*)$の乗法単位元 multiplicative identity}という.
 \end{Def}
 \begin{Notation}
 環$(K,+,*)$における乗法単位元を$1_K$で表す.
 \end{Notation}
 
 \begin{Def}
-環$(K,+,*)$が次を満たすとき, {\bf $(K,+,*)$は体 fieldである}という.
+環$(K,+,*)$が次を満たすとき, {\bf 環$(K,+,*)$は体 fieldである}という.
 \begin{enumerate}
 \item 乗法について零元以外の元が可換群をなす, すなわち$(K\setminus\{0_K\},*)$が可換群である.
 \item 零元と乗法単位元が異なる, すなわち$0_K\neq 1_K$である.

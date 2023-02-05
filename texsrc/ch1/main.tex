@@ -1,5 +1,5 @@
 \section{集合}
-{\bf 集合 set}とは, ひとまず素朴に「1つ以上のものの集まり」と定義される. 集合を構成する「もの」を{\bf 元 element}という.
+{\bf 集合 set}とは, ひとまず素朴に「1つ以上のものの集まり」と定義される.\footnote{本書は{\bf ZFC公理系}のもとで議論を進めるが, これについては深く述べない.} 集合を構成する「もの」を{\bf 元 element}という.
 \begin{Notation}
 $a$が集合$S$の元であることを$a\in S$で表す.
 \end{Notation}
@@ -21,23 +21,23 @@ $\{2a\mid a\in\mathbb{N}\}$や$\{a^3\mid a\in\mathbb{N}\}$は集合である.
 自然数全体$\mathbb{N}$, 整数全体$\mathbb{Z}$, 実数全体$\mathbb{R}$, 複素数全体$\mathbb{C}$は集合である.
 \end{example}
 \begin{caution}
-集合論においては, すべての「もの」は単独でも集合とみなす. 
+ここでは, 集合の元もまた集合であるとする.\footnote{このような集合を{\bf 遺伝的集合}というが, ここでは単に集合と呼ぶ.} 
 \begin{itemize}
 \item 
 $1$を$\{1\}$と同一視する.
 \item 
-$a$を$A=\{a\}$と同一視する.
+$a$を$\{a\}$と同一視する.
 \item
 $\{a,b,c\}$を$\{\{a\},\{b\},\{c\}\}$と同一視する.
 \item 
-$\{a,b,\{c,d,e\}\}$を$\{\{a\},\{b\},\{c,d,e\}$と同一視する.
+$\{a,b,\{c,d,e\}\}$を$\{\{a\},\{b\},\{c,d,e\}\}$と同一視する.
 \end{itemize}
 \end{caution}
 \subsection{集合の合併}
 \begin{Def}
 集合$S$に対して
 $\{x\in X\mid X\in S\}$
-を{\bf 集合$X$の合併 union}という.
+を{\bf 集合$S$の合併 union}という.
 \end{Def}
 \begin{Notation}
 集合$S$の合併を$\cup S$で表す.
@@ -50,7 +50,7 @@ $S=\{a,b,\{c,d,e\}\}$のとき, $S$と$\{\{a\},\{b\},\{c,d,e\}\}$を同一視す
 $\cup S=\{a,b,c,d,e\}$となる.
 \end{example}
 \subsection{空集合}
-集合論では, 元が存在しない集合$\{\}$の存在を認める.
+元が存在しない集合$\{\}$の存在は認められる.\footnote{{\bf ZF公理系}において, {\bf 外延性公理}と{\bf 内包公理}から空集合の存在が導かれることが知られているが, 本書では扱わない.}
 \begin{Def}
 元が存在しない集合$\{\}$を{\bf 空集合 emptyset}という.
 \end{Def}
@@ -87,26 +87,16 @@ $S=\{a,b,c\}$のとき$\mathcal{P} S=\{\{a\},\{b\},\{c\},\{a,b\},\{a,c\},\{b,c\}
 \end{Notation}
 \begin{comment}
 実は, 集合を「ものの集まり」と素朴に定義することは, 矛盾を孕んでいる. この矛盾を避けるための議論はのちに行う. 
-また, 集合論の公理には立ち入らないこととする.
 \end{comment}
 \section{二項関係・写像}
 \subsection{二項関係}
 \begin{Def}
-集合$A,B$の直積の部分集合を, {\bf 集合$A$と集合$B$の二項関係 binary relation}\index{にこうかんけい@二項関係}であるという.
+集合$A,B$の直積の部分集合を, {\bf 集合$A$と集合$B$の二項関係 binary relation}\index{にこうかんけい@二項関係}という.
 \end{Def}
-\begin{comment}
+
+\subsection{順序関係}
 \begin{Def}
-集合$A,B$の二項関係$\mathrm{R}$に関して, 
-とある$a\in A, b\in B$の組$(a,b)$が$R$の元であるとき,
-{\bf $a$と$b$に間に$\mathrm{R}$の関係\index{かんけい@関係}がある}という.
-\end{Def}
-\begin{Notation}
-$a$と$b$の間に$\mathrm{R}$の関係があることを$aRb$と表す.
-\end{Notation}
-\end{comment}
-\subsection{順序集合}
-\begin{Def}
-次を満たす集合$X$から$X$への二項関係$\mathrm{R}$を{\bf 順序 order}という.
+集合$X$とそれ自身$X$の二項関係$\mathrm{R}$が次を満たすとき$\mathrm{R}$を{\bf 順序関係 order}という.
 \begin{enumerate}
 \item 任意の$x\in X$について$(x,x)\in \mathrm{R}$である.
 \item 任意の$x\in X,y\in X$について$(x,y)\in \mathrm{R}$かつ$(y,x)\in \mathrm{R}$ならば$x=y$が成り立つ.
@@ -114,14 +104,12 @@ $a$と$b$の間に$\mathrm{R}$の関係があることを$aRb$と表す.
 $(x,z)\in \mathrm{R}$が成り立つ.
 \end{enumerate}
 \end{Def}
-\begin{comment}
 \begin{Def}
-順序をもつ集合を{\bf 順序集合 orderd set}という.
+順序関係をもつ集合を{\bf 順序集合 orderd set}という.
 \end{Def}
 \begin{Notation}
 順序集合の元$x,y$に順序関係があるとき, $x\preceq y$で表す.
 \end{Notation}
-\end{comment}
 \subsection{写像}
 \begin{Def}
 集合$A,B$の二項関係$f$について,
@@ -158,7 +146,7 @@ a_1\neq a_2\Rightarrow f(a_1)\neq f(a_2)
 \[
 b=f(a)
 \]
-であるとき{\bf 写像$f$は全射surjection である}という.
+であるとき{\bf 写像$f:A\rightarrow B$は全射surjection である}という.
 \end{Def}
 \begin{Def}
 写像$f:A\rightarrow B$が, 単射であり, かつ全射であるとき{\bf 写像$f:A\rightarrow B$は全単射 bijection である}という.
