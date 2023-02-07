@@ -1,6 +1,8 @@
 \section{圏}
 \begin{Def}
-集合の組$(S_{\mathrm{obj}},S_{\mathrm{mor}})$が次の条件を満たすとき{\bf 集合の組$(S_{\mathrm{obj}},S_{\mathrm{mor}})$は圏 categoryをなす}という.
+集合の組$(S_{\mathrm{obj}},S_{\mathrm{mor}})$が次の条件を満たすとき{\bf 集合の組$(S_{\mathrm{obj}},S_{\mathrm{mor}})$は
+圏 category\index{けん@圏}
+をなす}という.
 \begin{enumerate}
 \item 任意の$f\in S_\mathrm{mor}$に対して$\mathrm{dom}(f)\in S_\mathrm{obj},\mathrm{cod}(f)\in S_\mathrm{obj}$がそれぞれ一意に定まる.
 \item $f\in S_{\mathrm{mor}},g\in S_{\mathrm{mor}}$について,
@@ -24,8 +26,24 @@ $\mathrm{cod}(1_A)=A$
 \end{enumerate}
 \end{enumerate}
 \end{Def}
-定義4.1における$S_{\rm obj}$の元を{\bf 対象 object}, $S_{\rm mor}$の元を{\bf 射 morphism}という.
-1つ目の条件の$\mathrm{dom} f,\mathrm{cod} f$はそれぞれ{\bf 射$f$の始域 domain と 終域 codomain}という. 2つ目の条件の二項演算$\circ$は射の合成という. 3つ目の条件で述べているのは, 射の合成が結合律を満たすということである.最後に, 4つ目の条件の$1_A$を{\bf 対象$A$の恒等射 identity morphism}という.
+定義4.1における$S_{\rm obj}$の元を
+{\bf 
+対象 object\index{たいしょう@対象}
+}, 
+$S_{\rm mor}$の元を
+{\bf 
+射 morphism\index{しゃ@射}
+}という.
+1つ目の条件の$\mathrm{dom} f,\mathrm{cod} f$はそれぞれ
+{\bf 射$f$の
+始域 domain\index{しいき@始域}
+と 
+終域 codomain\index{しゅういき@終域}
+}という. 
+2つ目の条件の二項演算$\circ$は射の合成という. 3つ目の条件で述べているのは, 射の合成が結合律を満たすということである.最後に, 4つ目の条件の$1_A$を
+{\bf 対象$A$の
+恒等射 identity morphism\index{こうとうしゃ@恒等射}
+}という.
 
 これらの用語を導入して, 定義4.1を改めて記述すると次のようになる.
 \begin{enumerate}
@@ -59,7 +77,12 @@ $\mathrm{cod}(1_A)=A$
 \begin{Def}
 とある圏の射$f:A\rightarrow B$に対して,
 とある射$g:B\rightarrow A$が存在して$g\circ f=1_A$かつ$f\circ g=1_B$となるとき,
-{\bf 射$f$は同型射 isomorphism である}という. また, このとき$g$を{\bf 射$f$の逆射}という.
+{\bf 射$f$は
+同型射 isomorphism\index{どうけいしゃ@同型射} 
+である}という. また, このとき$g$を
+{\bf 射$f$の
+逆射\index{ぎゃくしゃ@逆射}
+}という.
 \end{Def}
 \begin{Notation}
 射$f$の逆射を$f^{-1}$で表す.
@@ -89,7 +112,9 @@ f(a_3)=a_1
 \subsection{小圏・局所小圏・大圏}
 \subsubsection{小圏}
 \begin{Def}
-圏$\mathscr{C}$について, $\mathrm{Obj}(\mathscr{C}),\mathrm{Mor}(\mathscr{C})$が小集合であるとき,{\bf 圏$\mathscr{C}$は小圏 small category}\index{しょうけん@小圏}であるという.
+圏$\mathscr{C}$について, $\mathrm{Obj}(\mathscr{C}),\mathrm{Mor}(\mathscr{C})$が小集合であるとき,
+{\bf 圏$\mathscr{C}$は
+小圏 small category\index{しょうけん@小圏}である}という.
 \end{Def}
 \begin{Prop}
 対象も射もない圏${\bf 0}$は小圏である.
@@ -127,11 +152,17 @@ ${\bf 2}$は小圏である.
 
 \subsubsection{局所小圏}
 \begin{Def}
-圏$\mathscr{C}$について, 任意の$A\in\mathrm{Obj}(\mathscr{C}),B\in\mathrm{Obj}(\mathscr{C})$の組に対して$\mathrm{Hom}_{\mathscr{C}}(A,B)$が小集合であるとき, {\bf 圏$\mathscr{C}$は 局所小圏 locally small category である}という.
+圏$\mathscr{C}$について, 任意の$A\in\mathrm{Obj}(\mathscr{C}),B\in\mathrm{Obj}(\mathscr{C})$の組に対して$\mathrm{Hom}_{\mathscr{C}}(A,B)$が小集合であるとき, 
+{\bf 圏$\mathscr{C}$は 
+局所小圏 locally small category\index{きょくしょしょうけん@局所小圏} 
+である}という.
 \end{Def}
 \subsubsection{大圏}
 \begin{Def}
-圏$\mathscr{C}$が小圏でないとき{\bf 圏$\mathscr{C}$は大圏 large categoryである}という.
+圏$\mathscr{C}$が小圏でないとき
+{\bf 圏$\mathscr{C}$は
+大圏 large category\index{だいけん@大圏}
+である}という.
 \end{Def}
 
 \begin{Prop}
@@ -194,7 +225,9 @@ $
 \end{comment}
 
 \begin{Def}
-圏$\mathscr{A}$が圏$\mathscr{B}$に対して, 以下の条件を満たすとき, {\bf 圏$\mathscr{A}$は圏$\mathscr{B}$の部分圏である}という.
+圏$\mathscr{A}$が圏$\mathscr{B}$に対して, 以下の条件を満たすとき, {\bf 圏$\mathscr{A}$は圏$\mathscr{B}$の
+部分圏 subcategory\index{ぶぶんけん@部分圏}
+である}という.
 \begin{enumerate}
 \item
 $\mathrm{Obj}(\mathscr{A})\subset\mathrm{Obj}(\mathscr{B})$
@@ -229,7 +262,10 @@ g\circ_{\mathscr{A}}f=g\circ_{\mathscr{B}}f
 
 \subsection{双対}
 \begin{Def}
-圏$\mathscr{C}$に対して, 対象が$\mathscr{C}$と同じで, 射の向きが$\mathscr{C}$と反対である圏を\bf{圏$\mathscr{C}$の双対圏}\index{そうついけん@双対圏}という.
+圏$\mathscr{C}$に対して, 対象が$\mathscr{C}$と同じで, 射の向きが$\mathscr{C}$と反対である圏を
+\bf{圏$\mathscr{C}$の
+双対圏 dual category\index{そうついけん@双対圏}
+}という.
 \end{Def}
 \begin{Notation}
 圏$\mathscr{C}$の双対圏を$\mathscr{C}^{\mathrm{op}}$で表す.
@@ -284,7 +320,10 @@ $f\circ f=1_A$ならば...
 \begin{Def}
 集合$S_1,\dots,S_N$に関する写像$f_1,\dots,f_M$に関して,
 $\{S_1,\dots,S_N\}$を対象とし,
-$1_{S_1},\dots,1_{S_N}$と$f_1,\dots,f_M$およびそれらの合成のみを射とする圏$\mathscr{C}$が存在するとき, $\{f_1,\dots,f_M\}$を{\bf 圏$\mathscr{C}$の生成系 system of generators}という.
+$1_{S_1},\dots,1_{S_N}$と$f_1,\dots,f_M$およびそれらの合成のみを射とする圏$\mathscr{C}$が存在するとき, $\{f_1,\dots,f_M\}$を
+{\bf 圏$\mathscr{C}$の
+生成系 system of generators
+}という.
 \end{Def}
 \begin{Def}
 圏$\mathscr{A},\mathscr{B}$の積に対して, 次の集合の組$(S_{\mathrm{Obj}}\left(\mathscr{A},\mathscr{B}\right),S_{\mathrm{Mor}}\left(\mathscr{A},\mathscr{B}\right))$を{\bf 圏$\mathscr{A},\mathscr{B}$の積}という.
@@ -306,6 +345,47 @@ f_B\in\mathrm{Mor(\mathscr{B})}\}$
 \begin{proof}
 \end{proof}
 \end{comment}
+\begin{comment}
+\section{セクション名考え中}
+\begin{color}{red}このセクションはレビュー対象外\end{color}
+\begin{Def}
+圏$\mathscr{A}$において, 対象$A\in\mathrm{Obj}(\mathscr{A})$が以下の性質をもつとき, $A$を{\bf 圏$\mathscr{A}$の始対象 initial object}という.
+\begin{itemize}
+\item 圏$\mathscr{A}$の任意の対象$X\in\mathscr{A}$に対して, $A$から$X$への射が一意に存在する.
+\end{itemize}
+\end{Def}
+\begin{Def}
+圏$\mathscr{A}$において, 対象$A\in\mathrm{Obj}(\mathscr{A})$が以下の性質をもつとき, $A$を{\bf 圏$\mathscr{A}$の終対象 initial object}という.
+\begin{itemize}
+\item 圏$\mathscr{A}$の任意の対象$X\in\mathscr{A}$に対して, $X$から$A$への射が一意に存在する.
+\end{itemize}
+\end{Def}
+\begin{Def}
+{\bf　指数対象}
+\end{Def}
+\begin{Def}
+圏$\mathscr{C}$が次の条件を満たすとき{\bf 圏$\mathscr{C}$はデカルト閉圏である}という.
+\begin{enumerate}
+\item
+$\mathscr{C}$は終対象を持つ。
+\item
+任意の$X\in\mathrm{Obj}(\mathscr{C}),Y\in\mathrm{Obj}(\mathscr{C})$ に対して,
+$X\times Y\in\mathrm{Obj}(\mathscr{C})$である.
+\item
+任意の$X\in\mathrm{Obj}(\mathscr{C}),Y\in\mathrm{Obj}(\mathscr{C})$に対して
+$Y^X\in\mathrm{Obj}(\mathscr{C})$である.
+\end{enumerate}
+\end{Def}
+\begin{Def}
+{\bf 多相関数}
+\end{Def}
+\section{Hask}
+\begin{color}{red}このセクションはレビュー対象外\end{color}
+\begin{Prop}
+Haskellの型全体の集合と,
+それらの間の関数の集合の組は
+デカルト閉圏をなす.
+\end{Prop}
 
 \section{命題の証明}
 \begin{color}{red}このセクションはレビュー対象外\end{color}
@@ -337,3 +417,4 @@ f_B\in\mathrm{Mor(\mathscr{B})}\}$
 命題4.28の証明
 
 命題4.32の証明
+\end{comment}
