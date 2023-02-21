@@ -24,9 +24,11 @@
 \newtheorem{thm}{定理}[chapter]
 \newtheorem{Def}[thm]{定義}
 \newtheorem{Notation}[thm]{記法}
-\newtheorem{Prop}[thm]{命題}
 \newtheorem{caution}[thm]{注意}
 \newtheorem{example}[thm]{実例}
+\newtheorem{axiom}[thm]{公理}
+\newtheorem{usage}[thm]{用法}
+\newtheorem{mean}[thm]{意味}
 \renewcommand{\proofname}{\textbf{証明}}
 \usepackage{makeidx}
 \usepackage{comment}
@@ -73,36 +75,77 @@
 }
 
 \makeindex
-\title{圏論原論I}
+\title{圏論原論}
 \author{Sexytant}
 \begin{document}
 \setcounter{tocdepth}{2}
 \maketitle
+\cleardoublepage
+\setcounter{page}{0}\pagenumbering{roman}\pagestyle{plain}
+\chapter*{前書き}
+\begin{itemize}
+\item 本書は日本語で書く. 読解には必要最低限の日本語運用能力を必要とする.
+\item
+本書における, 以下の数学用語は義務教育で習った通りである.
+\begin{itemize}
+\item 自然数
+\item 素数 （特に, 57は素数ではない.）
+\end{itemize}
+\item
+{\bf 意味}で, 基本的な語彙の意味を示す. 
+\item 特に意味が示されていない語句は, 辞典に載っている, いずれかの日常的な意味をもつ.
+\item
+{\bf 用法}で, 数学における言葉の使い方を示す.
+\item {\bf 定義}で, 用語の定義を述べる.
+\item {\bf 記法}で, 定義済みの用語に関する, 記号を用いた記し方を示す.
+\item {\bf 定理}で, 定義済みの用語と記法で記述された, 証明により真であることが明らかになる命題を述べる.
+\item {\bf 注意}で, 自明だが注意すべき命題と, 議論が錯綜することを防ぐために注意すべきことを述べる.
+\end{itemize}
+\begin{itemize}
+\item 本書の前書きは短いが, 前置きは長い.
+\item 本書に後書きはないが, 後味は悪い.
+\item 本書は誰に頼まれたわけでもない.
+\item 本書は事前知識を必要としない.
+\item 本書は筆者の趣味でしかない.
+\item 本書にパラドックスはない.
+\item 本書には出鱈目しかない.
+\item 本書にユーモアはない.
+\item 本書に実用性はない.
+\item 本書に哲学はない.
+\item 本書に愛はない.
+\item 本書を始める.
+\end{itemize}
 \tableofcontents
 \newpage
-\part{準備}
-\chapter{集合}
-\input{ch1/main}
+\setcounter{page}{0}\pagenumbering{arabic}
+\part{前置き}
 
+\chapter{集合・演算・論理}
+\input{set/main}
+\chapter{対応・関係・写像}
+\input{mapping/main}
+\chapter{宇宙}
+\input{universe/main}
+\chapter{位相}
+\input{topology/main}
 \chapter{代数系}
-\input{ch2/main}
+\input{algebra/main}
 
 \chapter{関数型プログラミング言語 Haskell}
 \begin{color}{red}
-この章はレビュー対象外
+工事中につき立ち入り禁止
 \end{color}
-\begin{comment}
-\input{ch3/main}
-\end{comment}
+\input{haskell/main}
+
 \part{圏論の諸概念}
 \chapter{圏}
-\input{ch4/main}
+\input{category/main}
 
 \chapter{関手}
-\input{ch5/main}
+\input{functor/main}
 
 \chapter{自然変換}
-\input{ch6/main}
+\input{natural/main}
 
 \chapter{関手圏}
 \input{ch7/main}
@@ -117,6 +160,8 @@
 \part{モナド}
 
 \part{表現可能関手}
+
+\appendix
 
 \printindex
 

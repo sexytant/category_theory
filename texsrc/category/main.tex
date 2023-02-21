@@ -4,48 +4,63 @@
 圏 category\index{けん@圏}
 をなす}という.
 \begin{enumerate}
-\item 任意の$f\in S_\mathrm{mor}$に対して$\mathrm{dom}(f)\in S_\mathrm{obj},\mathrm{cod}(f)\in S_\mathrm{obj}$がそれぞれ一意に定まる.
-\item $f\in S_{\mathrm{mor}},g\in S_{\mathrm{mor}}$について,
-$\mathrm{cod}(f)=\mathrm{dom}(g)$であるとき,
+\item 任意の$f\in S_\mathrm{mor}$に対して$\mathrm{dom}(f)\in S_\mathrm{obj},\mathrm{cod}(f)\in S_\mathrm{obj}$がそれぞれ一意に存在する.
+\item 任意の$f\in S_{\mathrm{mor}},g\in S_{\mathrm{mor}}$に対して,
+$\mathrm{cod}(f)=\mathrm{dom}(g)$ならば,
 $S_{\mathrm{mor}}$上の二項演算$\circ$が存在する.
-\item $f\in S_{\mathrm{mor}},g\in S_{\mathrm{mor}},h\in S_{\mathrm{mor}}$について, \begin{align*}
-\mathrm{cod}(f)&=\mathrm{dom}(g),\\ \mathrm{cod}(g)&=\mathrm{dom}(h)
-\end{align*}であるとき
+\item 任意の$f\in S_{\mathrm{mor}},g\in S_{\mathrm{mor}},h\in S_{\mathrm{mor}}$について, $\mathrm{cod}(f)=\mathrm{dom}(g)$かつ$ \mathrm{cod}(g)=\mathrm{dom}(h)
+$ならば
+$\circ$は結合法則を満たす.
+すなわち
 \[
 h\circ(g\circ f)=(h\circ g)\circ f
 \]
 が成り立つ.
 \item 任意の$A\in S_{\mathrm{obj}}$について
-次を満たす$1_A\in S_{\mathrm{mor}}$が存在する.
+次の条件を満たす$1_A\in S_{\mathrm{mor}}$が存在する.
 \begin{enumerate}
 \item
 $\mathrm{dom}(1_{A})=A$
 \item
 $\mathrm{cod}(1_A)=A$
-\item $\mathrm{dom}(f)=\mathrm{cod} (g)=A$かつ$\mathrm{cod} (f)=\mathrm{dom}(g)$を満たす任意の$(f,g)\in S_{\mathrm{obj}}\times S_{\mathrm{obj}}$について$f\circ 1_A=f$かつ$1_A\circ g=g$が成り立つ.
+\item 任意の$(f,g)\in S_{\mathrm{obj}}\times S_{\mathrm{obj}}$について, $\mathrm{dom}(f)=\mathrm{cod} (g)=A$かつ$\mathrm{cod} (f)=\mathrm{dom}(g)$ならば$f\circ 1_A=f$かつ$1_A\circ g=g$が成り立つ.
 \end{enumerate}
 \end{enumerate}
 \end{Def}
-定義4.1における$S_{\rm obj}$の元を
+\begin{caution}
+定義7.1において$S_{\rm obj},S_{\rm mor}$は小集合でなくてもよい.
+\end{caution}
+\begin{Def}
+$S_{\rm obj}$の元を
 {\bf 
 対象 object\index{たいしょう@対象}
-}, 
+}という 
+\end{Def}
+\begin{Def}
 $S_{\rm mor}$の元を
 {\bf 
 射 morphism\index{しゃ@射}
 }という.
+\end{Def}
+\begin{Def}
 1つ目の条件の$\mathrm{dom} f,\mathrm{cod} f$はそれぞれ
 {\bf 射$f$の
 始域 domain\index{しいき@始域}
 と 
 終域 codomain\index{しゅういき@終域}
 }という. 
-2つ目の条件の二項演算$\circ$は射の合成という. 3つ目の条件で述べているのは, 射の合成が結合律を満たすということである.最後に, 4つ目の条件の$1_A$を
+\end{Def}
+\begin{Def}
+2つ目の条件の二項演算$\circ$は{\bf 射の合成演算}という.
+\end{Def}
+\begin{Def}
+4つ目の条件の$1_A$を
 {\bf 対象$A$の
 恒等射 identity morphism\index{こうとうしゃ@恒等射}
 }という.
+\end{Def}
 
-これらの用語を導入して, 定義4.1を改めて記述すると次のようになる.
+\begin{caution}定義7.1を改めて記述すると次のようになる.
 \begin{enumerate}
 \item
 圏は対象の集合と射の集合からなる.
@@ -56,7 +71,7 @@ $S_{\rm mor}$の元を
 \item
 任意の対象について恒等射が存在する.
 \end{enumerate}
-
+\end{caution}
 \begin{caution}
 恒等射$1_{A}$は一意に定まるので, 定義に一意性を加えても問題ない.
 \end{caution}
@@ -87,7 +102,7 @@ $S_{\rm mor}$の元を
 \begin{Notation}
 射$f$の逆射を$f^{-1}$で表す.
 \end{Notation}
-\begin{Prop}
+\begin{Prop}\label{Prop:同型射の一意性}
 射$f$が同型射であるとき, $f^{-1}$は一意に定まる.
 \end{Prop}
 \begin{comment}
@@ -116,39 +131,24 @@ f(a_3)=a_1
 {\bf 圏$\mathscr{C}$は
 小圏 small category\index{しょうけん@小圏}である}という.
 \end{Def}
-\begin{Prop}
+
+\begin{Prop}\label{Prop:small category zero}
 対象も射もない圏${\bf 0}$は小圏である.
 \end{Prop}
-\begin{comment}
-\begin{proof}
-\end{proof}
-\end{comment}
 
-\begin{Prop}
+\begin{Prop}\label{Prop:small category one}
 対象が1つで, 恒等射のみをもつ圏${\bf 1}$は小圏である.
 \end{Prop}
-\begin{comment}
-\begin{proof}
-\end{proof}
-\end{comment}
 
-\begin{Prop}
+\begin{Prop}\label{Prop:small category two}
 対象が$A,B$の2つで, 
 恒等射と射$f:A\rightarrow B$のみをもつ圏
 ${\bf 2}$は小圏である.
 \end{Prop}
-\begin{comment}
-\begin{proof}
-\end{proof}
-\end{comment}
 
-\begin{Prop}
+\begin{Prop}\label{Prop:small category ordered set}
 順序集合は小圏である.
 \end{Prop}
-\begin{comment}
-\begin{proof}
-\end{proof}
-\end{comment}
 
 \subsubsection{局所小圏}
 \begin{Def}
@@ -165,42 +165,28 @@ ${\bf 2}$は小圏である.
 である}という.
 \end{Def}
 
-\begin{Prop}
+\begin{Prop}\label{Prop:large category Set}
 すべての小集合を対象とし, それらの間の写像を射とする圏$\mathrm{Set}$は大圏である.
 \end{Prop}
 
-\begin{Prop}
+\begin{Prop}\label{Prop:large category Grp}
 すべての群を対象とし, それらの間の準同型写像を射とする圏$\mathrm{Grp}$は大圏である.
 \end{Prop}
-\begin{comment}
-\begin{proof}
-\end{proof}
-\end{comment}
 
-\begin{Prop}
+\begin{Prop}\label{Prop:large category Ab}
 すべての可換群を対象とし, それらの間の準同型写像を射とする圏$\mathrm{Ab}$は大圏である.
 \end{Prop}
-\begin{comment}
-\begin{proof}
-\end{proof}
-\end{comment}
 
-\begin{comment}
-*************************
 \begin{Prop}
-すべての位相空間\footnote{定義を本文から外している}を対象とし, それらの間の連続写像\footnote{定義を本文から外している}を射とする圏$\mathrm{Top}$は大圏である.
+すべての位相空間を対象とし, それらの間の連続写像を射とする圏$\mathrm{Top}$は大圏である.
 \end{Prop}
-\end{comment}
-\begin{comment}
-*************************
+
 \begin{example}
-ある体\footnote{定義を本文から外している}$k$に対して,
+ある体$k$に対して,
 すべての$k$次線形空間\footnote{未定義}を対象とし,
 それらの間の$k$次線形写像\footnote{未定義}を射とする
 圏$\mathrm{Vect}_k$は大圏である.
 \end{example}
-***************************
-\end{comment}
 
 \subsection{部分圏}
 \begin{Notation}
@@ -219,10 +205,6 @@ $
 \end{enumerate}
 このとき$\mathrm{Mor}(\mathscr{A})\subset\mathrm{Mor}(\mathscr{B})$が成り立つ.
 \end{Prop}
-\begin{comment}
-\begin{proof}
-\end{proof}
-\end{comment}
 
 \begin{Def}
 圏$\mathscr{A}$が圏$\mathscr{B}$に対して, 以下の条件を満たすとき, {\bf 圏$\mathscr{A}$は圏$\mathscr{B}$の
@@ -252,7 +234,7 @@ g\circ_{\mathscr{A}}f=g\circ_{\mathscr{B}}f
 が成り立つ.
 \end{enumerate}
 \end{Def}
-\begin{Prop}
+\begin{Prop}\label{Prop:Ab subcategory Grp}
 圏$\mathrm{Ab}$は圏$\mathrm{Grp}$の部分圏である.
 \end{Prop}
 \begin{comment}
@@ -276,47 +258,23 @@ g\circ_{\mathscr{A}}f=g\circ_{\mathscr{B}}f
 \end{caution}
 \end{comment}
 \subsection{圏の生成}
-\begin{Prop}
+\begin{Prop}\label{Prop:generation category 0}
 集合$A$と写像$f:A\rightarrow A$
 について, 集合の組$(\{A\},\{1_A,f\})$は圏をなす.
 \end{Prop}
-\begin{comment}
-\begin{proof}
-$\mathrm{dom} f=\mathrm{cod}f$であるから, 合成射$f\circ f$を定めることができる.
-このとき$f\circ f=1_A$もしくは$f\circ f=f$である.
 
-$f\circ f=1_A$ならば...
-
-...
-
-となる.
-一方, $f\circ f=1_A$ならば...
-
-...
-
-となる.
-以上より, いずれの場合も, 射の合成が結合律を満たすことがわかる.
-したがって$f\circ f=1_A$と定めても$f\circ f=f$と定めても圏を生成することができる.
-\end{proof}
-\end{comment}
-\begin{Prop}
+\begin{Prop}\label{Prop:generation category 1}
 集合$A$と写像$f:A\rightarrow A$について, 正の整数$n$に対して$f^n=\underbrace{f\circ f \circ \dots \circ f}_{n}$
 とするとき,
 集合の組$(\{A\},\{1_A,f,f^2,\dots,\})$
 は圏をなす.
 \end{Prop}
-\begin{comment}
-\begin{proof}
-\end{proof}
-\end{comment}
-\begin{Prop}
+
+\begin{Prop}\label{Prop:generation category 2}
 集合$A,B$と写像$f:A\rightarrow B,\ g:B\rightarrow A$について,
 集合の組$(\{A,B\}, \{1_A,1_B,f,g,f\circ g\})$は圏をなす.
 \end{Prop}
-\begin{comment}
-\begin{proof}
-\end{proof}
-\end{comment}
+
 \begin{Def}
 集合$S_1,\dots,S_N$に関する写像$f_1,\dots,f_M$に関して,
 $\{S_1,\dots,S_N\}$を対象とし,
@@ -338,31 +296,29 @@ f_B\in\mathrm{Mor(\mathscr{B})}\}$
 \begin{Def}
 圏$\mathscr{A},\mathscr{B}$の積を$\mathscr{A}\times\mathscr{B}$で表す.
 \end{Def}
-\begin{Prop}
+\begin{Prop}\label{Prop:category product}
 圏の積は圏をなす.
 \end{Prop}
-\begin{comment}
-\begin{proof}
-\end{proof}
-\end{comment}
-\begin{comment}
-\section{セクション名考え中}
-\begin{color}{red}このセクションはレビュー対象外\end{color}
+
+
+\section{デカルト閉圏}
 \begin{Def}
-圏$\mathscr{A}$において, 対象$A\in\mathrm{Obj}(\mathscr{A})$が以下の性質をもつとき, $A$を{\bf 圏$\mathscr{A}$の始対象 initial object}という.
+圏$\mathscr{A}$において, 次の条件を満たす$A\in\mathrm{Obj}(\mathscr{A})$を{\bf 圏$\mathscr{A}$の始対象 initial object}という.
 \begin{itemize}
-\item 圏$\mathscr{A}$の任意の対象$X\in\mathscr{A}$に対して, $A$から$X$への射が一意に存在する.
+\item 任意の$X\in\mathscr{A}$に対して, $A$から$X$への射が一意に存在する.
 \end{itemize}
 \end{Def}
 \begin{Def}
-圏$\mathscr{A}$において, 対象$A\in\mathrm{Obj}(\mathscr{A})$が以下の性質をもつとき, $A$を{\bf 圏$\mathscr{A}$の終対象 initial object}という.
+圏$\mathscr{A}$において, 次の条件を満たす$A\in\mathrm{Obj}(\mathscr{A})$を{\bf 圏$\mathscr{A}$の終対象 terminal object}という.
 \begin{itemize}
-\item 圏$\mathscr{A}$の任意の対象$X\in\mathscr{A}$に対して, $X$から$A$への射が一意に存在する.
+\item 任意の$X\in\mathscr{A}$に対して, $X$から$A$への射が一意に存在する.
 \end{itemize}
 \end{Def}
 \begin{Def}
-{\bf　指数対象}
+{\bf　指数対象 power object}という.
 \end{Def}
+\begin{Notation}
+\end{Notation}
 \begin{Def}
 圏$\mathscr{C}$が次の条件を満たすとき{\bf 圏$\mathscr{C}$はデカルト閉圏である}という.
 \begin{enumerate}
@@ -379,8 +335,9 @@ $Y^X\in\mathrm{Obj}(\mathscr{C})$である.
 \begin{Def}
 {\bf 多相関数}
 \end{Def}
+
 \section{Hask}
-\begin{color}{red}このセクションはレビュー対象外\end{color}
+
 \begin{Prop}
 Haskellの型全体の集合と,
 それらの間の関数の集合の組は
@@ -390,31 +347,48 @@ Haskellの型全体の集合と,
 \section{命題の証明}
 \begin{color}{red}このセクションはレビュー対象外\end{color}
 
-命題4.9の証明
+\subsubsection{命題\ref{Prop:同型射の一意性}の証明}
 
-命題4.11の証明
+\subsubsection{命題\ref{Prop:small category zero}の証明}
+定義より$\mathrm{Obj}(\bm{0})=\emptyset$かつ$\mathrm{Mor}(\bm{0})=\emptyset$である.
+空集合$\emptyset$は小集合であるから, 命題は成り立つ.\footnote{1.3節で空集合が小集合であることを示しておきたいところ.}
+\subsubsection{命題\ref{Prop:small category one}の証明}
+$\mathrm{Obj}=\{A\}$,$\mathrm{Mor}={1_A}$で共に小集合であるから, 命題は成り立つ\footnote{ほんとかよ}
+\subsubsection{命題\ref{Prop:small category two}の証明}
+$\math{Obj}=\{A,B\}$,$\mathrm{Mor}=\{1_A,1_B,f\}$で共に小集合であるから, 命題は成り立つ\footnote{ほんとかよ2}
+\subsubsection{命題\ref{Prop:small category ordered set}の証明}
+\footnote{順序集合が圏であるとはどういうことなのか, 先に説明せよ.}
+各要素が対象で, $a\leq b$のとき, 対象$a$から$b$へのただ一つの射があるとする.
+順序は推移的で結合律は2対象間の射が高々1つしかないから成り立つ\footnote{教科書を写しただけなので, 後でちゃんと書き直すこと}
+\subsubsection{命題\ref{Prop:large category Set}の証明}
 
-命題4.12の証明
+\subsubsection{命題\ref{Prop:large category Grp}の証明}
 
-命題4.13の証明
+\subsubsection{命題\ref{Prop:large category Ab}の証明}
 
-命題4.14の証明
+\subsubsection{命題\ref{Prop:Ab subcategory Grp}の証明}
 
-命題4.17の証明
+\subsubsection{命題\ref{Prop:generation category 0}の証明}
+\begin{proof}
+$\mathrm{dom} f=\mathrm{cod}f$であるから, 合成射$f\circ f$を定めることができる.
+このとき$f\circ f=1_A$もしくは$f\circ f=f$である.
 
-命題4.18の証明
+$f\circ f=1_A$ならば...
 
-命題4.19の証明
+...
 
-命題4.21の証明
+となる.
+一方, $f\circ f=1_A$ならば...
 
-命題4.23の証明
+...
 
-命題4.26の証明
+となる.
+以上より, いずれの場合も, 射の合成が結合律を満たすことがわかる.
+したがって$f\circ f=1_A$と定めても$f\circ f=f$と定めても圏を生成することができる.
+\end{proof}
 
-命題4.27の証明
+\subsubsection{命題\ref{Prop:generation category 1}の証明}
 
-命題4.28の証明
+\subsubsection{命題\ref{Prop:generation category 2}の証明}
 
-命題4.32の証明
-\end{comment}
+\subsubsection{命題\ref{Prop:category product}の証明}

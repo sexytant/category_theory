@@ -1,0 +1,145 @@
+\section{遺伝的集合}
+\begin{Def}
+集合の元であるが, それ自身は集合でないものを{\bf 原始要素}という.
+\end{Def}
+\begin{mean}
+{\bf 参照}とは, 情報の拠り所に目を向けることである.
+\end{mean}
+\begin{usage}
+ある事柄を定義する際に, 定義しているもの自身への参照を伴うとき, {\bf 再帰的に定義する}という.
+\end{usage}
+\begin{Def}
+{\bf 遺伝的集合}を, 遺伝的集合または原始要素を元とする集合であると再帰的に定義する.
+\end{Def}
+\begin{caution}
+遺伝的集合$S$において, $S$の元である集合$X$に元$x$が存在するとき, $x$が集合か集合でないかに関わらず, これもまた$S$の元であるとみなす.
+\end{caution}
+\begin{Def}
+遺伝的集合$S$の元である原始要素の全体
+を{\bf 集合$S$の合併 union}\index{がっぺい@合併}という.
+\end{Def}
+\begin{Notation}
+遺伝的集合$S$の合併を$\bigcup S$で表す.
+\end{Notation}
+\begin{example}
+$S=\{\{a,b\},\{c,d,e\}\}$のとき$\bigcup S=\{a,b,c,d,e\}$となる.
+\end{example}
+\section{宇宙}
+\begin{Def}
+次の条件を満たす遺伝的集合$U$を
+{\bf 宇宙universe\index{うちゅう@宇宙}}
+という.
+\begin{enumerate}
+\item $X\in U$かつ$Y\in U$ならば$\{X,Y\}\in U$
+\item $X\in U$ならば$ \mathcal{P}X\in U$かつ$\cup X\in U$
+\item $\mathbb{N}\in U$
+\item $f:A\rightarrow B$が全射で, $A\in U$かつ$ B\subset U$ならば$B \in U$
+\end{enumerate}
+\end{Def}
+\begin{caution}
+ここで定義した宇宙は, 天文学における宇宙とは異なる.
+\end{caution}
+\begin{Def}
+宇宙の元を
+{\bf 小集合 small set\index{しょうしゅうごう@小集合}}
+という.
+\end{Def}
+\begin{caution}
+宇宙は明らかに小集合ではない.
+\end{caution}
+\begin{Prop}
+小集合について, 以下の演算が可能である.
+\begin{itemize}
+\item 順序対の生成
+\item 和演算
+\item 交叉演算
+\item 差演算
+\item 直積演算
+\item 冪演算
+\item 合併演算
+\end{itemize}
+\end{Prop}
+\begin{Def}
+$A$と$B$が小集合のとき, 関数$f:A\rightarrow B$を{\bf 小関数 small function}という.
+\end{Def}
+
+\section{類}
+\begin{Def}
+宇宙の部分集合を{\bf 類 class} という.
+\end{Def}
+\begin{caution}
+宇宙は明らかに類である.
+\end{caution}
+\begin{Def}
+小集合でない類を{\bf 真類 proper class}という.
+\end{Def}
+\begin{caution}
+宇宙は明らかに真類である.
+\end{caution}
+
+\begin{comment}
+\section{公理的集合論}
+{\bf 集合の公理系}とは,
+
+特に{\bf ZF公理系}が知られている.
+\begin{axiom}
+$\forall A,\forall B, (\forall x(x\in A\Leftrightarrow x\in B)\Rightarrow A=B)$
+
+すなわち, 同じ元を持つ2つの集合は等しい.
+これを{\bf 外延性公理}という.
+\end{axiom}
+\begin{axiom}
+$\forall A, (A\neq\emptyset\Rightarrow\exists x\in A,\forall t\in A,(t\in x))$
+
+すなわち, 空でない集合は必ず, 
+これを{\bf 正則性公理}という.
+\end{axiom}
+\begin{axiom}
+
+これを{\bf 分出公理}という.
+\end{axiom}
+\begin{axiom}
+$\forall x,\forall y,\exists A,\forall t,(t\in A\Leftrightarrow t=x\lor t=y))$
+
+すなわち, 対となる2つのものについて, それらのみを元とする集合が存在する.
+これを{\bf 対の公理}という.
+\end{axiom}
+\begin{axiom}
+$\forall X,\exists A,\forall t,(t\in A\Leftrightarrow \exists x\in X,(t\in x))$
+
+すなわち, 集合の元に対する和集合が存在する.
+これを{\bf 和集合の公理}という.
+\end{axiom}
+\begin{axiom}
+
+
+これを{\bf 置換公理}という.
+\end{axiom}
+\begin{axiom}
+$\exists X,(\exists e,(\forall z,\lnot(z\in e))\land (e\in X)\land (\forall y,(y\in X\Rightarrow S(y)\in X)))$
+
+これを{\bf 無限公理}という.
+\end{axiom}
+\begin{axiom}
+これを{\bf 冪集合公理}という.
+\end{axiom}
+
+内包原理は, 集合$S$の元$x$に対してtrue か falseを返す関数$\varphi:S\rightarrow\{\mathrm{true},\mathrm{false}\}$が与えられたとき, 新たな集合
+$
+\{x\in S\mid\varphi(x)=\mathrm{true}\}
+$
+を構成できるとするものである.
+次のような集合$R$を内包原理に基づいて構成しようとすると矛盾が生じる.\footnote{ラッセルのパラドックスと呼ばれる}
+\[
+R=\{X\mid X\notin X\}
+\]
+もし$R\in R$であると仮定すると, $R$の定義により$R\notin R$となる.
+他方, $R\notin R$と仮定すると, $R$の定義より$R\in R$となってしまう.
+以上から内包原理の適用は制限されなければならない.
+\end{comment}
+\begin{comment}
+\section{グロタンディーク宇宙}
+
+ラッセルのパラドックスを回避するため, {\bf グロタンディーク宇宙 universe}という概念を導入する.
+\end{comment}
+

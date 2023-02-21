@@ -1,0 +1,478 @@
+\section{集合}
+\begin{mean}
+{\bf 等値である equal}とは文字が指し示す事物の値が等しいことである.
+\end{mean}
+\begin{mean}{\bf 集合 set}\index{しゅうごう@集合}
+とは, 事物の集まりで, 個々の事物がその集まりの中に属するかどうか, かつ, その集まりに属する2つの事物が等値であるかどうかが, はっきり分かるもののことである.
+\end{mean}
+\begin{mean}{\bf 元 element}\index{げん@元}とは,
+集合に属する個々の事物のことである
+\end{mean}
+
+\begin{Notation}
+$a$が集合$S$の元であることを$a\in S$で表す.
+\end{Notation}
+\begin{Notation}
+$a$が集合$S$の元でないことを$a\notin S$で表す.
+\end{Notation}
+\begin{Notation}
+集合は各元をカンマで区切り$\{\}$で囲むことで表される. この記法を{\bf 外延的表現 extensional expression}という.
+\end{Notation}
+\begin{example}$\{1,2,3\}$や$\{a,b,c\}$は集合である. 
+\end{example}
+\begin{example}$\{1\}$や$\{a\}$は集合である. 
+\end{example}
+\begin{mean}
+{\bf 個数}とは, 事物の数のことである.
+\end{mean}
+\begin{example}
+集合$\{a,b,c\}$の元の個数は$3$である.
+\end{example}
+\begin{mean}
+{\bf 無限大 infinity}とは, いかなる正の数よりも大きい数のことである.
+\end{mean}
+\begin{mean}
+{\bf 全体}とは, あるひとまとまりの事物のすべてのことである.\end{mean}
+\begin{caution}
+集合の元の個数が無限大であってもよい.
+\end{caution}
+\begin{example}
+自然数全体$\mathbb{N}$, 実数全体$\mathbb{R}$は集合である.
+\end{example}
+\begin{Notation}
+集合において元$a,b$が等値であることを$a=b$で表す.
+\end{Notation}
+\begin{Notation}
+集合において元$a,b$が等値でないことを$a\neq b$で表す.
+\end{Notation}
+\begin{caution}
+集合の元が, 集合であってもよい.
+\end{caution}
+\section{演算}
+\begin{mean}
+{\bf 適用する apply}とは, 当てはめて用いることである.
+\end{mean}
+\begin{mean}
+{\bf 生成する generate}とは, 作り出すことである.
+\end{mean}
+\begin{mean}
+{\bf 手続き procedure}とは, 決めれた形に従った取り扱いのことである.
+\end{mean}
+\begin{mean}
+{\bf 演算 operation}とは, 事物に適用されることで, 新しい事物を生成する手続きのことである.
+\end{mean}
+\begin{Notation}
+演算$*$が$A$に適用されることで生成されるものを$*A$で表す.
+\end{Notation}
+\begin{Notation}
+演算$*$が$A,B$に適用されることで生成されるものを$A*B$で表す.
+\end{Notation}
+\begin{Notation}
+特に, 2回以上, 演算が適用されるとき, $()$で括られたものから先に適用されるとする.
+\end{Notation}
+\begin{example}
+$(A*B)*C$は, まず$A$と$B$に演算$*$が適用され, その後に, 生成された$A*B$と$C$に演算$*$が適用されることで, 生成されるものを表す.
+\end{example}
+
+\section{命題論理}
+\begin{mean}
+{\bf 定義 definition}とは,
+物事を他と分けられるように, はっきりと述べることである.
+\end{mean}
+\begin{mean}
+{\bf 言明 statement}とは, 定義された言葉を用いて, 何らかの考えを述べることである.
+\end{mean}
+\begin{mean}
+{\bf 論理 logic}とは, 考えが必ず認められる手続きのことである.
+\end{mean}
+\begin{mean}
+{\bf 論理的 logical}とは, 論理にかなっていることである.
+\end{mean}
+\begin{mean}
+{\bf 真 true}とは論理的に正しいことである.
+\end{mean}
+\begin{mean}
+{\bf 偽 false}とは論理的に正しくないことである.
+\end{mean}
+\begin{mean}
+{\bf 命題 proposition}とは, 真か偽かのどちらか一方であることが分かる言明のことである.
+\end{mean}
+\begin{example}
+「$100$より大きな自然数が存在する」は命題である. この命題は真
+である.
+\end{example}
+\begin{example}
+「$57$は素数である」は命題である. この命題は偽である.
+\end{example}
+\begin{example}
+「圏論は偉大である」は命題ではない.
+\end{example}
+\begin{mean}
+{\bf 証明 proof}とは, 命題が真か偽のどちらかを明らかにする, 論理的な考えの道筋のことである.
+\end{mean}
+\begin{mean}
+{\bf 自明 apparent}とは, 証明するまでもなく, 明らかなことである.
+\end{mean}
+\begin{mean}
+{\bf 定理 theorem}とは, 証明によって真であることが明らかとなる命題のことである.
+\end{mean}
+\begin{Def}
+命題$P$に対する「$P$でないこと」を{\bf 命題$P$の否定 negation}という.
+\end{Def}
+\begin{Notation}
+命題$P$に対する否定を$\lnot P$で表す.
+\end{Notation}
+\begin{Def}
+命題$P,Q$に対する「$P$かつ$Q$であること」を{\bf 命題$P,Q$に対する連言 conjunction}という.
+\end{Def}
+\begin{Notation}
+命題$P,Q$に対する連言
+を$P\land Q$で表す.
+\end{Notation}
+\begin{Def}
+命題$P,Q$に対する「$P$または$Q$であること」を{\bf 命題$P,Q$に対する選言 disjunction}という.
+\end{Def}
+\begin{Notation}
+命題$P,Q$に対する選言を$P\lor Q$で表す.
+\end{Notation}
+\begin{Def}
+命題$P,Q$に対する
+「$P$ならば$Q$であること」を
+{\bf 命題$P,Q$に対する含意 implication}という.
+\end{Def}
+\begin{Notation}
+命題$P,Q$に対する含意
+を$P\Rightarrow Q$で表す.
+\end{Notation}
+\begin{caution}
+否定, 連言, 選言, 含意により新たな命題が生成されている. したがって, これらは命題に対する演算である.よって, これらを{\bf 論理演算 logical operation}という.
+\end{caution}
+\begin{caution}
+$\lnot,\land,\lor,\Rightarrow$のそれぞれを{\bf 論理演算子 logical operator}という.
+\end{caution}
+\begin{Notation}
+命題$P,Q$に対して「$P$ならば, かつそのときに限り$Q$であること」を$P\Leftrightarrow Q$で表す.\end{Notation}
+\begin{Def}
+命題$P$に対する「$P$かつ$\lnot P$」を{\bf 矛盾 contradiction}という.
+\end{Def}
+\begin{caution}
+ある命題が真であるという定理を証明するため, その命題が偽であると仮定して, なんらかの矛盾が導かれることを示すという方法が用いられる. これを{\bf 背理法 proof by contradiction}という.
+\end{caution}
+\section{法則}
+\begin{mean}
+{\bf 常に always}とは, どんなときでも, という意味である.
+\end{mean}
+\begin{usage}
+演算$*$に関する命題が常に真となるとき, {\bf 演算$\ast$について法則 lawが成り立つ}という.
+\end{usage}
+\begin{Def}
+演算$\ast$に関して$A\ast B=B\ast A$という命題が常に真となるときに, 成り立つ法則を{\bf 交換法則 commutative law}という.
+\end{Def}
+\begin{Def}
+演算$\ast$に関して$(A\ast B)\ast C=A\ast(B\ast C)$という命題が常に真となるときに, 成り立つ法則を{\bf 結合法則 associative law}という.
+\end{Def}
+\begin{Def}
+演算$\ast,\bullet$に関して
+「$A\ast(B\bullet C)=(A\ast B)\bullet(A\ast C)$
+かつ
+$(B\bullet C)\ast A=(B\ast A)\bullet(C\ast A)$」
+という命題が常に真となるときに, 成り立つ法則を{\bf 演算$\ast$の演算$\bullet$に対する分配法則 distributive law}という.
+
+\end{Def}
+
+\section{述語論理}
+\subsection{条件}
+\begin{usage}集合$S$の元$x\in S$についての命題$\varphi(x)$における$\varphi(\cdot)$を{\bf 集合$S$上の条件 condition}という.
+\end{usage}
+\begin{usage}集合$S$の元$x\in S$についての命題$\varphi(x)$における$x$を{\bf 命題$\varphi(x)$における変数 variable}という.
+\end{usage}
+\begin{example}
+自然数全体$\mathbb{N}$の元 $n\in\mathbb{N}$についての命題「$n$は素数である」における「素数であること」は$\mathbb{N}$上の条件である.
+\end{example}
+
+\begin{usage}
+集合$S$の元$x$と集合$S$上の条件$\varphi(\cdot)$について,命題$\varphi(x)$が真
+であるとき,
+{\bf 変数$x\in S$が条件$\varphi(\cdot)$を満たす}という.
+\end{usage}
+\begin{Notation}
+集合$S$上の条件$\varphi(\cdot)$を満たす変数$x\in S$全体からなる集合を$\{x\in S\mid \varphi(x)\}$で表す. この記法を{\bf 内包的表現 intensional expression}という.
+\end{Notation}
+\subsection{全称命題と存在命題}
+\subsubsection{全称命題}
+\begin{usage}
+集合$S$のすべての元が, 集合$S$上の条件$\varphi(\cdot)$を満たすとき, {\bf 条件$\varphi(\cdot)$が集合$S$の任意の元について成り立つ}という.
+\end{usage}
+\begin{Notation}
+「条件$\varphi(\cdot)$が集合$S$の任意の元について成り立つ」という命題を
+「$
+\forall x\in S,\varphi(x)
+$」
+で表す. 
+\end{Notation}
+\begin{caution}
+「$
+\forall x\in S,\varphi(x)
+$」
+で表される命題を{\bf 全称命題 universal proposition}という.
+\end{caution}
+\subsubsection{存在命題}
+\begin{usage}
+集合$S$の少なくとも1つの元が, $S$上の条件$\varphi(\cdot)$を満たすとき, {\bf 条件$\varphi(\cdot)$が集合$S$のとある元について成り立つ}もしくは{\bf 集合$S$のとある元が存在して条件$\varphi(\cdot)$を満たす}といえる.
+\end{usage}
+\begin{Notation}
+「条件$\varphi(\cdot)$が集合$S$のとある元について成り立つ」という命題を
+「$
+\exists x\in S,\varphi(x)
+$」
+で表す.
+\end{Notation}
+\begin{caution}
+「$
+\exists x\in S,\varphi(x)
+$」
+で表される命題を{\bf 存在命題 existential proposition}という.
+\end{caution}
+\begin{usage}
+集合$S$のただ1つの元が, $S$上の条件$\varphi(\cdot)$を満たすとき, {\bf 集合$S$のとある元が一意的に存在して条件$\varphi(\cdot)$を満たす}という.
+\end{usage}
+\begin{Notation}
+「集合$S$のとある元が一意的に存在して条件$\varphi(\cdot)$を満たす」という命題を
+「$
+\exists! x\in S,\varphi(x)
+$」
+で表す.
+\end{Notation}
+\begin{comment}
+\begin{example}
+「いくらでも大きい素数が存在する」という
+主張は「任意の自然数$N$に対して, それより大きい$n$が存在して, 条件『$n$は素数である』を満たす」という命題で述べられ,
+条件「$n$は素数である」を$P(n)$で表したとき
+\[
+\forall N\in
+\]
+\end{example}
+\end{comment}
+
+
+
+
+\section{集合の代数学}
+\subsection{空集合}
+\begin{caution}
+元がない集合$\{\}$の存在を認める.
+\end{caution}
+\begin{Def}
+元がない集合$\{\}$を{\bf 空集合 empty set}\index{くうしゅうごう@空集合}という.
+\end{Def}
+\begin{Notation}
+空集合を$\emptyset$で表す.
+\end{Notation}
+\subsection{順序対}
+\begin{Def}
+$\{\{a\},\{a,b\}\}$を{\bf $a$と$b$の順序対 ordered pair}という.
+\end{Def}
+\begin{Notation}
+$a$と$b$の順序対を$(a,b)$で表す.
+\end{Notation}
+\begin{Def}
+順序対$(a,b)$における$a$を{\bf 順序対$(a,b)$の第一成分 first element}という.
+\end{Def}
+\begin{Def}
+順序対$(a,b)$における$b$を{\bf 順序対$(a,b)$の第二成分 second element}という.
+\end{Def}
+\begin{caution}
+$(a,b)\neq(b,a)$である.
+\end{caution}
+\subsection{部分集合}
+\begin{Def}
+集合$A$の任意の元が集合$B$の元であるとき{\bf 集合$A$は集合$B$の部分集合 subset\index{ぶぶんしゅうごう@部分集合}である}という.  
+\end{Def}
+\begin{Notation}
+集合$A$が集合$B$の部分集合であることを$A\subset B$で表す.
+\end{Notation}
+\begin{Def}
+集合$A,B$について$A\subset B$かつ$B\subset A$であるとき, {\bf 集合$A,B$は等値}であるという.
+\end{Def}
+\begin{Notation}
+集合$A,B$が等値であることを$A=B$で表す.
+\end{Notation}
+\begin{Def}
+集合$S$の部分集合の全体
+を
+{\bf 集合$S$の
+冪集合 power set\index{べきしゅうごう@冪集合}}
+という.
+\end{Def}
+\begin{Notation}
+集合$S$の冪集合を$\mathcal{P}S$で表す.
+\end{Notation}
+\begin{example}
+$S=\{a,b,c\}$のとき$\mathcal{P} S=\{\{a\},\{b\},\{c\},\{a,b\},\{a,c\},\{b,c\},\{a,b,c\}\}$となる.
+\end{example}
+
+\subsection{集合の演算}
+\begin{Def}
+集合$A,B$に対して,
+$A,B$のいずれかの元であるものの全体を
+{\bf 集合$A,B$の和集合 union}という.
+\end{Def}
+\begin{Def}
+集合$A,B$に対して集合$A,B$の和集合を生成する演算を{\bf 集合の和演算}という.
+\end{Def}
+\begin{Notation}
+集合の和演算を$\cup$で表す.
+\end{Notation}
+\begin{Notation}
+集合$A,B$の和集合を$A\cup B$で表す.
+\end{Notation}
+\begin{Def}
+集合$A,B$に対して, $A,B$の両方の元であるものの全体を
+{\bf 集合$A,B$の交叉 intersection}という.
+\end{Def}
+\begin{Def}
+集合$A,B$に対して, $A,B$の交叉を生成する演算を{\bf 集合の交叉演算}という.
+\end{Def}
+\begin{Def}
+集合の交叉演算を$\cap$で表す.
+\end{Def}
+\begin{Notation}
+集合$A,B$の交叉を$A\cap B$で表す.
+\end{Notation}
+\begin{Def}
+集合$A,B$に対して,
+$A$の元でかつ$B$の元でないものの全体を{\bf 集合$A$における集合$B$との差集合 set difference}
+という.
+\end{Def}
+\begin{Def}
+集合$A,B$に対して, $A$における$B$との差集合を生成する演算を{\bf 集合の差演算}という.
+\end{Def}
+\begin{Notation}
+集合の差演算を$\setminus$で表す.
+\end{Notation}
+\begin{Notation}
+集合$A$における集合$B$との差集合を$A\setminus B$で表す.
+\end{Notation}
+
+\begin{Def}
+集合$A$の元を第一成分とし,集合$B$の元を第二成分とする順序対の全体を
+{\bf 集合$A$と集合$B$の
+直積集合 direct product\index{ちょくせき@直積}}という.
+\end{Def}
+\begin{Def}
+集合$A,B$に対して, $A$と$B$の直積集合を生成する演算を{\bf 集合の直積演算}という.
+\end{Def}
+\begin{Notation}
+集合の直積演算を$\times$で表す.
+\end{Notation}
+\begin{Notation}
+集合$A,B$の
+直積集合を$A\times B$で表す.
+\end{Notation}
+\begin{thm}
+集合の和演算について交換法則が成り立つ.
+\end{thm}
+\begin{proof}
+背理法を用いて示す.
+ある$x\in A\cup B$が存在して$x\notin B\cup A$を満たすとする.
+このとき, $A\cup B$の定義より$x\in A$または$x\in B$である.
+すると, $B\cup A$の定義より$x\in B\cup A$となり矛盾が生じる. したがって, このような$x\in A\cup B$は存在しない. すなわち, 任意の$x\in A\cup B$について$x\in B\cup A$となるから$A\cup B\subset B\cup A$である. 
+同様の論法により, $B\cup A\subset A\cup B$となる.
+よって$A\cup B=B\cup A$となる.
+\end{proof}
+\begin{thm}
+集合の交叉演算について交換法則が成り立つ.
+\end{thm}
+\begin{proof}
+ある$x\in A\cap B$が存在して$x\notin B\cap A$を満たすとする.
+このとき, $A\cap B$の定義より$x\in A$かつ$x\in B$である.
+すると, $B\cap A$の定義より$x\in B\cap A$となり矛盾が生じる. したがって, このような$x\in A\cap B$は存在しない. すなわち, 任意の$x\in A\cap B$について$x\in B\cap A$となるから$A\cap B\subset B\cap A$である. 
+同様の論法により, $B\cap A\subset A\cap B$となる.
+よって$A\cap B=B\cap A$となる.
+\end{proof}
+\begin{thm}
+集合の和演算について結合法則が成り立つ.
+\end{thm}
+\begin{proof}
+ある$x\in (A\cup B)\cup C$が存在して$x\notin A\cup (B\cup C)$を満たすとする.
+このとき, 和集合の定義より$(x\in A\lor x\in B)\lor x\in C$である.
+すると, 
+$x\in A$, $x\in B$, $x\in C$のいずれの場合でも
+$x\in A\cup(B\cup C)$となり矛盾が生じる. したがって, このような$x\in (A\cup B)\cup C$は存在しない. すなわち, 任意の$x\in (A\cup B)\cup C$について$x\in A\cup (B\cup C)$となるから$(A\cup B)\cup C\subset A\cup (B\cup C)$である. 
+同様の論法により, $A\cup (B\cup C)\subset (A\cup B)\cup C$となる.
+よって$(A\cup B)\cup C=A\cup (B\cup C)$となる.
+\end{proof}
+\begin{thm}
+集合の交叉演算について結合法則が成り立つ.
+\end{thm}
+\begin{proof}
+ある$x\in (A\cap B)\cap C$が存在して$x\notin A\cap (B\cap C)$を満たすとする.
+このとき, 和集合の定義より$(x\in A\land x\in B)\land x\in C$である.
+すると, この条件を満たす$x$
+は, いずれの場合でも
+$x\in A\cup(B\cup C)$となり矛盾が生じる. したがって, このような$x\in (A\cap B)\cap C$は存在しない. すなわち, 任意の$x\in (A\cap B)\cap C$について$x\in A\cap (B\cap C)$となるから$(A\cap B)\cap C\subset A\cap (B\cap C)$である. 
+同様の論法により, $A\cap (B\cap C)\subset (A\cap B)\cap C$となる.
+よって$(A\cap B)\cap C=A\cap (B\cap C)$となる.
+\end{proof}
+\begin{thm}
+集合の和演算の, 集合の交叉演算に対する分配法則が成り立つ.
+\end{thm}
+\begin{thm}
+集合の交叉演算の, 集合の和演算に対する分配法則が成り立つ.
+\end{thm}
+\begin{mean}
+{\bf 読者の演習問題 exerciseとする}とは, 著者が証明や解答を書くのを面倒に思うので, その気になれば書くこともできるのに, 紙幅の限界を言い訳として, 省略するということである.
+\end{mean}
+\begin{caution}
+一部の定理の証明は読者の演習問題とする.
+\end{caution}
+\begin{comment}
+\begin{mean}
+{\bf 論じる}とは筋道を立てて述べることである.
+\end{mean}
+\begin{mean}
+{\bf 対象}とは行為の目標である.
+\end{mean}
+\begin{caution}
+次に示す用法における対象は, 上記の意味をもつ. 
+ただし, 後に述べる, 圏に対する対象は, 上記とは異なる特殊な意味をもつ.
+\end{caution}
+\begin{usage}
+論じる対象であるすべての集合を部分集合とする集合を{\bf 全体集合 universe set}という.
+\end{usage}
+\begin{caution}
+全体集合は明らかに論じる対象に依存する.
+\end{caution}
+\begin{Notation}
+全体集合を$\mathrm{U}$で表す.
+\end{Notation}
+\begin{Def}
+集合$A$における全体集合との差集合を 
+{\bf 集合$A$の補集合}
+という.
+\end{Def}
+\begin{Notation}
+集合$A$の補集合を$A^c$で表す.
+\end{Notation}
+\end{comment}
+\begin{comment}
+\subsection{集合の基本法則}
+\begin{law}
+任意の集合$A$について, 以下が成り立つ. これを
+{\bf 同一性法則}という.
+\begin{itemize}
+\item $A\cup\emptyset=A$
+\item 
+$A\cap\mathrm{U}=A$
+\end{itemize}
+\end{law}
+\begin{law}
+任意の集合$A$について, 以下が成り立つ. これを
+{\bf 相補性法則}という.
+\begin{itemize}
+\item $A\cup A^c=\mathrm{U}$
+\item $A\cap A^c=\emptyset$
+\end{itemize}
+\end{law}
+\end{comment}
+

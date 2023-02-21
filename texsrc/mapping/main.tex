@@ -1,0 +1,221 @@
+\section{対応}
+\begin{Def}
+{\bf 対応}という.
+\end{Def}
+\begin{Notation}
+集合$A$から$B$の対応$\phi$を
+$\phi:A \multimap B$で表す.
+\end{Notation}
+\section{二項関係}
+\begin{Def}
+集合$A,B$の直積集合の部分集合を, 
+{\bf 集合$A,B$の
+二項関係 binary relation}\index{にこうかんけい@二項関係}
+という.
+\end{Def}
+\begin{Def}
+集合$A$の元$a$と集合$B$の元$b$からなる順序対$(a,b)$が
+集合$A,B$の二項関係$\mathrm{R}$の元であるとき,
+{\bf $a\in A$と$b\in B$の間に二項関係$\mathrm{R}$がある}という.
+\end{Def}
+\begin{Notation}
+$a\in A$と$b\in B$の間に二項関係$\mathrm{R}\subset A\times B$があることを$a\mathrm{R}b$で表す.
+\end{Notation}
+\begin{Def}\label{Def:composition}
+集合$A,B$の二項関係$F$と
+集合$B,C$に二項関係$G$に対する
+\[
+\{(a,c)\in A\times C\mid \exists b\in B, ((a,b)\in F \land (b,c)\in G)\}
+\]
+を
+{\bf 集合$A,B$の二項関係$F$と
+集合$B,C$の二項関係$G$の
+合成 composition\index{ごうせい@合成}
+}という.
+\end{Def}
+\begin{Def}
+二項関係の合成を生成する演算を{\bf 二項関係の合成演算}という.
+\end{Def}
+\begin{Notation}
+二項関係の合成演算を$\circ$で表す.
+\end{Notation}
+\begin{Notation}
+集合$A,B$の二項関係$F$と
+集合$B,C$の二項関係$G$の
+合成を$G\circ F$で表す.
+\end{Notation}
+\begin{thm}
+二項関係の合成演算について結合法則が成り立つ.
+\end{thm}
+\begin{comment}
+\begin{Prop}\label{Prop:binary relation composition}
+二項関係$F\subset A\times B ,G\subset B\times C, H\subset C\times D$について
+\[
+(H\circ G)\circ F=H\circ (G\circ F)
+\]
+が成り立つ.
+すなわち, 任意の$(a,d)\in A\times D$について
+\begin{align*}
+(a,d)\in (H\circ G)\circ F \Leftrightarrow (a,d)\in H\circ(G\circ F)
+\end{align*}
+が成り立つ.
+\end{Prop}
+\end{comment}
+\subsection{二項関係の実例：順序関係}
+\begin{Def}
+集合$X$とそれ自身$X$の二項関係$\mathrm{R}$に関して
+$
+\forall x\in X,(x\mathrm{R}x)
+$
+という命題が常に真となるとき,
+成り立つ法則を{\bf 反射法則}という.
+\end{Def}
+\begin{Def}
+集合$X$とそれ自身$X$の二項関係$\mathrm{R}$に関して
+$
+\forall x\in X,\forall y\in X, ((x\mathrm{R}y\land y\mathrm{R}x)\Rightarrow x=y)
+$
+という命題が常に真となるとき, 成り立つ法則を{\bf 反対称法則}という.
+\end{Def}
+\begin{Def}
+集合$X$とそれ自身$X$の二項関係$\mathrm{R}$に関して
+$
+\forall x\in X,\forall y\in X,\forall z\in X, ((x\mathrm{R}y\land y\mathrm{R}z)\Rightarrow x\mathrm{R}z)
+$
+という命題が常に真となるとき, 成り立つ法則を{\bf 推移法則}という.
+\end{Def}
+\begin{Def}
+集合$X$とそれ自身$X$の二項関係$\preceq$が, 反射法則, 反対称法則, 推移法則をすべて満たすとき, $\preceq$を{\bf 集合$X$上の順序関係 order\index{じゅんじょかんけい@順序関係}}
+という.
+\begin{comment}
+\begin{enumerate}
+\item 任意の$x\in X$について$(x,x)\in \mathrm{R}$である.
+\item 任意の$x\in X,y\in X$について$(x,y)\in \mathrm{R}$かつ$(y,x)\in \mathrm{R}$ならば$x=y$である.
+\item 任意の$x\in X,y\in X,z\in X$について$(x,y)\in \mathrm{R}$かつ $(y,z)\in \mathrm{R}$ならば
+$(x,z)\in \mathrm{R}$である.
+\end{enumerate}
+\end{comment}
+\end{Def}
+\begin{comment}
+\begin{Def}
+集合$X$上の順序関係が存在するとき,
+{\bf 集合$X$は順序集合 orderd set\index{じゅんじょしゅうごう@順序集合}である}
+という.
+\end{Def}
+\begin{Def}
+{\bf 順序集合の元$x,y$の間に順序関係がある}という.
+\end{Def}
+\begin{Notation}
+順序集合の元$x,y$の間に順序関係があるとき, $x\preceq y$で表す.
+\end{Notation}
+\end{comment}
+
+\section{写像}
+\begin{comment}
+\begin{mean}
+{\bf 規則}とは, 手続きが, それに基づいて行われるように定めた事柄のことである.\end{mean}
+\begin{mean}
+{\bf 決定する}とは, はっきりと決まることである.
+\end{mean}
+\begin{usage}
+集合$A$と集合$B$に関して, ある規則が存在して, 任意の$a\in A$に対して$b\in B$が決定するとき,
+{\bf 「$a\in A$と$b\in B$が対応する」},
+{\bf 「$b\in B$が$a\in A$に対応する」},
+{\bf 「$a\in A$に対応する$b\in B$が存在する」}といえる.
+\end{usage}
+\end{comment}
+\begin{Def}
+集合$A,B$の二項関係$f$について,
+$\forall a\in A, (\exists! b\in B, ((a,b)\in f))$が常に真となるとき, $f$を{\bf 集合$A$から集合$B$への写像map\index{しゃぞう@写像}}という.
+\end{Def}
+\begin{Notation}
+集合$A$から集合$B$への写像$f$を$f:A\rightarrow B$で表す.
+\end{Notation}
+\begin{Notation}
+写像$f:A\rightarrow B$に関して, $a\in A$に対して$b\in B$が存在して, $(a,b)\in f$であることを$b=f(a)$で表す.
+\end{Notation}
+\begin{Def}
+写像$f:A\rightarrow B$が,
+任意の$a_1,a_2\in A$について
+\[
+a_1\neq a_2\Rightarrow f(a_1)\neq f(a_2)
+\]
+を満たすとき
+{\bf 写像$f:A\rightarrow B$は
+単射 injection\index{たんしゃ@単射}
+である}という.
+\end{Def}
+\begin{Def}
+写像$f:A\rightarrow B$に関して,
+任意の$b\in B$に対して
+とある$a\in A$が存在して
+\[
+b=f(a)
+\]
+であるとき
+{\bf 写像$f:A\rightarrow B$は
+全射surjection\index{ぜんしゃ@全射} 
+である}という.
+\end{Def}
+\begin{Def}
+写像$f:A\rightarrow B$が, 単射であり, かつ全射であるとき
+{\bf 写像$f:A\rightarrow B$は
+全単射 bijection\index{ぜんたんしゃ@全単射}
+である}という.
+\end{Def}
+
+\begin{Def}
+写像$f:A\rightarrow B$に対して,写像$g:B\rightarrow A$が存在して, 任意の$a\in A$に対して
+\[
+f(a)=b \Leftrightarrow g(b)=a
+\]
+が成り立つとき, 
+{\bf 写像$g:B\rightarrow A$は写像$f:A\rightarrow B$の
+逆写像 inverse mapping\index{ぎゃくしゃぞう@逆写像}
+である}という.
+\end{Def}
+\begin{Notation}
+写像$f$の逆写像を$f^{-1}$で表す.
+\end{Notation}
+
+\subsection{写像の演算：合成}
+\begin{caution}\label{Prop:composition mapping}
+写像は二項関係であるため,
+合成および合成演算を定義することができる.
+\end{caution}
+\begin{caution}
+写像の合成が写像となるように, 合成演算を定義することができる.
+\end{caution}
+\begin{Def}
+$g\circ f:A\rightarrow C$を
+\begin{align*}
+(g\circ f)(a)=g(f(a))
+\end{align*}
+で定義する.
+\end{Def}
+\begin{Def}
+写像$f:A\rightarrow B$と$g:B\rightarrow C$を合成して得られる写像を
+{\bf 写像$f:A\rightarrow B$と$g:B\rightarrow C$の
+合成写像 composition mapping\index{ごうせいしゃぞう@合成写像}}
+という.
+\end{Def}
+\begin{Notation}
+写像$f:A\rightarrow B$と$g:B\rightarrow C$の合成写像を$g\circ f$で表す.
+\end{Notation}
+\begin{Prop}\label{Prop:composition mapping associative law}
+写像の合成演算について, 結合法則が成り立つ.
+
+写像$f:A\rightarrow B, g:B\rightarrow C,
+h:C\rightarrow D$について
+\[
+(h\circ g)\circ f=h\circ(g\circ f)
+\]
+が成り立つ.
+\end{Prop}
+
+
+\section{命題の証明}
+\subsubsection{命題\ref{Prop:binary relation composition}の証明}
+\begin{proof}
+\end{proof}
+

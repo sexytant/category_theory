@@ -9,14 +9,14 @@
 ************************************
 \end{comment}
 \section{位相空間}
-\subsection{位相空間}
+\subsection{部分集合系}
 
 \begin{Def}
-集合$X$に関して, $X$の冪集合$\mathscr{P}(X)$の部分集合のことを{\bf $X$上の部分集合系}という.
+集合$X$に対して, $X$の冪集合$\mathcal{P}X$の部分集合のことを{\bf $X$上の部分集合系}という.
 \end{Def}
 
 \begin{Def}
-集合$X$上の部分集合系$\mathscr{D}$が次を満たすとき, {\bf$\mathscr{D}$は$X$上の開集合系である}という.
+次を満たす, 集合$X$上の部分集合系$\mathscr{D}$を{\bf $X$上の開集合系}という.
 \begin{enumerate}
 \item $X\in\mathscr{D}$かつ$\emptyset\in\mathscr{D}$
 \item （重複部分）
@@ -27,7 +27,7 @@
 開集合系の元を{\bf 開集合 open set}という.
 \end{Def}
 \begin{Def}
-集合$X$上の部分集合系$\mathcal{F}$が次を満たすとき, {\bf$\mathscr{F}$は$X$上の閉集合系である}という.
+次を満たす, 集合$X$上の部分集合系$\mathcal{F}$を{\bf $X$上の閉集合系である}という.
 \begin{enumerate}
 \item $X\in\mathscr{F}$かつ$\emptyset\in\mathscr{F}$
 \item （共通部分）\footnote{未定義}
@@ -38,8 +38,8 @@
 閉集合系の元を{\bf 閉集合 closed set}という.
 \end{Def}
 \begin{Def}
-集合$X$から$X$のべき集合$\mathscr{P}(X)$への写像
-$\mathscr{U}:X\rightarrow\mathscr{P}(X)$が, 任意の$X$上の元$x\in X$に対して以下を満たすとき,
+写像
+$\mathscr{U}:X\rightarrow\mathcal{P}X$が, 任意の$X$上の元$x\in X$に対して以下を満たすとき,
 {\bf $\mathscr{U}$は$X$上の近傍系である}という
 \begin{enumerate}
 \item
@@ -61,7 +61,7 @@ $x$の近傍neiborhoodであるという
 {\bf $f$は$X$上の開核作用素である}という.
 \end{Def}
 \begin{Def}
-集合$X$に対する開集合系, 閉集合系, 近傍系, 閉包作用素, 開核作用素を{\bf $X$の位相}という
+集合$X$に対する開集合系, 閉集合系, 近傍系, 閉包作用素, 開核作用素のそれぞれを{\bf $X$の位相}という
 \end{Def}
 \begin{Prop}
 集合$X$に対して, 開集合系, 閉集合系, 近傍系, 閉包作用素, 開核作用素のいずれか1つの位相を定めると, ほか4つの位相も定まる. 
@@ -88,27 +88,25 @@ $x$の近傍neiborhoodであるという
 \end{comment}
 \subsection{ホモトピー}
 \begin{Def}
-位相空間$X,Y$における
-写像$f:X\rightarrow Y$について,
-$Y$における任意の開集合$V\subset Y$に対して
-\begin{align*}
-f^{-1}(V)=\{x\in X\mid f(x)\in V\}
-\end{align*}
-が$X$の開集合となるとき,
+写像$f:X\rightarrow Y$が,
+任意の開集合$V\subset Y$に対する
+$
+\{x\in X\mid f(x)\in V\}
+$
+が$X$の開集合であるという条件を満たすとき,
 $f$は{\bf 連続写像}であるという.
 \end{Def}
 \begin{Def}
-位相空間$A,B$と2つの連続写像$f:A\rightarrow B,g:B\rightarrow A$に対して, 連続関数
-\[
-\alpha : A\times [0,1]\rightarrow B
-\]
-が存在し,
+連続写像$f:X\rightarrow Y,g:Y\rightarrow X$に対して, 連続関数
+$
+\alpha : X\times [0,1]\rightarrow Y
+$が存在し, また, 任意の$x\in X$について
 \begin{align*}
 \alpha(x,0)=f(x)\\
 \alpha(x,1)=g(x)
 \end{align*}
-となっているとき
-{\bf $\alpha$は$f$と$g$を結ぶホモトピーである}という.
+という条件を満たすとき,
+$\alpha$を{\bf 連続写像$f:A\rightarrow B,g:B\rightarrow A$を結ぶホモトピーである}という.
 \end{Def}
 
 
